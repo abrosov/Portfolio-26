@@ -6,7 +6,7 @@ import SectionTitle from '../components/SectionTitle.astro';
 <BaseLayout title="Alex Abrosov — Design Engineer">
   <!-- Hero -->
   <section class="hero container grid" id="about">
-    <div class="hero-aside">
+    <div class="hero-aside" data-reveal>
       <p class="t-h2">AA</p>
       <p class="t-subtitle roles">
         / Design Engineering<br />
@@ -16,13 +16,13 @@ import SectionTitle from '../components/SectionTitle.astro';
       <p class="t-subtitle location">/ Barcelona, Spain</p>
     </div>
     <div class="hero-main">
-      <img class="hero-portrait" src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
-      <i class="pointer pointer-intro" aria-hidden="true"></i>
-      <h1 class="hero-headline t-h2">
+      <img class="hero-portrait" data-reveal src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
+      <i class="pointer pointer-intro" aria-hidden="true" data-reveal></i>
+      <h1 class="hero-headline t-h2" data-reveal>
         Design Engineer<br />
         with a decade of experience in Interface Design <em class="amp">&amp;</em> Art Direction.
       </h1>
-      <p class="hero-statement t-h2">
+      <p class="hero-statement t-h2" data-reveal>
         I set a strong product vision that scales, builds trust, and increases conversion.
         <span class="crafted"><i class="pointer" aria-hidden="true"></i><em class="t-h3-serif">All crafted with love.</em></span>
       </p>
@@ -33,13 +33,13 @@ import SectionTitle from '../components/SectionTitle.astro';
   <section class="cases-featured container" id="cases">
     <SectionTitle title="Selected Cases" />
     <div class="grid">
-      <div class="feature-left">
+      <div class="feature-left" data-reveal>
         <div class="tile tile-climate">
           <img src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
         </div>
       </div>
       <div class="feature-right">
-        <article class="case-intro intro-wide">
+        <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;26</p>
           <h3 class="t-h3">Climate Tech <br /><em class="t-h3-serif">Viewer</em></h3>
           <p class="t-body">
@@ -48,10 +48,10 @@ import SectionTitle from '../components/SectionTitle.astro';
             gas emissions across fast-growing industries.
           </p>
         </article>
-        <div class="tile tile-portal">
+        <div class="tile tile-portal" data-reveal>
           <img src="/images/case-client-portal.png" alt="Client Portal dashboard" />
         </div>
-        <article class="case-intro intro-wide">
+        <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
           <h3 class="t-h3">Client <em class="t-h3-serif">Portal</em></h3>
           <p class="t-body">
@@ -61,8 +61,8 @@ import SectionTitle from '../components/SectionTitle.astro';
         </article>
       </div>
     </div>
-    <p class="expertise-label t-subtitle">Expertise &amp; key value</p>
-    <p class="expertise-quote t-quote">
+    <p class="expertise-label t-subtitle" data-reveal>Expertise &amp; key value</p>
+    <p class="expertise-quote t-quote" data-reveal>
       Transforming complex ideas into thoughtful product experiences that solve real problems and
       drive the business forward.
     </p>
@@ -71,7 +71,7 @@ import SectionTitle from '../components/SectionTitle.astro';
   <!-- Selected cases — grid + staggered features -->
   <section class="cases-more container">
     <div class="grid">
-      <div class="card card-1">
+      <div class="card card-1" data-reveal>
         <div class="tile"><img src="/images/case-custodial-keeper.png" alt="Custodial Keeper interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
@@ -82,7 +82,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           </p>
         </article>
       </div>
-      <div class="card card-2">
+      <div class="card card-2" data-reveal>
         <div class="tile"><img src="/images/case-linear-marketplace.png" alt="Linear Marketplace interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
@@ -90,7 +90,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           <p class="t-body">A crypto marketplace for trading NFTs and tokens, with automated asset import.</p>
         </article>
       </div>
-      <div class="card card-3">
+      <div class="card card-3" data-reveal>
         <div class="tile"><img src="/images/case-unwind.png" alt="Unwind X interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
@@ -104,10 +104,10 @@ import SectionTitle from '../components/SectionTitle.astro';
     </div>
     <div class="grid stagger">
       <div class="feature-cognitive">
-        <div class="tile tile-cognitive">
+        <div class="tile tile-cognitive" data-reveal>
           <img src="/images/case-cognitive.png" alt="Cognitive Structuring interface" />
         </div>
-        <article class="case-intro">
+        <article class="case-intro" data-reveal>
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;24</p>
           <h3 class="t-h3">Cognitive <br /><em class="t-h3-serif">Structuring</em></h3>
           <p class="t-body">
@@ -118,10 +118,10 @@ import SectionTitle from '../components/SectionTitle.astro';
         </article>
       </div>
       <div class="feature-ai">
-        <div class="tile tile-ai-test">
+        <div class="tile tile-ai-test" data-reveal>
           <img src="/images/case-ai-test.png" alt="AI Test Optimizer interface" />
         </div>
-        <article class="case-intro">
+        <article class="case-intro" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;24</p>
           <h3 class="t-h3">AI Test <br /><em class="t-h3-serif">Optimizer</em></h3>
           <p class="t-body">
@@ -138,7 +138,7 @@ import SectionTitle from '../components/SectionTitle.astro';
   <section class="experience container">
     <SectionTitle title="Work Experience" />
     <div class="cv">
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">UX Engineer, Lahzo</h3>
         <p class="t-subtitle">2025 &ndash; 2026</p>
         <p class="t-body">
@@ -148,7 +148,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           processes, and automated workflows.
         </p>
       </div>
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">Art Director, Trinetix</h3>
         <p class="t-subtitle">2023 &ndash; 2025</p>
         <p class="t-body">
@@ -158,7 +158,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           stakeholders on complex strategic design challenges.
         </p>
       </div>
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">Principal Designer, Dexola</h3>
         <p class="t-subtitle">2022 &ndash; 2023</p>
         <p class="t-body">
@@ -167,7 +167,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           and created a UX audit framework tailored specifically to blockchain.
         </p>
       </div>
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">Lead Product Designer, Trinetix</h3>
         <p class="t-subtitle">2021 &ndash; 2022</p>
         <p class="t-body">
@@ -176,7 +176,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           supporting the team on complex design challenges.
         </p>
       </div>
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">Product Designer, Trinetix</h3>
         <p class="t-subtitle">2017 &ndash; 2021</p>
         <p class="t-body">
@@ -185,7 +185,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           while also running research and testing and building UI kits and visual assets.
         </p>
       </div>
-      <div class="cv-row grid">
+      <div class="cv-row grid" data-reveal>
         <h3 class="t-h4">Product Designer, Untime Studio</h3>
         <p class="t-subtitle">2016 &ndash; 2017</p>
         <p class="t-body">Worked on various e-commerce and mobile projects.</p>

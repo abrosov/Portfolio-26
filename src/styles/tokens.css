@@ -26,6 +26,11 @@
   --color-accent-blue: #8ec4d9;
   --color-accent-green: #a1b06c;
 
+  /* Motion — scroll reveal */
+  --reveal-shift: 80px;
+  --reveal-duration: 0.31s;
+  --reveal-ease: cubic-bezier(0.45, 0, 0.55, 1);
+
   /* Layout — 12-column grid, 1440 design width */
   --page-max-width: 1440px;
   --page-margin: 28px;
