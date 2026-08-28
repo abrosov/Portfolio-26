@@ -20,6 +20,18 @@
   font-display: swap;
 }
 
+/* The headline ampersand is set in Playfair — a different family from Playfair
+   Display, with a far more calligraphic italic "&". Subset to that one glyph at
+   the design's optical size (opsz 12, wdth 100). */
+@font-face {
+  font-family: 'Playfair';
+  src: url('/fonts/Playfair-Ampersand.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+26;
+}
+
 @font-face {
   font-family: 'Playfair Display';
   src: url('/fonts/PlayfairDisplay-Italic-var.woff2') format('woff2');
