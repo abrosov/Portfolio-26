@@ -127,10 +127,11 @@ a {
   gap: 0 var(--grid-gap);
 }
 
-/* Decorative vertical grid lines behind every section */
+/* Decorative vertical grid lines behind the whole page */
 .grid-lines {
-  position: absolute;
+  position: fixed;
   inset: 0;
+  z-index: -1;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 0 var(--grid-gap);

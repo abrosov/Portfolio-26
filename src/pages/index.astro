@@ -15,44 +15,51 @@ import SectionTitle from '../components/SectionTitle.astro';
       </p>
       <p class="t-subtitle location">/ Barcelona, Spain</p>
     </div>
-    <img class="hero-portrait" src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
-    <i class="pointer pointer-intro" aria-hidden="true"></i>
-    <h1 class="hero-headline t-h2">
-      Design Engineer<br />
-      with a decade of experience in Interface Design <em class="amp">&amp;</em> Art Direction.
-    </h1>
-    <p class="hero-statement t-h2">I set a strong product vision that scales, builds trust, and increases conversion.</p>
-    <i class="pointer pointer-crafted" aria-hidden="true"></i>
-    <p class="hero-crafted t-h3-serif">All crafted with love.</p>
+    <div class="hero-main">
+      <img class="hero-portrait" src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
+      <i class="pointer pointer-intro" aria-hidden="true"></i>
+      <h1 class="hero-headline t-h2">
+        Design Engineer<br />
+        with a decade of experience in Interface Design <em class="amp">&amp;</em> Art Direction.
+      </h1>
+      <p class="hero-statement t-h2">
+        I set a strong product vision that scales, builds trust, and increases conversion.
+        <span class="crafted"><i class="pointer" aria-hidden="true"></i><em class="t-h3-serif">All crafted with love.</em></span>
+      </p>
+    </div>
   </section>
 
   <!-- Selected cases — featured -->
   <section class="cases-featured container" id="cases">
     <SectionTitle title="Selected Cases" />
-    <div class="grid collage">
-      <div class="tile tile-climate">
-        <img src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
+    <div class="grid">
+      <div class="feature-left">
+        <div class="tile tile-climate">
+          <img src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
+        </div>
       </div>
-      <article class="case-intro intro-climate">
-        <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;26</p>
-        <h3 class="t-h3">Climate Tech <br /><em class="t-h3-serif">Viewer</em></h3>
-        <p class="t-body">
-          A platform that helps businesses explore<br />
-          and evaluate technologies for reducing greenhouse<br />
-          gas emissions across fast-growing industries.
-        </p>
-      </article>
-      <div class="tile tile-portal">
-        <img src="/images/case-client-portal.png" alt="Client Portal dashboard" />
+      <div class="feature-right">
+        <article class="case-intro intro-wide">
+          <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;26</p>
+          <h3 class="t-h3">Climate Tech <br /><em class="t-h3-serif">Viewer</em></h3>
+          <p class="t-body">
+            A platform that helps businesses explore<br />
+            and evaluate technologies for reducing greenhouse<br />
+            gas emissions across fast-growing industries.
+          </p>
+        </article>
+        <div class="tile tile-portal">
+          <img src="/images/case-client-portal.png" alt="Client Portal dashboard" />
+        </div>
+        <article class="case-intro intro-wide">
+          <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
+          <h3 class="t-h3">Client <em class="t-h3-serif">Portal</em></h3>
+          <p class="t-body">
+            A platform that helps agricultural organizations track, manage, and evaluate the performance
+            of AI agents across their customer-facing products.
+          </p>
+        </article>
       </div>
-      <article class="case-intro intro-portal">
-        <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
-        <h3 class="t-h3">Client <em class="t-h3-serif">Portal</em></h3>
-        <p class="t-body">
-          A platform that helps agricultural organizations track, manage, and evaluate the performance
-          of AI agents across their customer-facing products.
-        </p>
-      </article>
     </div>
     <p class="expertise-label t-subtitle">Expertise &amp; key value</p>
     <p class="expertise-quote t-quote">
@@ -63,7 +70,7 @@ import SectionTitle from '../components/SectionTitle.astro';
 
   <!-- Selected cases — grid + staggered features -->
   <section class="cases-more container">
-    <div class="grid collage">
+    <div class="grid">
       <div class="card card-1">
         <div class="tile"><img src="/images/case-custodial-keeper.png" alt="Custodial Keeper interface" /></div>
         <article class="case-intro">
@@ -94,31 +101,36 @@ import SectionTitle from '../components/SectionTitle.astro';
           </p>
         </article>
       </div>
-
-      <div class="tile tile-cognitive">
-        <img src="/images/case-cognitive.png" alt="Cognitive Structuring interface" />
+    </div>
+    <div class="grid stagger">
+      <div class="feature-cognitive">
+        <div class="tile tile-cognitive">
+          <img src="/images/case-cognitive.png" alt="Cognitive Structuring interface" />
+        </div>
+        <article class="case-intro">
+          <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;24</p>
+          <h3 class="t-h3">Cognitive <br /><em class="t-h3-serif">Structuring</em></h3>
+          <p class="t-body">
+            An AI-powered QA platform that helps teams create test cases, build testing scenarios, and
+            automate project setup. It integrates with the client&rsquo;s broader digital transformation
+            ecosystem and makes automated testing easier to manage.
+          </p>
+        </article>
       </div>
-      <article class="case-intro intro-cognitive">
-        <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;24</p>
-        <h3 class="t-h3">Cognitive <br /><em class="t-h3-serif">Structuring</em></h3>
-        <p class="t-body">
-          An AI-powered QA platform that helps teams create test cases, build testing scenarios, and
-          automate project setup. It integrates with the client&rsquo;s broader digital transformation
-          ecosystem and makes automated testing easier to manage.
-        </p>
-      </article>
-      <div class="tile tile-ai-test">
-        <img src="/images/case-ai-test.png" alt="AI Test Optimizer interface" />
+      <div class="feature-ai">
+        <div class="tile tile-ai-test">
+          <img src="/images/case-ai-test.png" alt="AI Test Optimizer interface" />
+        </div>
+        <article class="case-intro">
+          <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;24</p>
+          <h3 class="t-h3">AI Test <br /><em class="t-h3-serif">Optimizer</em></h3>
+          <p class="t-body">
+            A strategic M&amp;A planning tool that helps teams compare merger scenarios, structure
+            integration strategies, and generate client-ready reports. It connects with the client&rsquo;s
+            global M&amp;A platform and supports taxonomy-driven decision-making.
+          </p>
+        </article>
       </div>
-      <article class="case-intro intro-ai-test">
-        <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;24</p>
-        <h3 class="t-h3">AI Test <br /><em class="t-h3-serif">Optimizer</em></h3>
-        <p class="t-body">
-          A strategic M&amp;A planning tool that helps teams compare merger scenarios, structure
-          integration strategies, and generate client-ready reports. It connects with the client&rsquo;s
-          global M&amp;A platform and supports taxonomy-driven decision-making.
-        </p>
-      </article>
     </div>
   </section>
 
@@ -183,22 +195,18 @@ import SectionTitle from '../components/SectionTitle.astro';
 </BaseLayout>
 
 <style>
-  /* Children of a collage grid share row 1 and are offset with margins,
-     reproducing the staggered Figma layout while staying fluid. */
-  .collage {
-    position: relative;
-    align-items: start;
-  }
-
-  .collage > * {
-    grid-row: 1;
-  }
-
+  /* Case tiles: fluid width from the grid, shape kept via aspect-ratio.
+     Images crop from the bottom (object-position: top), as in the design. */
   .tile {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     overflow: hidden;
+  }
+
+  .tile img {
+    object-fit: cover;
+    object-position: top;
   }
 
   .case-meta {
@@ -229,16 +237,9 @@ import SectionTitle from '../components/SectionTitle.astro';
     align-items: start;
   }
 
-  .hero > * {
-    grid-row: 1;
-  }
-
   .hero-aside {
     grid-column: 1 / 4;
     margin-top: 124px;
-  }
-
-  .hero-aside > .t-h2 {
     color: var(--color-ink-soft);
   }
 
@@ -251,9 +252,17 @@ import SectionTitle from '../components/SectionTitle.astro';
     margin-top: 101px;
   }
 
+  .hero-main {
+    grid-column: 4 / 12;
+    position: relative;
+    margin-top: 124px;
+    color: var(--color-ink-soft);
+  }
+
   .hero-portrait {
-    grid-column: 4 / 5;
-    margin-top: 72px;
+    position: absolute;
+    top: -52px;
+    left: 0;
     border-radius: 100px 100px 8px 8px;
     object-fit: cover;
   }
@@ -264,15 +273,14 @@ import SectionTitle from '../components/SectionTitle.astro';
   }
 
   .pointer-intro {
-    grid-column: 5 / 6;
-    margin-top: 162px;
+    position: absolute;
+    top: 38px;
+    left: 12.8%;
+    width: 10.6%;
   }
 
   .hero-headline {
-    grid-column: 4 / 12;
-    margin-top: 124px;
-    color: var(--color-ink-soft);
-    text-indent: 231px;
+    text-indent: 25.2%;
   }
 
   .amp {
@@ -281,71 +289,71 @@ import SectionTitle from '../components/SectionTitle.astro';
   }
 
   .hero-statement {
-    grid-column: 4 / 12;
-    margin-top: 363px;
-    color: var(--color-ink-soft);
+    margin-top: 44px;
   }
 
-  .pointer-crafted {
-    grid-column: 7 / 9;
-    margin-top: 533px;
-  }
-
-  .hero-crafted {
-    grid-column: 9 / 12;
-    margin-top: 505px;
-    color: var(--color-ink-soft);
+  .crafted {
     white-space: nowrap;
+  }
+
+  .crafted .pointer {
+    display: inline-block;
+    width: 214px;
+    margin: 0 20px 0 6px;
+    vertical-align: 13px;
   }
 
   /* ---- Featured cases ---- */
 
   .cases-featured {
     padding-top: 32px;
-    height: 1290px;
+    padding-bottom: 30px;
   }
 
-  .cases-featured .collage {
-    margin-top: 0;
+  .feature-left {
+    grid-column: 1 / 7;
+    margin-top: 64px;
   }
 
   .tile-climate {
-    grid-column: 1 / 7;
-    margin-top: 64px;
-    height: 490px;
+    aspect-ratio: 682 / 490;
     background: var(--color-accent-purple);
     align-items: center;
   }
 
   .tile-climate img {
     width: 80.6%;
+    aspect-ratio: 550 / 345;
   }
 
-  .intro-climate {
-    grid-column: 7 / 11;
+  .feature-right {
+    grid-column: 7 / 12;
     margin-top: 96px;
   }
 
+  .intro-wide {
+    width: 79.3%;
+  }
+
   .tile-portal {
-    grid-column: 7 / 12;
-    margin-top: 398px;
-    height: 331px;
+    aspect-ratio: 565 / 331;
+    margin-top: 88px;
     background: var(--color-accent-gold);
   }
 
   .tile-portal img {
     width: 73.1%;
+    aspect-ratio: 413 / 307;
     border-radius: 4px 4px 0 0;
   }
 
-  .intro-portal {
-    grid-column: 7 / 11;
-    margin-top: 761px;
+  .tile-portal + .case-intro {
+    margin-top: 32px;
   }
 
   .expertise-label {
     display: block;
-    margin-top: 126px;
+    margin-top: 125px;
     margin-left: calc((100% + var(--grid-gap)) / 12);
   }
 
@@ -357,75 +365,87 @@ import SectionTitle from '../components/SectionTitle.astro';
   /* ---- More cases ---- */
 
   .cases-more {
-    height: 1751px;
+    padding-bottom: 122px;
+  }
+
+  .cases-more > .grid {
+    margin-top: 80px;
+    align-items: start;
   }
 
   .card .tile {
-    height: 331px;
+    aspect-ratio: 448 / 331;
     background: var(--color-tile);
-    padding-inline: 30px;
+    padding-inline: 6.7%;
   }
 
   .card .tile img {
     width: 100%;
+    aspect-ratio: 388 / 259;
     border-radius: 4px 4px 0 0;
   }
 
   .card .case-intro {
     margin-top: 32px;
-    width: 331px;
+    width: 73.9%;
   }
 
   .card-1 {
     grid-column: 1 / 5;
-    margin-top: 80px;
   }
 
   .card-2 {
     grid-column: 5 / 9;
-    margin-top: 80px;
   }
 
   .card-3 {
     grid-column: 9 / 13;
-    margin-top: 80px;
+  }
+
+  .cases-more > .stagger {
+    margin-top: 121px;
+  }
+
+  .feature-cognitive {
+    grid-column: 2 / 6;
   }
 
   .tile-cognitive {
-    grid-column: 2 / 6;
-    margin-top: 732px;
-    height: 340px;
+    aspect-ratio: 448 / 340;
     background: var(--color-accent-green);
     align-items: center;
   }
 
   .tile-cognitive img {
     width: 78.6%;
+    aspect-ratio: 352 / 200;
   }
 
-  .intro-cognitive {
-    grid-column: 2 / 5;
-    margin-top: 1104px;
+  .feature-cognitive .case-intro {
+    margin-top: 32px;
+    width: 74.1%;
+  }
+
+  .feature-ai {
+    grid-column: 6 / 13;
+    margin-top: 80px;
   }
 
   .tile-ai-test {
-    grid-column: 6 / 13;
-    margin-top: 812px;
-    height: 550px;
+    aspect-ratio: 798 / 550;
     background: var(--color-accent-blue);
-    padding: 64px 95px 0;
+    padding: 8% 11.9% 0;
+    align-items: flex-start;
   }
 
   .tile-ai-test img {
     width: 100%;
-    height: 486px;
-    object-fit: cover;
-    object-position: top;
+    aspect-ratio: 608 / 486;
   }
 
-  .intro-ai-test {
-    grid-column: 6 / 10;
-    margin-top: 1394px;
+  .feature-ai .case-intro {
+    margin-top: 32px;
+    width: 56.1%;
   }
 
   /* ---- Work experience ---- */
