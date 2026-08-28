@@ -1,0 +1,21 @@
+/*
+  Design tokens — single source of truth for the whole site.
+  Values will be filled in from the Figma file (colors, spacing, type styles).
+  Every component uses these variables; nothing hardcodes a color or font size.
+*/
+
+:root {
+  /* Typography — families */
+  /* TODO: replace fallback with self-hosted Helvetica Now Display once font files are provided */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Typography — text styles (to be rebuilt from Figma text tokens) */
+
+  /* Colors (to be filled from Figma) */
+
+  /* Spacing scale (to be filled from Figma) */
+
+  /* Layout */
+  --page-max-width: 1440px;
+}

@@ -1,0 +1,32 @@
+/* Global styles: reset, fonts, and base element styling. */
+
+@import './tokens.css';
+
+/* Playfair Display — self-hosted (files to be added to /public/fonts) */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
