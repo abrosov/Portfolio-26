@@ -13,6 +13,14 @@
 }
 
 @font-face {
+  font-family: 'Helvetica Now Display';
+  src: url('/fonts/HelveticaNowDisplay-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: 'Playfair Display';
   src: url('/fonts/PlayfairDisplay-Italic-var.woff2') format('woff2');
   font-weight: 400 900;
