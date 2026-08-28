@@ -1,21 +1,33 @@
 /*
-  Design tokens — single source of truth for the whole site.
-  Values will be filled in from the Figma file (colors, spacing, type styles).
-  Every component uses these variables; nothing hardcodes a color or font size.
+  Design tokens — single source of truth, rebuilt from the Figma file
+  (Design Leak → page "Test" → section "´26").
+  Components use these variables; nothing hardcodes a color or font.
 */
 
 :root {
-  /* Typography — families */
-  /* TODO: replace fallback with self-hosted Helvetica Now Display once font files are provided */
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+  /* Font families */
+  --font-display: 'Helvetica Now Display', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-ui: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
-  /* Typography — text styles (to be rebuilt from Figma text tokens) */
+  /* Colors */
+  --color-bg: #cfd1c8;
+  --color-ink: #18251b;
+  --color-ink-soft: #1f2b21;
+  --color-grid-line: #c0c1b9;
+  --color-tile: #bbbdb3;
+  --color-button-label: #cdcdcd;
+  --color-gray-1: #f1f2f3;
+  --color-gray-2: #d2d4d6;
 
-  /* Colors (to be filled from Figma) */
+  /* Case tile accents */
+  --color-accent-purple: #8681bc;
+  --color-accent-gold: #c9a166;
+  --color-accent-blue: #8ec4d9;
+  --color-accent-green: #a1b06c;
 
-  /* Spacing scale (to be filled from Figma) */
-
-  /* Layout */
+  /* Layout — 12-column grid, 1440 design width */
   --page-max-width: 1440px;
+  --page-margin: 28px;
+  --grid-gap: 20px;
 }

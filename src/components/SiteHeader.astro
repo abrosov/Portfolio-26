@@ -1,0 +1,49 @@
+---
+// Site-wide header: nav links left, name centered, resume + contact right.
+---
+
+<header class="site-header container">
+  <nav class="left">
+    <a class="t-button" href="/#about">About</a>
+    <a class="t-button" href="/#cases">Cases</a>
+  </nav>
+  <a class="name t-subtitle" href="/">Alex Abrosov</a>
+  <nav class="right">
+    <a class="t-button" href="/resume.pdf" target="_blank">Resume</a>
+    <a class="contact t-button" href="/contact/">Contact</a>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+  }
+
+  .left,
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+  }
+
+  .right {
+    gap: 28px;
+  }
+
+  .name {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact {
+    background: var(--color-ink);
+    color: var(--color-button-label);
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
+</style>

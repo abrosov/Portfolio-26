@@ -1,13 +1,15 @@
 ---
-// Shared page shell: <head>, global styles, nav and footer slots in one place.
+// Shared page shell: <head>, global styles, decorative grid, header and footer.
 import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { title, description = 'Portfolio of Alex — Design Engineer' } = Astro.props;
+const { title, description = 'Portfolio of Alex Abrosov — Design Engineer & Art Director' } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,6 +21,13 @@ const { title, description = 'Portfolio of Alex — Design Engineer' } = Astro.p
     <title>{title}</title>
   </head>
   <body>
-    <slot />
+    <div class="grid-lines" aria-hidden="true">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
   </body>
 </html>

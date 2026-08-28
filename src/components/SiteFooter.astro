@@ -1,0 +1,78 @@
+---
+// Site-wide footer: oversized initials and year around "Let's talk" + links.
+---
+
+<footer class="site-footer container">
+  <div class="divider"></div>
+  <div class="grid content">
+    <p class="mark t-h1">AA</p>
+    <div class="talk">
+      <p class="t-h1">Let&rsquo;s talk</p>
+      <ul class="links t-subtitle">
+        <li><a href="mailto:abrosovsasha@gmail.com">abrosovsasha@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/bohdshchk/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/abrosov/" target="_blank" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+    <p class="year t-h1">&lsquo;26</p>
+  </div>
+  <div class="legal t-button">
+    <p>&copy; 2026</p>
+    <p>Barcelona, Spain</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    position: relative;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--color-ink);
+  }
+
+  .content {
+    align-items: start;
+  }
+
+  .mark,
+  .year {
+    font-size: 234px;
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .mark {
+    grid-column: 1 / 5;
+  }
+
+  .talk {
+    grid-column: 5 / 10;
+    padding-top: 29px;
+  }
+
+  .year {
+    grid-column: 10 / 13;
+    justify-self: end;
+  }
+
+  .links {
+    margin-top: 24px;
+    list-style: none;
+  }
+
+  .links a {
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  .legal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    border-top: 1px solid var(--color-ink);
+    margin-top: 49px;
+  }
+</style>

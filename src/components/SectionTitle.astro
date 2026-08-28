@@ -1,0 +1,32 @@
+---
+// Centered section heading with a rule extending to both edges.
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="section-title">
+  <i></i>
+  <h2 class="t-h4">{title}</h2>
+  <i></i>
+</div>
+
+<style>
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-title i {
+    flex: 1;
+    border-bottom: 1px solid var(--color-ink);
+    transform: translateY(6px);
+  }
+
+  .section-title h2 {
+    white-space: nowrap;
+  }
+</style>
