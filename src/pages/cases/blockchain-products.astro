@@ -1,0 +1,95 @@
+---
+import CaseLayout from '../../layouts/CaseLayout.astro';
+import Pic from '../../components/Pic.astro';
+
+const img = '/images/case-blockchain';
+
+// Three blockchain products presented on one page, each pinning as its screen
+// scrolls over it, exactly as the single-product cases do.
+const products = [
+  {
+    id: 'custodial-keeper',
+    year: '2025',
+    lead: 'Custodial',
+    trail: 'Keeper',
+    intro:
+      'This solution enables rapid integration and management of cryptocurrency payments within existing Web 2.0 services. A key feature of the project is its quick adaptability to meet the client’s specific requirements. The design team focused on creating a flexible and customizable design system that supports changes in both functionality and visual appearance.',
+    services: ['Discovery & Research', 'Workshops', 'UX/UI Design', 'Prototyping', 'Quality Control', 'UI Kit'],
+    hero: `${img}/custodial-keeper-hero.jpg`,
+    heroAlt: 'Custodial Keeper transactions dashboard',
+    screen: `${img}/custodial-keeper-screen.jpg`,
+    screenAlt: 'Custodial Keeper running on a laptop',
+  },
+  {
+    id: 'linear-marketplace',
+    year: '2025',
+    lead: 'Linear',
+    trail: 'Marketplace',
+    intro:
+      'A marketplace for trading crypto-assets such as NFTs and tokens. The main focus was on convenience and process automation, with assets and their data automatically imported upon wallet connection. We maintained close communication with clients and conducted several workshops to refine the product’s market positioning. As a result, a visual style, prototype, detailed UI Kit, and mobile app were developed for the product.',
+    services: ['Discovery & Research', 'UX/UI Design', 'User Flows', 'Wireframes', 'Usability Audit'],
+    hero: `${img}/linear-marketplace-hero.jpg`,
+    heroAlt: 'Linear Marketplace trading view',
+    screen: `${img}/linear-marketplace-screen.jpg`,
+    screenAlt: 'Linear Marketplace running on a laptop',
+  },
+  {
+    id: 'unwind-x',
+    year: '2026',
+    lead: 'Unwind',
+    trail: 'X',
+    intro:
+      'This product enables users to buy shares in insurance contracts from major companies and trade these assets using blockchain technology. Developed from scratch in close collaboration with stakeholders, the main focus was on making insurance contract information easy to understand and streamlining key related operations. The project leveraged the company’s existing visual style.',
+    services: ['Discovery & Research', 'UX/UI Design', 'User Flows', 'Wireframes', 'Usability Audit'],
+    hero: `${img}/unwind-x-hero.png`,
+    heroAlt: 'Unwind X insurance contract dashboard',
+    screen: `${img}/unwind-x-screen.png`,
+    screenAlt: 'Unwind X running on a laptop',
+  },
+];
+---
+
+<CaseLayout
+  title="Blockchain Products — Alex Abrosov"
+  description="Three blockchain products: Custodial Keeper, Linear Marketplace and Unwind X."
+  accent="var(--color-tile)"
+>
+  {products.map((p, i) => (
+    <div class="case-opening" id={p.id}>
+      <section class="case-hero container case-grid">
+        <div class="case-hero-left">
+          <div class="case-hero-text">
+            <p class="t-subtitle" data-reveal>{p.year}</p>
+            <h1 class="case-hero-title t-h1" data-reveal>{p.lead} <br /><em>{p.trail}</em></h1>
+            <p class="case-hero-intro t-body-2" data-reveal>{p.intro}</p>
+          </div>
+
+          <dl class="case-meta" data-reveal>
+            <div>
+              <dt class="t-subtitle">Industry</dt>
+              <dd class="t-body">Blockchain</dd>
+            </div>
+            <div>
+              <dt class="t-subtitle">Services</dt>
+              <dd class="t-body">
+                {p.services.map((s, n) => (<>{n > 0 && <br />}{s}</>))}
+              </dd>
+            </div>
+            <div>
+              <dt class="t-subtitle">Responsibilities</dt>
+              <dd class="t-body">Product Design<br />Management</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="case-tile case-hero-tile" data-reveal>
+          <Pic eager={i === 0} src={p.hero} alt={p.heroAlt} />
+        </div>
+      </section>
+
+      <div class="case-screen">
+        <Pic src={p.screen} alt={p.screenAlt} />
+      </div>
+    </div>
+  ))}
+</CaseLayout>

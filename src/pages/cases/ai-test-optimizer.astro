@@ -1,0 +1,229 @@
+---
+import CaseLayout from '../../layouts/CaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import CaseFeature from '../../components/CaseFeature.astro';
+import GridLines from '../../components/GridLines.astro';
+import Pic from '../../components/Pic.astro';
+
+const img = '/images/case-ai-test';
+---
+
+<CaseLayout
+  title="AI Test Optimizer — Alex Abrosov"
+  description="An AI-driven platform that helps QA teams generate test cases, scenarios and automated testing bots."
+  accent="var(--color-accent-blue)"
+>
+  <!-- Start screen -->
+  <div class="case-opening">
+    <section class="case-hero container case-grid">
+      <div class="case-hero-left">
+        <div class="case-hero-text">
+          <p class="t-subtitle" data-reveal>2024</p>
+          <h1 class="case-hero-title t-h1" data-reveal>AI Test <br /><em>Optimizer</em></h1>
+          <p class="case-hero-intro t-body-2" data-reveal>
+            This product helps QA professionals work more efficiently by providing tools to create test
+            cases and scenarios, with a strong emphasis on artificial intelligence integration. It
+            automatically generates project structures and enables users to easily set up automated
+            testing bots. The tool is part of the client&rsquo;s platform and connects directly with
+            other solutions used to manage digital transformation.
+          </p>
+        </div>
+
+        <dl class="case-meta" data-reveal>
+          <div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Client</dt>
+              <dd class="t-body">A Big Four accounting firm</dd>
+            </div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Industry</dt>
+              <dd class="t-body">Information Technology</dd>
+            </div>
+          </div>
+          <div>
+            <dt class="t-subtitle">Services</dt>
+            <dd class="t-body">
+              Discovery &amp; Research<br />UX/UI Design<br />Vibe Coding<br />Design System<br />User Testing
+            </dd>
+          </div>
+          <div>
+            <dt class="t-subtitle">Responsibilities</dt>
+            <dd class="t-body">Product Design<br />Management</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="case-tile case-hero-tile" data-reveal>
+        <Pic eager src={`${img}/hero-screen.jpg`} alt="AI Test Optimizer project view" />
+      </div>
+    </section>
+
+    <div class="case-screen">
+      <Pic src={`${img}/screen.jpg`} alt="AI Test Optimizer running on a laptop" />
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <section class="case-section container case-grid challenge">
+    <SectionTitle title="Challenge" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The client&rsquo;s portfolio includes numerous products that go through similar testing stages.
+      Therefore, the main goal was to develop a tool that significantly speeds up and optimizes the
+      testing process using artificial intelligence, while remaining flexible enough to accommodate
+      projects of various scales.
+    </p>
+    <ol class="col-wide case-goals" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <p class="t-body">Create an AI-driven product to significantly improve and simplify test management workflows.</p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <p class="t-body">Ensure seamless integration of the product into the global project management system &amp; tools.</p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <p class="t-body">Develop a customizable reporting system and bot dictionaries.</p>
+      </li>
+    </ol>
+    <div class="case-tile case-challenge-tile" data-reveal>
+      <span class="badge"><Pic src={`${img}/moon.svg`} alt="Client mark" /></span>
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="case-section container case-grid solution">
+    <SectionTitle title="Solution" />
+    <div class="col-wide case-solution-intro" data-reveal>
+      <p class="t-body-2">
+        Through ongoing iterative collaboration with the business and development teams, we developed an
+        approach to automatically generate test cases and test scenarios based on the client&rsquo;s
+        extensive project database. We implemented functionality to connect and flexibly configure a
+        range of testing bots, and the product integrates seamlessly with the client&rsquo;s existing
+        project management system.
+      </p>
+      <p class="case-tags t-button">
+        <span>Bot Dictionaries</span><i></i><span>Taxonomies</span><i></i><span>Admin Portal</span><i></i>
+        <span>Notification System</span><i></i><span>Auto Generation of Test Scenarios</span><i></i>
+        <span>and more</span>
+      </p>
+    </div>
+
+    <div class="col-text solution-feature" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle">/ Test Case Generation</h3>
+        <p class="t-body">
+          The product can automatically create various entities within the project structure based on
+          related user stories and AI trained on the client&rsquo;s project data.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-tile case-solution-tile" data-reveal>
+      <Pic src={`${img}/solution.jpg`} alt="Test case generation interface" />
+    </div>
+  </section>
+
+  <!-- Solution details -->
+  <div class="feature-stack">
+    <CaseFeature
+      index={1}
+      title="Generation Results"
+      body="The results can be reviewed, and necessary adjustments made either manually or via a prompt that quickly updates case descriptions and metadata."
+      image={`${img}/feature-1.jpg`}
+      alt="Generated test case results"
+      frame={{ left: '11.6%', top: '7%', width: '76.8%' }}
+    />
+    <CaseFeature
+      index={2}
+      title="/ Test Scenarios"
+      body="Test scenarios are sets of cases that need to be covered, including information about the team and the time allocated for the work."
+      image={`${img}/feature-2.jpg`}
+      alt="Test scenarios view"
+      frame={{ left: '11.6%', top: '7%', width: '76.8%' }}
+    />
+    <CaseFeature
+      index={3}
+      title="/ Global Library"
+      body="This section stores all current project structures and dictionaries used by the testing bots."
+      image={`${img}/feature-3.jpg`}
+      alt="Global library of project structures"
+      frame={{ left: '11.6%', top: '7%', width: '76.8%' }}
+    />
+    <CaseFeature
+      index={4}
+      title="/ Bot Dictionary"
+      body="This page allows creating bots for automatic verification of necessary parameters or actions, such as testing product inputs or checking data compliance."
+      image={`${img}/feature-4.jpg`}
+      alt="Bot dictionary configuration"
+      frame={{ left: '11.6%', top: '14.1%', width: '76.8%' }}
+    />
+  </div>
+
+  <!-- Results -->
+  <section class="case-section container case-grid case-results results">
+    <GridLines local />
+    <SectionTitle title="Results" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The project started as a small concept with a limited budget. However, collaboration with the
+      design team uncovered clear opportunities for automation and AI integration, significantly
+      simplifying testers&rsquo; work. The team proposed many ideas, some of which were incorporated
+      into the final product. Stakeholders quickly recognized the project&rsquo;s potential, and it is
+      now actively evolving as one of the flagship products in the client&rsquo;s portfolio.
+    </p>
+    <ol class="col-wide case-outcomes" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <h3 class="t-subtitle">Reduced testing time by 24%</h3>
+        <p class="t-body">Lay the groundwork for future sustainability-focused products and establish a unified visual language.</p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <h3 class="t-subtitle">Testing via the product became standard</h3>
+        <p class="t-body">Using the product has become a mandatory step in the testing process for the company&rsquo;s employees.</p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <h3 class="t-subtitle">81% of users rated the tool as &ldquo;easy to use&rdquo;</h3>
+        <p class="t-body">Surveys showed positive results, with most testers giving very positive feedback after a month of use.</p>
+      </li>
+      <li>
+        <p class="t-h3">4.</p>
+        <h3 class="t-subtitle">Improved the work monitoring system</h3>
+        <p class="t-body">Email notifications and time estimation features have improved process transparency and helped ensure commitment to deadlines.</p>
+      </li>
+    </ol>
+  </section>
+</CaseLayout>
+
+<style>
+  .challenge {
+    min-height: 1083px;
+  }
+
+  .solution {
+    min-height: 1595px;
+  }
+
+  /* Solution's labelled feature sits below the intro, without a gutter label */
+  .solution-feature {
+    margin-top: 140px;
+  }
+
+  .solution-feature .case-block > * + * {
+    margin-top: 15px;
+  }
+
+  .case-solution-tile {
+    margin-top: 90px;
+  }
+
+  .case-solution-tile img {
+    width: 71.5%;
+    border-radius: 18px;
+  }
+
+  .results {
+    min-height: 835px;
+  }
+</style>

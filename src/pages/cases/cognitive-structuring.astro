@@ -1,0 +1,238 @@
+---
+import CaseLayout from '../../layouts/CaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import CaseFeature from '../../components/CaseFeature.astro';
+import GridLines from '../../components/GridLines.astro';
+import Pic from '../../components/Pic.astro';
+
+const img = '/images/case-cognitive';
+---
+
+<CaseLayout
+  title="Cognitive Structuring — Alex Abrosov"
+  description="A planning tool for merger and acquisition processes, with taxonomy integration and automated reporting."
+  accent="var(--color-accent-green)"
+>
+  <!-- Start screen -->
+  <div class="case-opening">
+    <section class="case-hero container case-grid">
+      <div class="case-hero-left">
+        <div class="case-hero-text">
+          <p class="t-subtitle" data-reveal>2024</p>
+          <h1 class="case-hero-title t-h1" data-reveal>Cognitive <br /><em>Structuring</em></h1>
+          <p class="case-hero-intro t-body-2" data-reveal>
+            This tool facilitates planning merger and acquisition (M&amp;A) processes and enables
+            comparison of different merger scenarios. It is part of the client&rsquo;s global M&amp;A
+            platform and emphasizes taxonomy integration. The service automatically generates reports
+            used to create client proposals and develop departmental integration strategies.
+          </p>
+        </div>
+
+        <dl class="case-meta" data-reveal>
+          <div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Client</dt>
+              <dd class="t-body">A Big Four accounting firm</dd>
+            </div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Industry</dt>
+              <dd class="t-body">FinTech</dd>
+            </div>
+          </div>
+          <div>
+            <dt class="t-subtitle">Services</dt>
+            <dd class="t-body">
+              Discovery &amp; Research<br />UX/UI Design<br />Vibe Coding<br />Design System<br />User Testing
+            </dd>
+          </div>
+          <div>
+            <dt class="t-subtitle">Responsibilities</dt>
+            <dd class="t-body">Product Design<br />Management</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="case-tile case-hero-tile" data-reveal>
+        <Pic eager src={`${img}/hero-screen.png`} alt="Cognitive Structuring process map builder" />
+      </div>
+    </section>
+
+    <div class="case-screen">
+      <Pic src={`${img}/screen.png`} alt="Cognitive Structuring running on a laptop" />
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <section class="case-section container case-grid challenge">
+    <SectionTitle title="Challenge" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The client&rsquo;s merger and acquisition planning tools were outdated, significantly lowering
+      employee productivity. The main challenge was to create a new product that streamlined workflows
+      while preserving key functions of the existing product. It also needed to integrate with the
+      client&rsquo;s platform, making it essential to maintain a familiar user experience.
+    </p>
+    <ol class="col-wide case-goals" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <p class="t-body">Boost user effectiveness with an intuitive, scalable tool.</p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <p class="t-body">Ensure integration compatibility with the company&rsquo;s other M&amp;A products.</p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <p class="t-body">Develop customizable summary reports with filtering and export functionality.</p>
+      </li>
+    </ol>
+    <div class="case-tile case-challenge-tile" data-reveal>
+      <Pic class="badge-img" src={`${img}/badge.png`} alt="Client mark" />
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="case-section container case-grid solution">
+    <SectionTitle title="Solution" />
+    <div class="col-wide case-solution-intro" data-reveal>
+      <p class="t-body-2">
+        After discussions with stakeholders and users, we streamlined the homepage to focus on core
+        tasks&mdash;creating and managing company structures and generating reports. To meet users&rsquo;
+        need to view all taxonomies at once, we combined them into a single, customizable, and
+        filterable view. For statistics, three concepts were developed, with one approved after testing.
+      </p>
+      <p class="case-tags t-button">
+        <span>Structure, Table, Heatmap Views</span><i></i><span>Comparison</span><i></i>
+        <span>Statistics</span><i></i><span>Reports Builder</span><i></i>
+        <span>AI Data Generation</span><i></i><span>Admin Modules</span>
+      </p>
+    </div>
+
+    <div class="col-text solution-feature" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle">/ Builder Features</h3>
+        <p class="t-body">
+          Data can be presented in three formats, enabling filtering, visualization, and evaluation of
+          potential mergers or department maturity levels within companies.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-tile case-solution-tile" data-reveal>
+      <Pic src={`${img}/solution.jpg`} alt="Process map builder interface" />
+    </div>
+  </section>
+
+  <!-- Solution details -->
+  <div class="feature-stack">
+    <CaseFeature
+      index={1}
+      title="Metadata"
+      body="Each taxonomy element includes relevant data based on its level, such as process objectives, number of involved employees, technologies, leadership, and other key information."
+      image={`${img}/feature-1.jpg`}
+      alt="Taxonomy element metadata"
+      frame={{ left: '11.6%', top: '7%', width: '76.8%' }}
+    />
+    <CaseFeature
+      index={2}
+      title="Taxonomy Creation"
+      body="The product enables creating company structures in four ways: from scratch, using existing companies, following industry standards, or leveraging AI based on key required characteristics."
+      image={`${img}/feature-2.jpg`}
+      alt="Taxonomy creation options"
+      frame={{ left: '11.6%', top: '7%', width: '76.8%' }}
+    />
+    <CaseFeature
+      index={3}
+      title="Reports"
+      body="Visualizes key performance indicators and relationships between departments. Data can be displayed for both the current state and projected future state after changes are made. The product automatically generates a detailed PDF presentation that consultants use as pitch materials for their clients."
+      image={`${img}/feature-3.jpg`}
+      alt="Reports and performance indicators"
+      frame={{ left: '11.3%', top: '7%', width: '77.3%' }}
+    />
+  </div>
+
+  <!-- Results -->
+  <section class="case-section container case-grid case-results results">
+    <GridLines local />
+    <SectionTitle title="Results" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The product received positive user feedback and has become the standard tool for consultants
+      working on M&amp;A projects. After several releases, users praised the convenience of the new tool
+      and the streamlined workflow enabled by the library of pre-built taxonomies and AI-generated
+      metadata.
+    </p>
+    <ol class="col-wide case-outcomes outcomes-3" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <h3 class="t-subtitle">Proposal preparation process has accelerated by 34%</h3>
+        <p class="t-body">
+          The tool significantly boosted consultant productivity, reducing the time from project start
+          to delivering the final client deck by an average of 34% compared to the previous product.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <h3 class="t-subtitle">Increased client conversion rate by ~6%</h3>
+        <p class="t-body">
+          The percentage of successful client deals increased by 6%, with users highlighting the
+          automatic generation of ready-to-use client presentation decks as the key contributing feature.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <h3 class="t-subtitle">Successfully integrated artificial intelligence</h3>
+        <p class="t-body">
+          Statistics show that the auto-fill and auto-generation of taxonomies features have become
+          constant assistants for users, significantly speeding up their workflow.
+        </p>
+      </li>
+    </ol>
+  </section>
+</CaseLayout>
+
+<style>
+  .challenge {
+    min-height: 1083px;
+  }
+
+  .case-challenge-tile {
+    margin-top: 126px;
+  }
+
+  .case-challenge-tile :global(.badge-img) {
+    position: static;
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+  }
+
+  .solution {
+    min-height: 1565px;
+  }
+
+  .solution-feature {
+    margin-top: 140px;
+  }
+
+  .solution-feature .case-block > * + * {
+    margin-top: 15px;
+  }
+
+  .case-solution-tile {
+    margin-top: 90px;
+  }
+
+  .case-solution-tile img {
+    width: 71.5%;
+    border-radius: 18px;
+  }
+
+  .results {
+    min-height: 835px;
+  }
+
+  /* This case reports three outcomes rather than four */
+  .outcomes-3 {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 48px;
+  }
+</style>

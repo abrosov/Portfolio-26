@@ -30,7 +30,9 @@ Personal portfolio for Alex (Design Engineer). Built from Figma designs; pixel-p
 - **Fonts**: Playfair Display (self-hosted, Google Fonts) + Helvetica Now Display (licensed; files provided by Alex, self-hosted in `public/fonts/`).
 - **Structure**: `src/layouts/BaseLayout.astro` is the shared shell; shared UI (nav, footer) in `src/components/`; case studies share one consistent structure/spacing.
 - **Pages**: Home, 4 case study pages (same template, some sections optional), contact form.
-- **Case studies**: live in `src/pages/cases/`, built on `CaseLayout.astro`. All shared spacing and
+- **Case studies**: four pages in `src/pages/cases/` — `climate-tech-viewer`, `blockchain-products`
+  (one page carrying Custodial Keeper, Linear Marketplace and Unwind X, each with its own anchor),
+  `ai-test-optimizer` and `cognitive-structuring`. Built on `CaseLayout.astro`. All shared spacing and
   column placement lives in `src/styles/case.css` so the four pages stay consistent — put section
   rhythm there, not in a page. `CaseFeature.astro` renders a "Solution Details" panel.
 - **Case transitions**: both scroll effects are `position: sticky; top: 0` with an opaque background.

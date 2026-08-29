@@ -223,3 +223,81 @@
   text-decoration: underline;
   text-underline-position: from-font;
 }
+
+/* ---- Shared section patterns ----
+   Used by every case, so the four pages keep the same rhythm. Sections that
+   only one case needs (process, usability testing) stay in that page. */
+
+/* Challenge: intro, three numbered goals, then a square accent tile */
+.case-goals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 21px;
+  margin-top: 56px;
+  list-style: none;
+}
+
+.case-goals p + p {
+  margin-top: 24px;
+}
+
+.case-challenge-tile {
+  grid-column: 3 / 6;
+  margin-top: 106px;
+  aspect-ratio: 330 / 360;
+  display: grid;
+  place-items: center;
+}
+
+/* A logo or glyph centred in the challenge tile */
+.case-challenge-tile .badge {
+  display: grid;
+  place-items: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.case-challenge-tile img {
+  position: static;
+  width: 62px;
+  height: 62px;
+}
+
+/* Solution: intro with tag row, a labelled feature, then a wide accent tile */
+.case-solution-intro {
+  margin-top: 80px;
+}
+
+.case-solution-intro .case-tags {
+  margin-top: 24px;
+}
+
+.case-solution-tile {
+  grid-column: 1 / 13;
+  aspect-ratio: 1384 / 875;
+  display: grid;
+  place-items: center;
+}
+
+.case-solution-tile img {
+  position: static;
+}
+
+/* Results: intro then four numbered outcomes */
+.case-outcomes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--grid-gap);
+  margin-top: 48px;
+  list-style: none;
+}
+
+.case-outcomes li > * + * {
+  margin-top: 24px;
+}
+
+.case-outcomes h3 + p {
+  margin-top: 16px;
+}
