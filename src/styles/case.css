@@ -88,7 +88,7 @@
      viewport so the screen arrives exactly at the fold; the min-height keeps
      the copy from colliding on short screens. */
   position: sticky;
-  top: 0;
+  top: var(--header-height);
   height: calc(100vh - var(--header-height));
   min-height: 780px;
   align-items: start;

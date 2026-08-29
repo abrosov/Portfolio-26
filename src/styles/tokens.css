@@ -50,7 +50,9 @@
   --intro-step: 0.09s;
 
   /* Layout — 12-column grid, 1440 design width */
-  --page-max-width: 1440px;
+  /* The grid fills the window, so --page-margin is the gutter you actually
+     see at any width. Set a length here to cap the layout instead. */
+  --page-max-width: none;
   --page-margin: 32px;
   --header-height: 48px;
   --grid-gap: 20px;
