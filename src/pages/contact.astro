@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Paste the Formspree form ID here (from formspree.io → your form → endpoint)
-// to make the form live. Until then submissions are blocked client-side.
-const FORMSPREE_ID = '';
+// Formspree form ID — the last segment of https://formspree.io/f/<id>
+const FORMSPREE_ID = 'xbgjlkro';
 const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 ---
 
@@ -41,6 +40,7 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
         <label class="t-button" for="note">Note (optional)</label>
         <textarea id="note" name="note" placeholder="Note" rows="3"></textarea>
       </div>
+      <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <button class="submit t-button" type="submit">Send Message</button>
       <p class="form-status t-body" role="status" aria-live="polite"></p>
     </form>
@@ -185,6 +185,11 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
   }
 
   .form-status:empty {
+    display: none;
+  }
+
+  /* Spam trap — hidden from people, visible to bots. */
+  .gotcha {
     display: none;
   }
 </style>
