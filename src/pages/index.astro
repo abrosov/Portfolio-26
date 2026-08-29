@@ -23,8 +23,12 @@ import SectionTitle from '../components/SectionTitle.astro';
         with a decade of experience in Interface Design<em class="amp"> &amp; </em>Art Direction.
       </h1>
       <p class="hero-statement t-h2" data-reveal>
-        I set a strong product vision that scales, builds trust, and increases conversion.
-        <span class="crafted"><i class="pointer" aria-hidden="true"></i><em class="t-h3-serif">All crafted with love.</em></span>
+        I set a strong product vision that scales, builds trust, and increases
+        <span class="crafted">
+          conversion.
+          <i class="pointer" aria-hidden="true"></i>
+          <em class="t-h3-serif">All crafted with love.</em>
+        </span>
       </p>
     </div>
   </section>
@@ -207,6 +211,32 @@ import SectionTitle from '../components/SectionTitle.astro';
   .tile img {
     object-fit: cover;
     object-position: top;
+    /* Grows from the edge the tile aligns it to, so that edge stays pinned. */
+    transform-origin: 50% 100%;
+    transition: transform var(--image-hover-duration) var(--image-hover-ease);
+  }
+
+  .tile:hover img {
+    transform: scale(var(--image-hover-scale));
+  }
+
+  .tile-climate img,
+  .tile-cognitive img {
+    transform-origin: 50% 50%;
+  }
+
+  .tile-ai-test img {
+    transform-origin: 50% 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tile img {
+      transition: none;
+    }
+
+    .tile:hover img {
+      transform: none;
+    }
   }
 
   .case-meta {
@@ -241,6 +271,12 @@ import SectionTitle from '../components/SectionTitle.astro';
     grid-column: 1 / 4;
     margin-top: 124px;
     color: var(--color-ink-soft);
+    /* Signs off the intro. Waits for the statement (the last step of the
+       sequence) to land at 0.63s, then eases in over a longer, softer beat.
+       Written out rather than derived, since the duration below would
+       otherwise feed back into the delay. */
+    --reveal-delay: 0.65s;
+    --reveal-duration: 0.55s;
   }
 
   .roles {
@@ -292,15 +328,28 @@ import SectionTitle from '../components/SectionTitle.astro';
     margin-top: 44px;
   }
 
+  /* Hero intro order: portrait first, then the headline, then the statement. */
+  .hero-headline,
+  .pointer-intro {
+    --reveal-delay: var(--reveal-stagger);
+  }
+
+  .hero-statement {
+    --reveal-delay: calc(var(--reveal-stagger) * 2);
+  }
+
+  /* Last line of the statement: the closing words, the rule, and the serif
+     sign-off share one line, with the rule stretching to fill what is left. */
   .crafted {
+    display: flex;
+    align-items: baseline;
     white-space: nowrap;
   }
 
   .crafted .pointer {
-    display: inline-block;
-    width: 214px;
+    flex: 1;
     margin: 0 20px 0 6px;
-    vertical-align: 13px;
+    transform: translateY(-13px);
   }
 
   /* ---- Featured cases ---- */

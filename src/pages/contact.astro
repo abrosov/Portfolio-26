@@ -1,15 +1,190 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Paste the Formspree form ID here (from formspree.io → your form → endpoint)
+// to make the form live. Until then submissions are blocked client-side.
+const FORMSPREE_ID = '';
+const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 ---
 
-<BaseLayout title="Contact — Alex Abrosov">
-  <section class="container placeholder">
-    <p class="t-h2">Contact form — to be built from the Figma design.</p>
+<BaseLayout title="Let’s talk — Alex Abrosov" footer="minimal">
+  <section class="contact container grid">
+    <div class="intro">
+      <h1 class="t-h1" data-reveal>Let&rsquo;s talk</h1>
+      <p class="t-body-2" data-reveal>
+        Thanks for your interest! Fill out the form below and I&rsquo;ll get back to you within one
+        business day.
+      </p>
+      <ul class="links t-subtitle" data-reveal>
+        <li><span>/</span> <a href="mailto:abrosovsasha@gmail.com">abrosovsasha@gmail.com</a></li>
+        <li>
+          <span>/</span>
+          <a href="https://www.linkedin.com/in/bohdshchk/" target="_blank" rel="noopener">LinkedIn</a>
+        </li>
+        <li>
+          <span>/</span>
+          <a href="https://www.instagram.com/abrosov/" target="_blank" rel="noopener">Instagram</a>
+        </li>
+      </ul>
+    </div>
+
+    <form class="form" method="POST" action={endpoint} data-reveal>
+      <div class="field">
+        <label class="t-button" for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Name" required />
+      </div>
+      <div class="field">
+        <label class="t-button" for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="Email" required />
+      </div>
+      <div class="field">
+        <label class="t-button" for="note">Note (optional)</label>
+        <textarea id="note" name="note" placeholder="Note" rows="3"></textarea>
+      </div>
+      <button class="submit t-button" type="submit">Send Message</button>
+      <p class="form-status t-body" role="status" aria-live="polite"></p>
+    </form>
   </section>
 </BaseLayout>
 
+<script>
+  // Submits without leaving the page, and reports the outcome in place.
+  // Without JS the form still posts natively to the same endpoint.
+  const form = document.querySelector<HTMLFormElement>('.form');
+  const status = document.querySelector<HTMLParagraphElement>('.form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!status) return;
+
+    // Read the attribute, not form.action — the latter resolves an empty
+    // action to the current page URL, which would post the form to itself.
+    const endpoint = form.getAttribute('action');
+    if (!endpoint) {
+      status.textContent = 'The form is not connected yet — email me directly for now.';
+      return;
+    }
+
+    const button = form.querySelector('button');
+    button?.setAttribute('disabled', '');
+    status.textContent = 'Sending…';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!response.ok) throw new Error(String(response.status));
+      form.reset();
+      status.textContent = 'Thanks — I’ll get back to you within one business day.';
+    } catch {
+      status.textContent = 'Something went wrong. Please email me at abrosovsasha@gmail.com.';
+    } finally {
+      button?.removeAttribute('disabled');
+    }
+  });
+</script>
+
 <style>
-  .placeholder {
-    padding-block: 160px;
+  .contact {
+    align-items: start;
+    padding-top: 80px;
+    padding-bottom: 96px;
+  }
+
+  .intro {
+    grid-column: 2 / 6;
+  }
+
+  .intro .t-body-2 {
+    margin-top: 32px;
+  }
+
+  .links {
+    /* Puts the first link at y=394, per the design. */
+    margin-top: 56px;
+    list-style: none;
+  }
+
+  .links a {
+    text-decoration: underline;
+    text-underline-position: from-font;
+  }
+
+  /* ---- Form ---- */
+
+  .form {
+    grid-column: 7 / 11;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 68px;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    background: var(--color-field);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 0 12px;
+    font: 500 16px/36px var(--font-display);
+    color: var(--color-ink);
+  }
+
+  input {
+    height: 36px;
+  }
+
+  textarea {
+    height: 85px;
+    padding: 6px 12px;
+    line-height: 1.4;
+    resize: vertical;
+  }
+
+  ::placeholder {
+    color: color-mix(in srgb, var(--color-ink) 50%, transparent);
+  }
+
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: none;
+    border-color: var(--color-ink);
+  }
+
+  .submit {
+    align-self: flex-start;
+    /* 32px below the fields in the design; the column gap supplies 24. */
+    margin-top: 8px;
+    height: 36px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--color-ink);
+    color: var(--color-button-label);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+  }
+
+  .submit:hover {
+    opacity: 0.85;
+  }
+
+  .submit[disabled] {
+    cursor: default;
+    opacity: 0.6;
+  }
+
+  .form-status:empty {
+    display: none;
   }
 </style>

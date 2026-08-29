@@ -7,9 +7,14 @@ import SiteFooter from '../components/SiteFooter.astro';
 interface Props {
   title: string;
   description?: string;
+  footer?: 'full' | 'minimal';
 }
 
-const { title, description = 'Portfolio of Alex Abrosov — Design Engineer & Art Director' } = Astro.props;
+const {
+  title,
+  description = 'Portfolio of Alex Abrosov — Design Engineer & Art Director',
+  footer = 'full',
+} = Astro.props;
 ---
 
 <html lang="en">
@@ -29,7 +34,7 @@ const { title, description = 'Portfolio of Alex Abrosov — Design Engineer & Ar
     <main>
       <slot />
     </main>
-    <SiteFooter />
+    <SiteFooter variant={footer} />
 
     <script>
       // Reveal each [data-reveal] element once, as it scrolls into view.

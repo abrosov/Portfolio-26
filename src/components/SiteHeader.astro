@@ -45,4 +45,22 @@
     padding: 8px 16px;
     border-radius: 4px;
   }
+
+  /* Nav links underline on hover. Fading the decoration colour rather than
+     toggling the rule keeps the text from shifting. */
+  .left a,
+  .right a {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: text-decoration-color 0.2s ease;
+  }
+
+  .left a:hover,
+  .right a:hover,
+  .left a:focus-visible,
+  .right a:focus-visible {
+    text-decoration-color: currentColor;
+  }
 </style>

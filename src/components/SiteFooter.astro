@@ -1,8 +1,17 @@
 ---
-// Site-wide footer: oversized initials and year around "Let's talk" + links.
+// Site-wide footer. The "full" variant carries the oversized initials, year and
+// contact links; "minimal" keeps only the legal bar, for pages that already say
+// "Let's talk" in their own content.
+interface Props {
+  variant?: 'full' | 'minimal';
+}
+
+const { variant = 'full' } = Astro.props;
 ---
 
-<footer class="site-footer container">
+<footer class:list={['site-footer', 'container', variant]}>
+  {variant === 'full' && (
+  <>
   <div class="divider"></div>
   <div class="grid content">
     <p class="mark t-h1" data-reveal>AA</p>
@@ -16,7 +25,9 @@
     </div>
     <p class="year t-h1" data-reveal>&lsquo;26</p>
   </div>
-  <div class="legal t-button" data-reveal>
+  </>
+  )}
+  <div class="legal t-button" data-reveal={variant === 'full' ? true : undefined}>
     <p>&copy; 2026</p>
     <p>Barcelona, Spain</p>
   </div>
@@ -74,5 +85,10 @@
     height: 48px;
     border-top: 1px solid var(--color-ink);
     margin-top: 49px;
+  }
+
+  .minimal .legal {
+    border-top-color: var(--color-rule-soft);
+    margin-top: 0;
   }
 </style>

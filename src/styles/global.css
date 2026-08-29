@@ -58,6 +58,14 @@ body {
   color: var(--color-ink);
   font-family: var(--font-display);
   font-weight: 500;
+  /* Short pages still push their footer to the bottom of the viewport. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
 }
 
 img,
@@ -127,6 +135,9 @@ a {
 /* ---- Layout ---- */
 
 .container {
+  /* Explicit width: as flex children of <body>, the auto inline margins would
+     otherwise stop these stretching and shrink them to their content. */
+  width: 100%;
   max-width: var(--page-max-width);
   margin-inline: auto;
   padding-inline: var(--page-margin);
@@ -168,6 +179,8 @@ a {
   transition:
     opacity var(--reveal-duration) var(--reveal-ease),
     transform var(--reveal-duration) var(--reveal-ease);
+  /* Elements that reveal as a sequence set --reveal-delay per step. */
+  transition-delay: var(--reveal-delay, 0s);
 }
 
 .js [data-reveal].is-visible {

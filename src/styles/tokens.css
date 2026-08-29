@@ -16,6 +16,8 @@
   --color-ink: #18251b;
   --color-ink-soft: #1f2b21;
   --color-grid-line: #c0c1b9;
+  --color-rule-soft: #8b9489;
+  --color-field: #dfe1d7;
   --grid-line-opacity: 0.3;
   --color-tile: #bbbdb3;
   --color-button-label: #cdcdcd;
@@ -32,6 +34,13 @@
   --reveal-shift: 80px;
   --reveal-duration: 0.31s;
   --reveal-ease: cubic-bezier(0.45, 0, 0.55, 1);
+  /* Gap between steps when a group of elements reveals in sequence */
+  --reveal-stagger: 0.16s;
+
+  /* Motion — image hover */
+  --image-hover-scale: 1.05;
+  --image-hover-duration: 0.7s;
+  --image-hover-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* Layout — 12-column grid, 1440 design width */
   --page-max-width: 1440px;
