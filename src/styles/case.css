@@ -186,8 +186,10 @@
 }
 
 .case-feature {
-  min-height: 863px;
+  /* The panel hugs its content: 48px between the copy and the image, and the
+     same again below it, so the image never meets the panel edge. */
   padding-top: 60px;
+  padding-bottom: 48px;
 }
 
 .case-feature-body {
@@ -196,7 +198,7 @@
 
 .case-feature .case-tile {
   grid-column: 3 / 12;
-  margin-top: 90px;
+  margin-top: 48px;
   aspect-ratio: 1033 / 575;
 }
 
