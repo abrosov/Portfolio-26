@@ -271,10 +271,9 @@ import SectionTitle from '../components/SectionTitle.astro';
     grid-column: 1 / 4;
     margin-top: 124px;
     color: var(--color-ink-soft);
-    /* Signs off the intro as the fourth step of the cascade, overlapping the
-       tail of the statement rather than waiting for it to finish, then eases
-       in over a longer, softer beat. */
-    --reveal-delay: calc(var(--reveal-stagger) * 3);
+    /* Arrives in step with the statement — the same delay as .hero-statement
+       below — but eases in over a longer, softer beat. */
+    --reveal-delay: calc(var(--reveal-stagger) * 2);
     --reveal-duration: 0.55s;
   }
 
