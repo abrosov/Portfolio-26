@@ -15,7 +15,11 @@
 
 <style>
   .site-header {
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    /* Opaque so content scrolls underneath rather than through. */
+    background: var(--color-bg);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,7 +53,7 @@
   /* Nav links underline on hover. Fading the decoration colour rather than
      toggling the rule keeps the text from shifting. */
   .left a,
-  .right a {
+  .right a:not(.contact) {
     text-decoration: underline;
     text-decoration-color: transparent;
     text-decoration-thickness: 1px;
@@ -58,9 +62,19 @@
   }
 
   .left a:hover,
-  .right a:hover,
+  .right a:not(.contact):hover,
   .left a:focus-visible,
-  .right a:focus-visible {
+  .right a:not(.contact):focus-visible {
     text-decoration-color: currentColor;
+  }
+
+  /* The Contact pill behaves like the form's submit button, not a text link. */
+  .contact {
+    transition: opacity 0.2s ease;
+  }
+
+  .contact:hover,
+  .contact:focus-visible {
+    opacity: 0.85;
   }
 </style>

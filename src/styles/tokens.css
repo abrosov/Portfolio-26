@@ -42,8 +42,16 @@
   --image-hover-duration: 0.7s;
   --image-hover-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
+  /* Motion — page intro (contact). Slower and shorter-travelled than the
+     scroll reveals, so the first screen settles rather than snaps. */
+  --intro-shift: 50px;
+  --intro-duration: 0.85s;
+  --intro-ease: cubic-bezier(0.5, 0, 0.2, 1);
+  --intro-step: 0.09s;
+
   /* Layout — 12-column grid, 1440 design width */
   --page-max-width: 1440px;
   --page-margin: 28px;
+  --header-height: 48px;
   --grid-gap: 20px;
 }

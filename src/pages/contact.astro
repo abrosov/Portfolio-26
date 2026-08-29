@@ -15,33 +15,35 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
         business day.
       </p>
       <ul class="links t-subtitle" data-reveal>
-        <li><span>/</span> <a href="mailto:abrosovsasha@gmail.com">abrosovsasha@gmail.com</a></li>
+        <li><span aria-hidden="true">/</span><a href="mailto:abrosovsasha@gmail.com">abrosovsasha@gmail.com</a></li>
         <li>
-          <span>/</span>
+          <span aria-hidden="true">/</span>
           <a href="https://www.linkedin.com/in/bohdshchk/" target="_blank" rel="noopener">LinkedIn</a>
         </li>
         <li>
-          <span>/</span>
+          <span aria-hidden="true">/</span>
           <a href="https://www.instagram.com/abrosov/" target="_blank" rel="noopener">Instagram</a>
         </li>
       </ul>
     </div>
 
-    <form class="form" method="POST" action={endpoint} data-reveal>
-      <div class="field">
+    <form class="form" method="POST" action={endpoint}>
+      <div class="field" data-reveal>
         <label class="t-button" for="name">Name</label>
         <input id="name" name="name" type="text" placeholder="Name" required />
       </div>
-      <div class="field">
+      <div class="field" data-reveal>
         <label class="t-button" for="email">Email</label>
         <input id="email" name="email" type="email" placeholder="Email" required />
       </div>
-      <div class="field">
+      <div class="field" data-reveal>
         <label class="t-button" for="note">Note (optional)</label>
         <textarea id="note" name="note" placeholder="Note" rows="3"></textarea>
       </div>
       <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
-      <button class="submit t-button" type="submit">Send Message</button>
+      <div class="actions" data-reveal>
+        <button class="submit t-button" type="submit">Send Message</button>
+      </div>
       <p class="form-status t-body" role="status" aria-live="polite"></p>
     </form>
   </section>
@@ -113,6 +115,45 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     text-underline-position: from-font;
   }
 
+  /* Set in CSS, not as source whitespace, which the compiler strips when the
+     link sits on its own line. */
+  .links span {
+    margin-right: 0.25em;
+  }
+
+  /* ---- Intro ----
+     The first screen rises further and slower than a scroll reveal, each block
+     following the one above it. Matches the reference contact page. */
+  .contact [data-reveal] {
+    --reveal-shift: var(--intro-shift);
+    --reveal-duration: var(--intro-duration);
+    --reveal-ease: var(--intro-ease);
+  }
+
+  .intro .t-body-2 {
+    --reveal-delay: var(--intro-step);
+  }
+
+  .links {
+    --reveal-delay: calc(var(--intro-step) * 2);
+  }
+
+  .field:nth-of-type(1) {
+    --reveal-delay: calc(var(--intro-step) * 3);
+  }
+
+  .field:nth-of-type(2) {
+    --reveal-delay: calc(var(--intro-step) * 4);
+  }
+
+  .field:nth-of-type(3) {
+    --reveal-delay: calc(var(--intro-step) * 5);
+  }
+
+  .actions {
+    --reveal-delay: calc(var(--intro-step) * 6);
+  }
+
   /* ---- Form ---- */
 
   .form {
@@ -161,10 +202,14 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     border-color: var(--color-ink);
   }
 
-  .submit {
-    align-self: flex-start;
+  .actions {
     /* 32px below the fields in the design; the column gap supplies 24. */
     margin-top: 8px;
+  }
+
+  .submit {
+    display: inline-flex;
+    align-items: center;
     height: 36px;
     padding: 0 16px;
     border: 0;

@@ -55,6 +55,22 @@ const {
       for (const el of document.querySelectorAll('[data-reveal]')) {
         observer.observe(el);
       }
+
+      // Same-page anchors scroll on every click. Left to the browser, a link
+      // whose hash is already in the URL does nothing the second time.
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+
+      for (const link of document.querySelectorAll('a[href*="#"]')) {
+        link.addEventListener('click', (event) => {
+          const id = link.getAttribute('href')?.split('#')[1];
+          const target = id && document.getElementById(id);
+          if (!target) return; // a link to another page's section: let it navigate
+
+          event.preventDefault();
+          target.scrollIntoView({ behavior: reduced.matches ? 'auto' : 'smooth' });
+          history.replaceState(null, '', `#${id}`);
+        });
+      }
     </script>
   </body>
 </html>
