@@ -38,14 +38,16 @@ import SectionTitle from '../components/SectionTitle.astro';
     <SectionTitle title="Selected Cases" />
     <div class="grid">
       <div class="feature-left" data-reveal>
-        <div class="tile tile-climate">
+        <a class="tile tile-climate" href="/cases/climate-tech-viewer/" aria-hidden="true" tabindex="-1">
           <img src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
-        </div>
+        </a>
       </div>
       <div class="feature-right">
         <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;26</p>
-          <h3 class="t-h3">Climate Tech <br /><em class="t-h3-serif">Viewer</em></h3>
+          <h3 class="t-h3">
+            <a href="/cases/climate-tech-viewer/">Climate Tech <br /><em class="t-h3-serif">Viewer</em></a>
+          </h3>
           <p class="t-body">
             A platform that helps businesses explore<br />
             and evaluate technologies for reducing greenhouse<br />

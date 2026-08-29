@@ -1,0 +1,212 @@
+/*
+  Case study pages — shared layout and spacing.
+  Every case uses these classes, so the four pages stay identical in structure
+  and rhythm; only their content and accent colour differ. Offsets come from
+  the Figma frames, measured from the top of each section.
+*/
+
+.case-section {
+  position: relative;
+  padding-block: 48px;
+}
+
+/* The section heading always spans the full row */
+.case-grid > .section-title {
+  grid-column: 1 / -1;
+}
+
+/* Sections whose content sits on the 12-column grid */
+.case-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0 var(--grid-gap);
+  /* Sections carry a min-height from the design; without this the spare space
+     is shared out between rows and every offset drifts down. */
+  align-content: start;
+  align-items: start;
+}
+
+/* Column spans used across the cases */
+.col-wide {           /* x262 → 1033px, the main reading column */
+  grid-column: 3 / 12;
+}
+
+.col-text {           /* x262 → 798px, body copy under a label */
+  grid-column: 3 / 10;
+}
+
+.col-label {          /* x28 → the left-hand "/ LABEL" gutter */
+  grid-column: 1 / 3;
+}
+
+/* A "/ SECTION LABEL" in the left gutter */
+.case-label {
+  white-space: nowrap;
+}
+
+/* Label + body pair, used by every process/feature block */
+.case-block > * + * {
+  margin-top: 8px;
+}
+
+/* Inline "a · b · c" tag row */
+.case-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.case-tags i {
+  width: 4px;
+  height: 4px;
+  background: var(--color-ink);
+}
+
+/* Accent tile holding a mockup */
+.case-tile {
+  position: relative;
+  overflow: hidden;
+  background: var(--case-accent, var(--color-accent-purple));
+}
+
+.case-tile img {
+  position: absolute;
+  object-fit: cover;
+}
+
+/* ---- Start screen ---- */
+
+/* Bounds how long the start screen stays pinned */
+.case-opening {
+  position: relative;
+}
+
+.case-hero {
+  /* Pins while the screen section below scrolls up over it. */
+  position: sticky;
+  top: 0;
+  height: 902px;
+  align-items: start;
+}
+
+.case-hero-left {
+  grid-column: 1 / 7;
+  padding-top: 41px;
+}
+
+.case-hero-text {
+  /* 565px of the column's 682px */
+  width: 82.85%;
+}
+
+.case-hero-title {
+  margin-top: 8px;
+}
+
+.case-hero-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.case-hero-intro {
+  margin-top: 32px;
+}
+
+.case-hero-tile {
+  grid-column: 7 / 13;
+  height: 819px;
+}
+
+.case-hero-tile img {
+  left: 7%;
+  top: 27.5%;
+  width: 86%;
+  border-radius: 12px;
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--grid-gap);
+  margin-top: 56px;
+}
+
+.case-meta-group + .case-meta-group {
+  margin-top: 32px;
+}
+
+.case-meta dt + dd {
+  margin-top: 8px;
+}
+
+/* ---- Full-bleed screen ---- */
+
+.case-screen {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1440 / 999;
+}
+
+.case-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---- Generic section body ---- */
+
+/* Section heading occupies 48–83px; body copy starts at 163px */
+.case-intro {
+  margin-top: 80px;
+}
+
+.case-body {
+  margin-top: 115px;
+}
+
+/* ---- Feature stack (Solution Details) ----
+   Each panel pins in turn, so the next slides up over the one before it. */
+
+.feature-stack > .case-feature {
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+}
+
+.case-feature {
+  min-height: 863px;
+  padding-top: 60px;
+}
+
+.case-feature-body {
+  margin-top: 16px;
+}
+
+.case-feature .case-tile {
+  grid-column: 3 / 12;
+  margin-top: 90px;
+  aspect-ratio: 1033 / 575;
+}
+
+/* Results follows the stack and must cover the last pinned panel */
+.case-results {
+  position: relative;
+  background: var(--color-bg);
+}
+
+/* ---- Footer lead-in ---- */
+
+.case-more {
+  display: flex;
+  justify-content: center;
+  padding-block: 163px 163px;
+}
+
+.case-more a {
+  text-decoration: underline;
+  text-underline-position: from-font;
+}

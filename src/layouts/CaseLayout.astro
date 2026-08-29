@@ -1,0 +1,23 @@
+---
+// Shell for every case study: the shared case styles plus the "see more cases"
+// lead-in that sits above the standard footer on case pages.
+import BaseLayout from './BaseLayout.astro';
+import '../styles/case.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  accent?: string;
+}
+
+const { title, description, accent = 'var(--color-accent-purple)' } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="case" style={`--case-accent: ${accent}`}>
+    <slot />
+    <div class="case-more container">
+      <a class="t-subtitle" href="/#cases">See more cases</a>
+    </div>
+  </div>
+</BaseLayout>

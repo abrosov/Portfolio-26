@@ -1,0 +1,453 @@
+---
+import CaseLayout from '../../layouts/CaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import CaseFeature from '../../components/CaseFeature.astro';
+import GridLines from '../../components/GridLines.astro';
+
+const img = '/images/case-climate';
+---
+
+<CaseLayout
+  title="Climate Tech Viewer — Alex Abrosov"
+  description="A platform for exploring and evaluating technologies that reduce greenhouse gas emissions."
+>
+  <!-- Start screen — pins while the screen below scrolls over it. The wrapper
+       bounds the pinning, so the hero releases once the screen has passed. -->
+  <div class="case-opening">
+    <section class="case-hero container case-grid">
+    <div class="case-hero-left">
+      <div class="case-hero-text">
+      <p class="t-subtitle" data-reveal>2026</p>
+      <h1 class="case-hero-title t-h1" data-reveal>Climate Tech <br /><em>Viewer</em></h1>
+      <p class="case-hero-intro t-body-2" data-reveal>
+        This platform brings together technologies designed to reduce greenhouse gas emissions across
+        fast-growing industries, offering solutions at various stages of maturity. Its mission is to
+        support sustainability professionals, strategists, investors, and innovators in navigating this
+        complex landscape. Users can rely on the product to explore and evaluate their options for
+        lowering emissions.
+        </p>
+      </div>
+
+      <dl class="case-meta" data-reveal>
+      <div>
+        <div class="case-meta-group">
+          <dt class="t-subtitle">Client</dt>
+          <dd class="t-body">A Big Four accounting firm</dd>
+        </div>
+        <div class="case-meta-group">
+          <dt class="t-subtitle">Industry</dt>
+          <dd class="t-body">Environmental Consulting</dd>
+        </div>
+      </div>
+      <div>
+        <dt class="t-subtitle">Services</dt>
+        <dd class="t-body">
+          Discovery &amp; Research<br />UX/UI Design<br />Vibe Coding<br />Design System<br />User Testing
+        </dd>
+      </div>
+      <div>
+        <dt class="t-subtitle">Responsibilities</dt>
+        <dd class="t-body">Product Design<br />Frontend<br />Management</dd>
+      </div>
+      </dl>
+    </div>
+
+    <div class="case-tile case-hero-tile" data-reveal>
+      <img src={`${img}/hero-screen.png`} alt="Climate Tech Viewer taxonomy graph" />
+    </div>
+  </section>
+
+    <!-- Full-bleed product shot that slides over the start screen -->
+    <div class="case-screen">
+      <img src={`${img}/laptop.jpg`} alt="Climate Tech Viewer running on a laptop" />
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <section class="case-section container case-grid challenge">
+    <SectionTitle title="Challenge" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The task was to develop an MVP concept centered around a scalable, interactive graph with a
+      hierarchical structure and detailed pages showcasing technological solutions for optimizing
+      business processes across various industries. Under a tight deadline, the client aimed to refine
+      the concept for a high-stakes pitch at an investment summit.
+    </p>
+    <ol class="col-wide goals" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <p class="t-body">Deliver a successful product pitch at the investment forum and engage key stakeholders.</p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <p class="t-body">Lay the groundwork for future sustainability-focused products and establish a unified visual language.</p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <p class="t-body">Unlock additional revenue by launching new, exclusive services or recurring subscription models.</p>
+      </li>
+    </ol>
+    <div class="case-tile challenge-tile" data-reveal>
+      <img src={`${img}/challenge-logo.svg`} alt="Client logo" />
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="case-section container case-grid process">
+    <SectionTitle title="Process" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      At first, the client provided a wealth of research and raw data without a clear structure. We
+      strategically dissected the information, prioritizing key features and defining the platform&rsquo;s
+      foundation. Through workshops with stakeholders, scattered insights evolved into a clear, scalable
+      product vision. Post-MVP, extensive usability testing validated our approach, fine-tuning
+      interactions to ensure a seamless, intuitive experience.
+    </p>
+
+    <p class="case-label col-label t-subtitle discovery-label" data-reveal>/ Discovery</p>
+    <div class="col-text discovery" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle">Workshops</h3>
+        <p class="t-body">
+          At first, the client provided a wealth of research and raw data without a clear structure. We
+          held series of design workshops with key stakeholders, turning fragmented ideas into a clear,
+          strategic vision. These sessions aligned goals, refined concepts, and ensured every design
+          decision served both user needs and business objectives.
+        </p>
+      </div>
+      <p class="case-tags t-button">
+        <span>Document Analysis</span><i></i><span>Feature Prioritization</span><i></i>
+        <span>Questionnaires</span><i></i><span>Data Insights &amp; Metrics Analysis</span>
+      </p>
+    </div>
+
+    <div class="case-tile process-tile-a" data-reveal>
+      <img src={`${img}/workshops.png`} alt="Design workshop board" />
+    </div>
+    <div class="case-tile process-tile-b" data-reveal>
+      <div class="scheme-card"><img src={`${img}/scheme.png`} alt="Information architecture scheme" /></div>
+    </div>
+  </section>
+
+  <!-- Usability testing -->
+  <section class="case-section container case-grid testing">
+    <p class="case-label col-label t-subtitle" data-reveal>/ Hypotheses</p>
+    <div class="col-text" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle">Usability Testing</h3>
+        <p class="t-body">
+          We conducted in-depth interviews and usability testing sessions to better understand the needs
+          of different user roles and backgrounds. This helped us account for all possible system use
+          cases and thoroughly validate multiple design solutions. Usability testing evolved into a
+          regular, standalone service we provided throughout the entire project life cycle.
+        </p>
+      </div>
+      <p class="case-tags t-button">
+        <span>User Personas</span><i></i><span>In-Depth Interviews</span><i></i>
+        <span>Qualitative &amp; Quantitative Flows Analysis</span>
+      </p>
+    </div>
+
+    <div class="testing-tile" data-reveal>
+      <div class="testing-left">
+        <p class="testing-title">Usability Testing Scenarios</p>
+        <img src={`${img}/testing-flow.png`} alt="Usability testing task flows" />
+      </div>
+      <img class="testing-right" src={`${img}/testing-panel.jpg`} alt="User persona and system usability scale" />
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="case-section container case-grid solution">
+    <SectionTitle title="Solution" />
+    <div class="col-wide solution-intro" data-reveal>
+      <p class="t-body-2">
+        The client received a scalable product that can be easily updated with new content via the admin
+        system. Information retrieval and presentation preparation time was significantly reduced thanks
+        to the automation of internal workflows. The MVP was successfully showcased at an emissions
+        reduction exhibition. My team handled four releases and continued to provide consultative support
+        for the development of related tools.
+      </p>
+      <p class="case-tags t-button">
+        <span>Onboarding</span><i></i><span>Informational Portal</span><i></i>
+        <span>Technologies Comparison</span><i></i><span>System Data Filtering</span><i></i>
+        <span>Visualization Builder</span><i></i><span>and more</span>
+      </p>
+    </div>
+
+    <p class="case-label col-label t-subtitle feature-label" data-reveal>/ Feature 1</p>
+    <div class="col-text feature-one" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle">Technology Details</h3>
+        <p class="t-body">
+          We tested multiple data visualization options and, through usability testing, identified the one
+          that enabled users to find results most efficiently—a circular taxonomy diagram. We also
+          developed all additional functionalities, including a technologies comparison tool, a statistics
+          module, and a separate admin site for portal management.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-tile solution-tile" data-reveal>
+      <img src={`${img}/solution.png`} alt="Climate Tech Viewer solution screens" />
+    </div>
+  </section>
+
+  <!-- Solution details — each panel pins as the next slides over it -->
+  <div class="feature-stack">
+    <CaseFeature
+      index={2}
+      title="Zoomable Graph"
+      body="The key interaction happens through working with the visualization. The chart is interactive and shows additional details about the taxonomy of technology solutions at different zoom levels."
+      image={`${img}/feature-graph.png`}
+      alt="Zoomable taxonomy graph on a tablet"
+      frame={{ left: '18.7%', top: '7%', width: '62.6%' }}
+    />
+    <CaseFeature
+      index={3}
+      title="Advanced Breadcrumbs"
+      body="The second navigation method for moving through the levels is breadcrumbs. They allow users to instantly change their location directly from the page, see the full level structure, and navigate to any level without need to go back."
+      image={`${img}/feature-breadcrumbs.jpg`}
+      alt="Breadcrumb navigation across levels"
+      frame={{ left: '5.8%', top: '10.4%', width: '94.2%' }}
+    />
+    <CaseFeature
+      index={4}
+      title="Vendor comparison"
+      body="This view helps compare vendors and their market capitalization within a specific taxonomy level. The dashboard also helps users understand where they are based and learn more about their solutions and services."
+      image={`${img}/feature-vendors.jpg`}
+      alt="Vendor comparison dashboard"
+      frame={{ left: '22.1%', top: '15.7%', width: '55.9%' }}
+    />
+  </div>
+
+  <!-- Results -->
+  <section class="case-section container case-grid case-results results">
+    <GridLines local />
+    <SectionTitle title="Results" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      The client received a scalable product that can be easily updated with new content via the admin
+      system. Information retrieval and presentation preparation time was significantly reduced thanks to
+      the automation of internal workflows. The MVP was successfully showcased at an emissions reduction
+      exhibition. My team handled four releases and continued to provide consultative support for the
+      development of related tools.
+    </p>
+    <ol class="col-wide outcomes" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <h3 class="t-subtitle">Improved workflow efficiency by 32%</h3>
+        <p class="t-body">Lay the groundwork for future sustainability-focused products and establish a unified visual language.</p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <h3 class="t-subtitle">Accelerated intern training by 20%</h3>
+        <p class="t-body">Significantly reduced the time spent on conducting searches and preparing final client proposals.</p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <h3 class="t-subtitle">Automated presentation flow</h3>
+        <p class="t-body">One of the key features of the product is the ability to quickly compare different technologies and automatically generate client proposals.</p>
+      </li>
+      <li>
+        <p class="t-h3">4.</p>
+        <h3 class="t-subtitle">Set design standards for related products</h3>
+        <p class="t-body">Our design system has become the standard for developing new digital eco-related products for the company.</p>
+      </li>
+    </ol>
+  </section>
+</CaseLayout>
+
+<style>
+  /* ---- Challenge ---- */
+  .challenge {
+    min-height: 1083px;
+  }
+
+  .goals {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 21px;
+    margin-top: 56px;
+    list-style: none;
+  }
+
+  .goals p + p {
+    margin-top: 24px;
+  }
+
+  .challenge-tile {
+    grid-column: 3 / 6;
+    margin-top: 106px;
+    aspect-ratio: 330 / 360;
+    background: #252a2f;
+    display: grid;
+    place-items: center;
+  }
+
+  .challenge-tile img {
+    position: static;
+    width: 108px;
+    height: 108px;
+  }
+
+  /* ---- Process ---- */
+  .process {
+    min-height: 1261px;
+  }
+
+  .discovery-label,
+  .discovery {
+    margin-top: 140px;
+  }
+
+  .discovery .case-tags {
+    margin-top: 32px;
+  }
+
+  .process-tile-a,
+  .process-tile-b {
+    margin-top: 94px;
+    background: var(--color-tile);
+  }
+
+  .process-tile-a {
+    grid-column: 3 / 9;
+    aspect-ratio: 682 / 488;
+  }
+
+  .process-tile-a img {
+    left: 12%;
+    top: 6.1%;
+    width: 76%;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .process-tile-b {
+    grid-column: 9 / 12;
+    aspect-ratio: 330 / 404;
+    align-self: start;
+  }
+
+  .scheme-card {
+    position: absolute;
+    left: 11.2%;
+    top: 6.9%;
+    width: 77.3%;
+    aspect-ratio: 255 / 348;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .scheme-card img {
+    position: absolute;
+    left: 7%;
+    top: 13.2%;
+    width: 86.3%;
+  }
+
+  /* ---- Usability testing ---- */
+  .testing {
+    min-height: 1149px;
+    padding-top: 32px;
+  }
+
+  .testing .case-tags {
+    margin-top: 32px;
+  }
+
+  .testing-tile {
+    position: relative;
+    grid-column: 1 / 13;
+    margin-top: 99px;
+    aspect-ratio: 1384 / 715;
+    background: var(--color-tile);
+  }
+
+  .testing-left {
+    position: absolute;
+    left: 3.8%;
+    top: 8%;
+    width: 43.1%;
+    height: 92%;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+
+  .testing-title {
+    position: absolute;
+    left: 6.7%;
+    top: 5.6%;
+    font: 500 22px/1.12 var(--font-display);
+  }
+
+  .testing-left img {
+    position: absolute;
+    left: 6.5%;
+    top: 13.4%;
+    width: 86.9%;
+  }
+
+  .testing-right {
+    position: absolute;
+    left: 49.2%;
+    top: 8%;
+    width: 50.8%;
+    border-radius: 12px;
+  }
+
+  /* ---- Solution ---- */
+  .solution {
+    min-height: 1595px;
+  }
+
+  .solution-intro {
+    margin-top: 56px;
+  }
+
+  .solution-intro .case-tags {
+    margin-top: 24px;
+  }
+
+  .feature-label,
+  .feature-one {
+    margin-top: 140px;
+  }
+
+  .feature-one .case-block > * + * {
+    margin-top: 15px;
+  }
+
+  .solution-tile {
+    grid-column: 1 / 13;
+    margin-top: 94px;
+    aspect-ratio: 1384 / 875;
+  }
+
+  .solution-tile img {
+    left: 9.8%;
+    top: 11.3%;
+    width: 79.6%;
+    border-radius: 24px;
+  }
+
+  /* ---- Results ---- */
+  .results {
+    min-height: 835px;
+  }
+
+  .outcomes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--grid-gap);
+    margin-top: 48px;
+    list-style: none;
+  }
+
+  .outcomes li > * + * {
+    margin-top: 24px;
+  }
+
+  .outcomes h3 + p {
+    margin-top: 16px;
+  }
+</style>

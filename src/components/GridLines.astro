@@ -1,0 +1,13 @@
+---
+// The decorative 12-column rules. `local` places them inside a section that
+// paints its own background, where the page-level backdrop would be hidden.
+interface Props {
+  local?: boolean;
+}
+
+const { local = false } = Astro.props;
+---
+
+<div class:list={['grid-lines', local && 'is-local']} aria-hidden="true">
+  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+</div>
