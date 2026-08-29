@@ -3,6 +3,7 @@ import CaseLayout from '../../layouts/CaseLayout.astro';
 import SectionTitle from '../../components/SectionTitle.astro';
 import CaseFeature from '../../components/CaseFeature.astro';
 import GridLines from '../../components/GridLines.astro';
+import Pic from '../../components/Pic.astro';
 
 const img = '/images/case-climate';
 ---
@@ -53,13 +54,13 @@ const img = '/images/case-climate';
     </div>
 
     <div class="case-tile case-hero-tile" data-reveal>
-      <img src={`${img}/hero-screen.png`} alt="Climate Tech Viewer taxonomy graph" />
+      <Pic eager src={`${img}/hero-screen.png`} alt="Climate Tech Viewer taxonomy graph" />
     </div>
   </section>
 
     <!-- Full-bleed product shot that slides over the start screen -->
     <div class="case-screen">
-      <img src={`${img}/laptop.jpg`} alt="Climate Tech Viewer running on a laptop" />
+      <Pic src={`${img}/laptop.jpg`} alt="Climate Tech Viewer running on a laptop" />
     </div>
   </div>
 
@@ -87,7 +88,7 @@ const img = '/images/case-climate';
       </li>
     </ol>
     <div class="case-tile challenge-tile" data-reveal>
-      <img src={`${img}/challenge-logo.svg`} alt="Client logo" />
+      <Pic src={`${img}/challenge-logo.svg`} alt="Client logo" />
     </div>
   </section>
 
@@ -120,10 +121,10 @@ const img = '/images/case-climate';
     </div>
 
     <div class="case-tile process-tile-a" data-reveal>
-      <img src={`${img}/workshops.png`} alt="Design workshop board" />
+      <Pic src={`${img}/workshops.png`} alt="Design workshop board" />
     </div>
     <div class="case-tile process-tile-b" data-reveal>
-      <div class="scheme-card"><img src={`${img}/scheme.png`} alt="Information architecture scheme" /></div>
+      <div class="scheme-card"><Pic src={`${img}/scheme.png`} alt="Information architecture scheme" /></div>
     </div>
   </section>
 
@@ -149,9 +150,9 @@ const img = '/images/case-climate';
     <div class="testing-tile" data-reveal>
       <div class="testing-left">
         <p class="testing-title">Usability Testing Scenarios</p>
-        <img src={`${img}/testing-flow.png`} alt="Usability testing task flows" />
+        <Pic src={`${img}/testing-flow.png`} alt="Usability testing task flows" />
       </div>
-      <img class="testing-right" src={`${img}/testing-panel.jpg`} alt="User persona and system usability scale" />
+      <Pic class="testing-right" src={`${img}/testing-panel.jpg`} alt="User persona and system usability scale" />
     </div>
   </section>
 
@@ -187,7 +188,7 @@ const img = '/images/case-climate';
     </div>
 
     <div class="case-tile solution-tile" data-reveal>
-      <img src={`${img}/solution.png`} alt="Climate Tech Viewer solution screens" />
+      <Pic src={`${img}/solution.png`} alt="Climate Tech Viewer solution screens" />
     </div>
   </section>
 

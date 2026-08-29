@@ -2,6 +2,7 @@
 // One "Solution Details" panel: a labelled feature with a full-width mockup.
 // Panels stack inside .feature-stack, each pinning as the next slides over it.
 import GridLines from './GridLines.astro';
+import Pic from './Pic.astro';
 
 interface Props {
   index: number;
@@ -24,6 +25,6 @@ const { index, title, body, image, alt, frame } = Astro.props;
     <p class="case-feature-body t-body">{body}</p>
   </div>
   <div class="case-tile" data-reveal>
-    <img src={image} alt={alt} style={`left:${frame.left};top:${frame.top};width:${frame.width}`} />
+    <Pic src={image} alt={alt} style={`left:${frame.left};top:${frame.top};width:${frame.width}`} />
   </div>
 </section>

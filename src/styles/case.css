@@ -91,12 +91,14 @@
   top: var(--header-height);
   height: calc(100vh - var(--header-height));
   min-height: 780px;
-  align-items: start;
+  /* Centred in the viewport rather than pinned to the top, so the composition
+     stays balanced whatever the window height. */
+  align-content: center;
+  align-items: center;
 }
 
 .case-hero-left {
   grid-column: 1 / 7;
-  padding-top: 41px;
 }
 
 .case-hero-text {

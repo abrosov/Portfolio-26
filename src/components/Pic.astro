@@ -1,0 +1,37 @@
+---
+// An <img> that shows a pixelated placeholder until the real file arrives,
+// then clears. Renders a plain <img>, so any CSS written against `img` in the
+// surrounding section still applies.
+//
+// Intrinsic width/height come from the generated data, which lets the browser
+// reserve the right box before a lazy image loads — without them these
+// collapse to zero height and the layout jumps.
+import lqip from '../data/lqip.json';
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  style?: string;
+  eager?: boolean;
+  [key: string]: unknown;
+}
+
+const { src, alt, class: className, style, eager = false, ...rest } = Astro.props;
+
+const meta = (lqip as Record<string, { lqip: string; w: number; h: number }>)[src];
+const merged = [style, meta && `--lqip:url("${meta.lqip}")`].filter(Boolean).join(';');
+---
+
+<img
+  src={src}
+  alt={alt}
+  class={className}
+  style={merged || undefined}
+  width={rest.width ?? meta?.w}
+  height={rest.height ?? meta?.h}
+  data-pic
+  loading={eager ? 'eager' : 'lazy'}
+  decoding="async"
+  {...rest}
+/>

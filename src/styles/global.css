@@ -188,6 +188,42 @@ a {
   position: absolute;
 }
 
+/* ---- Progressive images ----
+   Each image carries a 24px placeholder as its own background, drawn with hard
+   pixels. Once the file arrives the placeholder is dropped and the picture
+   sharpens into place. */
+img[data-pic] {
+  /* The width/height attributes supply the aspect ratio; without this they
+     would also fix the rendered height wherever CSS sets only a width. */
+  height: auto;
+  background-image: var(--lqip);
+  background-size: cover;
+  background-position: center;
+  image-rendering: pixelated;
+}
+
+img[data-pic].is-loaded {
+  background-image: none;
+  image-rendering: auto;
+  animation: pic-clear 0.7s ease both;
+}
+
+@keyframes pic-clear {
+  from {
+    filter: blur(12px);
+  }
+
+  to {
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  img[data-pic].is-loaded {
+    animation: none;
+  }
+}
+
 /* ---- Scroll reveal ---- */
 
 /* Marked elements rise and fade in when they enter the viewport.

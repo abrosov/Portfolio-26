@@ -56,6 +56,17 @@ const {
         observer.observe(el);
       }
 
+      // Clear each image's placeholder once its file has arrived.
+      for (const img of document.querySelectorAll('img[data-pic]')) {
+        if (img.complete && img.naturalWidth > 0) {
+          img.classList.add('is-loaded');
+        } else {
+          img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+          // A failed image should not sit under a placeholder forever.
+          img.addEventListener('error', () => img.classList.add('is-loaded'), { once: true });
+        }
+      }
+
       // Same-page anchors scroll on every click. Left to the browser, a link
       // whose hash is already in the URL does nothing the second time.
       const reduced = matchMedia('(prefers-reduced-motion: reduce)');

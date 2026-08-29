@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SectionTitle from '../components/SectionTitle.astro';
+import Pic from '../components/Pic.astro';
 ---
 
 <BaseLayout title="Alex Abrosov — Design Engineer">
@@ -16,7 +17,7 @@ import SectionTitle from '../components/SectionTitle.astro';
       <p class="t-subtitle location">/ Barcelona, Spain</p>
     </div>
     <div class="hero-main">
-      <img class="hero-portrait" data-reveal src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
+      <Pic eager class="hero-portrait" data-reveal src="/images/hero-portrait.png" alt="Portrait of Alex Abrosov" width="73" height="109" />
       <i class="pointer pointer-intro" aria-hidden="true" data-reveal></i>
       <h1 class="hero-headline t-h2" data-reveal>
         Design Engineer<br />
@@ -39,7 +40,7 @@ import SectionTitle from '../components/SectionTitle.astro';
     <div class="grid">
       <div class="feature-left" data-reveal>
         <a class="tile tile-climate" href="/cases/climate-tech-viewer/" aria-hidden="true" tabindex="-1">
-          <img src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
+          <Pic src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
         </a>
       </div>
       <div class="feature-right">
@@ -55,7 +56,7 @@ import SectionTitle from '../components/SectionTitle.astro';
           </p>
         </article>
         <div class="tile tile-portal" data-reveal>
-          <img src="/images/case-client-portal.png" alt="Client Portal dashboard" />
+          <Pic src="/images/case-client-portal.png" alt="Client Portal dashboard" />
         </div>
         <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
@@ -78,7 +79,7 @@ import SectionTitle from '../components/SectionTitle.astro';
   <section class="cases-more container">
     <div class="grid">
       <div class="card card-1" data-reveal>
-        <div class="tile"><img src="/images/case-custodial-keeper.png" alt="Custodial Keeper interface" /></div>
+        <div class="tile"><Pic src="/images/case-custodial-keeper.png" alt="Custodial Keeper interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
           <h3 class="t-h4">Custodial Keeper</h3>
@@ -89,7 +90,7 @@ import SectionTitle from '../components/SectionTitle.astro';
         </article>
       </div>
       <div class="card card-2" data-reveal>
-        <div class="tile"><img src="/images/case-linear-marketplace.png" alt="Linear Marketplace interface" /></div>
+        <div class="tile"><Pic src="/images/case-linear-marketplace.png" alt="Linear Marketplace interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
           <h3 class="t-h4">Linear Marketplace</h3>
@@ -97,7 +98,7 @@ import SectionTitle from '../components/SectionTitle.astro';
         </article>
       </div>
       <div class="card card-3" data-reveal>
-        <div class="tile"><img src="/images/case-unwind.png" alt="Unwind X interface" /></div>
+        <div class="tile"><Pic src="/images/case-unwind.png" alt="Unwind X interface" /></div>
         <article class="case-intro">
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;25</p>
           <h3 class="t-h4">Unwind X</h3>
@@ -111,7 +112,7 @@ import SectionTitle from '../components/SectionTitle.astro';
     <div class="grid stagger">
       <div class="feature-cognitive">
         <div class="tile tile-cognitive" data-reveal>
-          <img src="/images/case-cognitive.png" alt="Cognitive Structuring interface" />
+          <Pic src="/images/case-cognitive.png" alt="Cognitive Structuring interface" />
         </div>
         <article class="case-intro" data-reveal>
           <p class="case-meta t-subtitle">Product Design <i></i> &rsquo;24</p>
@@ -125,7 +126,7 @@ import SectionTitle from '../components/SectionTitle.astro';
       </div>
       <div class="feature-ai">
         <div class="tile tile-ai-test" data-reveal>
-          <img src="/images/case-ai-test.png" alt="AI Test Optimizer interface" />
+          <Pic src="/images/case-ai-test.png" alt="AI Test Optimizer interface" />
         </div>
         <article class="case-intro" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Art Direction <i></i> &rsquo;24</p>
