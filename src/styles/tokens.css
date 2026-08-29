@@ -51,7 +51,7 @@
 
   /* Layout — 12-column grid, 1440 design width */
   --page-max-width: 1440px;
-  --page-margin: 28px;
+  --page-margin: 32px;
   --header-height: 48px;
   --grid-gap: 20px;
 }

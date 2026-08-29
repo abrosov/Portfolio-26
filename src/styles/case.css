@@ -84,10 +84,13 @@
 }
 
 .case-hero {
-  /* Pins while the screen section below scrolls up over it. */
+  /* Pins while the screen section below scrolls up over it. Sized to the
+     viewport so the screen arrives exactly at the fold; the min-height keeps
+     the copy from colliding on short screens. */
   position: sticky;
   top: 0;
-  height: 902px;
+  height: calc(100vh - var(--header-height));
+  min-height: 780px;
   align-items: start;
 }
 
@@ -117,7 +120,9 @@
 
 .case-hero-tile {
   grid-column: 7 / 13;
-  height: 819px;
+  /* 819 of the design's 902px hero, kept proportional as the hero tracks the
+     viewport. */
+  height: calc(max(100vh - var(--header-height), 780px) * 0.908);
 }
 
 .case-hero-tile img {
@@ -149,6 +154,9 @@
   display: block;
   width: 100%;
   aspect-ratio: 1440 / 999;
+  /* Rounded leading edge as it slides up over the start screen */
+  border-radius: 12px 12px 0 0;
+  overflow: hidden;
 }
 
 .case-screen img {
