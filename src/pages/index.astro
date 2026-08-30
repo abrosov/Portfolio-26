@@ -578,8 +578,12 @@ import Pic from '../components/Pic.astro';
       display: none;
     }
 
+    .feature-left {
+      margin-top: 48px;
+    }
+
     .feature-right {
-      margin-top: 64px;
+      margin-top: 32px;
     }
 
     .intro-wide {
@@ -587,7 +591,7 @@ import Pic from '../components/Pic.astro';
     }
 
     .tile-portal {
-      margin-top: 64px;
+      margin-top: 96px;
     }
 
     .card-1,
@@ -623,6 +627,7 @@ import Pic from '../components/Pic.astro';
     }
 
     .expertise-label {
+      margin-top: 115px;
       margin-left: 0;
     }
 
@@ -739,6 +744,55 @@ import Pic from '../components/Pic.astro';
 
     .cv {
       margin-top: 40px;
+    }
+  }
+
+  /* ---- Tablet hero ----
+     Follows the tablet mockup: portrait and rule leading a 64px headline,
+     with the sign-off set in from the left. */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero {
+      padding-block: 0 128px;
+    }
+
+    .hero-aside {
+      display: none;
+    }
+
+    .hero-main {
+      margin-top: 0;
+      padding-top: 110px;
+    }
+
+    .hero-portrait,
+    .pointer-intro {
+      display: block;
+    }
+
+    .hero-portrait {
+      top: 56px;
+      left: 0;
+    }
+
+    .pointer-intro {
+      top: 146px;
+      left: 16.5%;
+      width: 13.7%;
+    }
+
+    /* First line clears the portrait and rule beside it */
+    .hero-headline {
+      text-indent: 30.2%;
+    }
+
+    .hero-statement {
+      margin-top: 32px;
+    }
+
+    .crafted em {
+      display: block;
+      margin-top: 17px;
+      margin-left: 35.6%;
     }
   }
 </style>
