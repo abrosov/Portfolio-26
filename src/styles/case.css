@@ -337,7 +337,7 @@
   .case-hero-tile {
     height: auto;
     aspect-ratio: 682 / 560;
-    margin-top: 48px;
+    margin-top: 64px;
   }
 
   /* The left-hand "/ LABEL" gutter has nowhere to sit, so it leads the block */
@@ -372,7 +372,7 @@
 
   .case-hero-tile {
     aspect-ratio: 434 / 400;
-    margin-top: 32px;
+    margin-top: 48px;
   }
 
   .case-meta {
@@ -393,7 +393,7 @@
   .case-feature .case-tile,
   .case-challenge-tile,
   .case-solution-tile {
-    margin-top: 32px;
+    margin-top: 48px;
   }
 
   .case-challenge-tile {
