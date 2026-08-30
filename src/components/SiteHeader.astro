@@ -76,4 +76,15 @@
   .contact:focus-visible {
     opacity: 0.85;
   }
+
+  /* The mobile frame carries Cases, the wordmark and Contact only */
+  @media (max-width: 767px) {
+    .right {
+      gap: 0;
+    }
+
+    .right a:not(.contact) {
+      display: none;
+    }
+  }
 </style>

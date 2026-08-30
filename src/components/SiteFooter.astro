@@ -78,6 +78,47 @@ const { variant = 'full' } = Astro.props;
     text-underline-position: from-font;
   }
 
+  @media (max-width: 1023px) {
+    .mark {
+      grid-column: 1 / 4;
+    }
+
+    .talk {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      padding-top: 48px;
+    }
+
+    .year {
+      grid-column: 4 / -1;
+    }
+
+    .mark,
+    .year {
+      font-size: 160px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .mark,
+    .year {
+      font-size: 96px;
+    }
+
+    .talk {
+      padding-top: 32px;
+    }
+
+    .talk .t-h1 {
+      font-size: 56px;
+      line-height: 52px;
+    }
+
+    .legal {
+      margin-top: 32px;
+    }
+  }
+
   .legal {
     display: flex;
     justify-content: space-between;

@@ -41,4 +41,9 @@ Personal portfolio for Alex (Design Engineer). Built from Figma designs; pixel-p
   bounding wrapper, or they stay pinned for the whole page and show through later sections.
 - **Contact form**: posts to a form service (Formspree/Web3Forms) — no backend.
 - **Animations**: CSS transitions + small vanilla JS (e.g. IntersectionObserver for scroll reveals). Mobile reference: https://bndigital.co/en-gb/cases/catch-brand-identity-platform (desktop-only Figma).
+- **Responsive**: the grid halves as the window narrows — 12 columns on desktop, 6 below 1024px,
+  2 below 768px — driven by `--grid-columns` in `tokens.css`, with the gutter at 32px dropping to
+  28px on mobile. Column counts and stepping follow bndigital.co. Below 1024px the case pages' pinned
+  transitions are switched off (that site likewise only enables its stacking from large up), since
+  they need a tall viewport to read.
 - **Deploy target**: Vercel via GitHub.

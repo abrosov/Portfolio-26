@@ -451,4 +451,120 @@ const img = '/images/case-climate';
   .outcomes h3 + p {
     margin-top: 16px;
   }
+
+  /* ---- Tablet ---- */
+  @media (max-width: 1023px) {
+    .challenge,
+    .process,
+    .testing,
+    .solution,
+    .results {
+      min-height: 0;
+    }
+
+    .goals {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px 21px;
+      margin-top: 48px;
+    }
+
+    .challenge-tile,
+    .process-tile-a,
+    .process-tile-b,
+    .testing-tile,
+    .solution-tile,
+    .discovery,
+    .discovery-label,
+    .feature-label,
+    .feature-one,
+    .solution-intro,
+    .outcomes {
+      grid-column: 1 / -1;
+    }
+
+    .discovery-label,
+    .feature-label {
+      margin-top: 64px;
+      margin-bottom: 16px;
+    }
+
+    .discovery,
+    .feature-one {
+      margin-top: 0;
+    }
+
+    .process-tile-a,
+    .process-tile-b,
+    .challenge-tile,
+    .testing-tile,
+    .solution-tile {
+      margin-top: 48px;
+    }
+
+    .process-tile-b {
+      aspect-ratio: 682 / 404;
+    }
+
+    .challenge-tile {
+      aspect-ratio: 330 / 300;
+    }
+
+    .outcomes {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 48px;
+    }
+  }
+
+  /* ---- Mobile ---- */
+  @media (max-width: 767px) {
+    .goals,
+    .outcomes {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .solution-tile,
+    .testing-tile,
+    .process-tile-a,
+    .process-tile-b,
+    .challenge-tile {
+      margin-top: 32px;
+    }
+
+    /* The two testing panels stack instead of sitting side by side */
+    .testing-tile {
+      aspect-ratio: auto;
+      padding: 32px 0;
+    }
+
+    .testing-left,
+    .testing-right {
+      position: static;
+      width: 88%;
+      margin-inline: auto;
+    }
+
+    .testing-left {
+      height: auto;
+      padding-bottom: 24px;
+    }
+
+    .testing-left img,
+    .testing-title {
+      position: static;
+    }
+
+    .testing-title {
+      padding: 24px 24px 16px;
+    }
+
+    .testing-left img {
+      width: 88%;
+      margin: 0 auto;
+    }
+
+    .testing-right {
+      margin-top: 32px;
+    }
+  }
 </style>

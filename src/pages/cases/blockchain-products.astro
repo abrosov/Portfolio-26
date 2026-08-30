@@ -93,3 +93,12 @@ const products = [
     </div>
   ))}
 </CaseLayout>
+
+<style>
+  /* Each product's start screen stacks below the desktop breakpoint. */
+  @media (max-width: 1023px) {
+    .case-opening + .case-opening .case-hero {
+      padding-top: 96px;
+    }
+  }
+</style>

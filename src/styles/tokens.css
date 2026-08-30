@@ -55,5 +55,23 @@
   --page-max-width: none;
   --page-margin: 32px;
   --header-height: 48px;
+  /* The grid halves at tablet and drops to two columns on phones, the same
+     stepping the reference site uses. */
+  --grid-columns: 12;
   --grid-gap: 20px;
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1023px) {
+  :root {
+    --grid-columns: 6;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 767px) {
+  :root {
+    --grid-columns: 2;
+    --page-margin: 28px;
+  }
 }

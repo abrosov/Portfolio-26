@@ -529,3 +529,216 @@ import Pic from '../components/Pic.astro';
     margin-top: 12px;
   }
 </style>
+
+<style>
+  /* ---- Tablet ---- */
+  @media (max-width: 1023px) {
+    .hero {
+      height: auto;
+      padding-block: 64px;
+    }
+
+    .hero-aside,
+    .hero-main,
+    .feature-left,
+    .feature-right,
+    .expertise-quote,
+    .feature-cognitive,
+    .feature-ai {
+      grid-column: 1 / -1;
+    }
+
+    .hero-aside {
+      margin-top: 0;
+    }
+
+    .hero-main {
+      margin-top: 48px;
+    }
+
+    .hero-portrait,
+    .pointer-intro {
+      display: none;
+    }
+
+    .hero-headline {
+      text-indent: 0;
+    }
+
+    .hero-main {
+      padding-top: 0;
+    }
+
+    .crafted {
+      display: block;
+      white-space: normal;
+    }
+
+    .crafted .pointer {
+      display: none;
+    }
+
+    .feature-right {
+      margin-top: 48px;
+    }
+
+    .intro-wide {
+      width: 100%;
+    }
+
+    .tile-portal {
+      margin-top: 48px;
+    }
+
+    .card-1,
+    .card-2 {
+      grid-column: span 3;
+    }
+
+    .card-3 {
+      grid-column: span 3;
+      margin-top: 64px;
+    }
+
+    .cases-featured,
+    .cases-more,
+    .experience {
+      height: auto;
+      min-height: 0;
+      padding-bottom: 64px;
+    }
+
+    .cases-more > .stagger {
+      margin-top: 64px;
+    }
+
+    .feature-ai {
+      margin-top: 64px;
+    }
+
+    .feature-cognitive .case-intro,
+    .feature-ai .case-intro,
+    .card .case-intro {
+      width: 100%;
+    }
+
+    .expertise-label {
+      margin-left: 0;
+    }
+
+    .expertise-quote {
+      text-indent: 0;
+    }
+
+    .cv-row {
+      min-height: 0;
+      padding-block: 24px;
+    }
+
+    .cv-row h3 {
+      grid-column: 1 / -1;
+    }
+
+    .cv-row .t-subtitle {
+      grid-column: 1 / -1;
+      margin-top: 8px;
+    }
+
+    .cv-row .t-body {
+      grid-column: 1 / -1;
+      margin-top: 16px;
+    }
+  }
+
+  /* ---- Mobile ----
+     Matches the mobile frame: one column, and the hero drops to 56px. */
+  @media (max-width: 767px) {
+    .hero {
+      padding-block: 40px 56px;
+    }
+
+    .hero-headline,
+    .hero-statement {
+      font-size: 56px;
+      line-height: 58px;
+    }
+
+    .amp {
+      font-size: 56px;
+      line-height: 58px;
+    }
+
+    /* The mobile frame opens on the portrait and headline; the initials,
+       role list and location are not part of it. */
+    .hero-aside {
+      display: none;
+    }
+
+    .hero-main {
+      margin-top: 0;
+      padding-top: 69px;
+    }
+
+    .hero-portrait,
+    .pointer-intro {
+      display: block;
+    }
+
+    .hero-portrait {
+      top: 0;
+    }
+
+    .pointer-intro {
+      top: 88px;
+      left: 27%;
+      width: 17.5%;
+    }
+
+    /* First line clears the portrait and rule beside it */
+    .hero-headline {
+      text-indent: 44.5%;
+    }
+
+    .hero-statement {
+      margin-top: 32px;
+    }
+
+    .crafted em {
+      display: block;
+      margin-top: 24px;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+      grid-column: 1 / -1;
+    }
+
+    .card-2,
+    .card-3 {
+      margin-top: 56px;
+    }
+
+    .tile-ai-test {
+      padding: 8% 6% 0;
+    }
+
+    .tile-ai-test img {
+      height: auto;
+    }
+
+    .expertise-label {
+      margin-top: 64px;
+    }
+
+    .cases-featured,
+    .cases-more,
+    .experience {
+      padding-bottom: 40px;
+    }
+
+    .cv {
+      margin-top: 40px;
+    }
+  }
+</style>

@@ -301,3 +301,110 @@
 .case-outcomes h3 + p {
   margin-top: 16px;
 }
+
+/* ---- Tablet ----
+   Six columns. The two-up start screen stacks, and the pinned transitions are
+   dropped: they need a tall viewport to read, and the reference site likewise
+   only enables its stacking from the large breakpoint up. */
+@media (max-width: 1023px) {
+  .case-hero,
+  .feature-stack > .case-feature {
+    position: static;
+    top: auto;
+  }
+
+  .case-hero {
+    height: auto;
+    min-height: 0;
+    padding-block: 64px;
+  }
+
+  .case-hero-left,
+  .case-hero-tile,
+  .col-wide,
+  .col-text,
+  .col-label,
+  .case-feature .case-tile,
+  .case-challenge-tile,
+  .case-solution-tile {
+    grid-column: 1 / -1;
+  }
+
+  .case-hero-text {
+    width: 100%;
+  }
+
+  .case-hero-tile {
+    height: auto;
+    aspect-ratio: 682 / 560;
+    margin-top: 48px;
+  }
+
+  /* The left-hand "/ LABEL" gutter has nowhere to sit, so it leads the block */
+  .case-label {
+    margin-bottom: 16px;
+  }
+
+  .case-goals {
+    gap: 32px 21px;
+  }
+
+  .case-outcomes {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 48px;
+  }
+
+  .case-more {
+    padding-block: 96px;
+  }
+}
+
+/* ---- Mobile ----
+   Two columns, everything in one stack. */
+@media (max-width: 767px) {
+  .case-section {
+    padding-block: 32px;
+  }
+
+  .case-hero {
+    padding-block: 40px 64px;
+  }
+
+  .case-hero-tile {
+    aspect-ratio: 434 / 400;
+    margin-top: 32px;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .case-goals,
+  .case-outcomes {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .case-feature {
+    padding-top: 40px;
+  }
+
+  .case-feature .case-tile,
+  .case-challenge-tile,
+  .case-solution-tile {
+    margin-top: 32px;
+  }
+
+  .case-challenge-tile {
+    aspect-ratio: 330 / 300;
+  }
+
+  .case-solution-tile {
+    aspect-ratio: 434 / 320;
+  }
+
+  .case-more {
+    padding-block: 64px;
+  }
+}

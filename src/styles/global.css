@@ -156,10 +156,10 @@ a {
   padding-inline: var(--page-margin);
 }
 
-/* 12-column grid matching the Figma layout grid */
+/* The page grid: 12 columns, halving at tablet and again on phones */
 .grid {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
   gap: 0 var(--grid-gap);
 }
 
@@ -169,7 +169,7 @@ a {
   inset: 0;
   z-index: -1;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  grid-template-columns: repeat(var(--grid-columns), 1fr);
   gap: 0 var(--grid-gap);
   max-width: var(--page-max-width);
   margin-inline: auto;
@@ -180,6 +180,19 @@ a {
 
 .grid-lines > i {
   border-inline: 1px solid var(--color-grid-line);
+}
+
+/* The rules are markup, so the surplus ones are dropped as columns are lost */
+@media (max-width: 1023px) {
+  .grid-lines > i:nth-child(n + 7) {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid-lines > i:nth-child(n + 3) {
+    display: none;
+  }
 }
 
 /* Sections that paint their own background cover the fixed backdrop, so they

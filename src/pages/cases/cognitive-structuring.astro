@@ -235,4 +235,40 @@ const img = '/images/case-cognitive';
     grid-template-columns: repeat(3, 1fr);
     margin-top: 48px;
   }
+
+  /* ---- Tablet and mobile ---- */
+  @media (max-width: 1023px) {
+    .challenge,
+    .solution,
+    .results {
+      min-height: 0;
+    }
+
+    .solution-feature {
+      grid-column: 1 / -1;
+      margin-top: 64px;
+    }
+
+    .case-solution-tile {
+      margin-top: 48px;
+    }
+
+    .case-solution-tile img {
+      width: 88%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .solution-feature {
+      margin-top: 48px;
+    }
+
+    .case-solution-tile {
+      margin-top: 32px;
+    }
+
+    .outcomes-3 {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
