@@ -24,8 +24,7 @@ import Pic from '../components/Pic.astro';
         with a decade of experience in Interface Design<em class="amp"> &amp; </em>Art Direction.
       </h1>
       <p class="hero-statement t-h2" data-reveal>
-        I set a strong product vision that scales, builds trust, and increases
-        <span class="crafted">
+        I set a strong product vision that scales, builds trust, and increases <span class="crafted">
           conversion.
           <i class="pointer" aria-hidden="true"></i>
           <em class="t-h3-serif">All crafted with love.</em>
@@ -360,7 +359,7 @@ import Pic from '../components/Pic.astro';
 
   .crafted .pointer {
     flex: 1;
-    margin: 0 20px 0 6px;
+    margin: 0 var(--rule-gap) 0 6px;
     transform: translateY(-13px);
   }
 
@@ -581,12 +580,17 @@ import Pic from '../components/Pic.astro';
     }
 
     .crafted {
-      display: block;
+      display: contents;
       white-space: normal;
     }
 
     .crafted .pointer {
-      display: none;
+      display: inline-block;
+      flex: none;
+      width: min(224px, 55%);
+      margin: 0 var(--rule-gap);
+      vertical-align: middle;
+      transform: none;
     }
 
     .feature-left {
@@ -708,10 +712,7 @@ import Pic from '../components/Pic.astro';
       margin-top: 32px;
     }
 
-    .crafted em {
-      display: block;
-      margin-top: 24px;
-    }
+
 
     .card-1,
     .card-2,
@@ -789,10 +790,5 @@ import Pic from '../components/Pic.astro';
       margin-top: 32px;
     }
 
-    .crafted em {
-      display: block;
-      margin-top: 17px;
-      margin-left: 35.6%;
-    }
   }
 </style>

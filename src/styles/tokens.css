@@ -59,6 +59,8 @@
      stepping the reference site uses. */
   --grid-columns: 12;
   --grid-gap: 20px;
+  /* Space between a divider rule and the text beside or below it */
+  --rule-gap: 20px;
 }
 
 /* ---- Tablet ---- */
