@@ -311,8 +311,9 @@ import Pic from '../components/Pic.astro';
   .pointer-intro {
     position: absolute;
     top: 38px;
-    left: 12.8%;
-    width: 10.6%;
+    /* portrait (73px) + 44px */
+    left: 117px;
+    width: 97px;
   }
 
   /* Hero type scales with the window the way the reference site's does: a
@@ -326,8 +327,9 @@ import Pic from '../components/Pic.astro';
     line-height: 1.016;
   }
 
+  /* Rule ends at 214px, then the same 16px before the text */
   .hero-headline {
-    text-indent: 25.2%;
+    text-indent: 230px;
   }
 
   .amp {
@@ -697,15 +699,19 @@ import Pic from '../components/Pic.astro';
       top: 0;
     }
 
+    /* The gaps stay fixed, so the rule itself takes up the slack: it reaches
+       the frame's 76px on a wide phone and shortens on a narrow one, rather
+       than pushing the first word past the edge. 323px is the portrait, both
+       gaps and the first word of the headline. */
     .pointer-intro {
       top: 88px;
-      left: 27%;
-      width: 17.5%;
+      left: 117px;
+      width: clamp(6px, calc(100% - 300px), 76px);
     }
 
     /* First line clears the portrait and rule beside it */
     .hero-headline {
-      text-indent: 44.5%;
+      text-indent: calc(133px + clamp(6px, 100% - 300px, 76px));
     }
 
     .hero-statement {
@@ -777,13 +783,13 @@ import Pic from '../components/Pic.astro';
 
     .pointer-intro {
       top: 146px;
-      left: 16.5%;
-      width: 13.7%;
+      left: 117px;
+      width: 97px;
     }
 
     /* First line clears the portrait and rule beside it */
     .hero-headline {
-      text-indent: 30.2%;
+      text-indent: 230px;
     }
 
     .hero-statement {
