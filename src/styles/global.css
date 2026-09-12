@@ -75,6 +75,9 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* Narrower than this the columns stop reading as columns, so the layout
+     holds its width and the window scrolls rather than squeezing further. */
+  min-width: var(--page-min-width);
 }
 
 main {
@@ -167,6 +170,8 @@ a {
 .grid-lines {
   position: fixed;
   inset: 0;
+  /* Fixed, so it needs the floor of its own to stay under the content. */
+  min-width: var(--page-min-width);
   z-index: -1;
   display: grid;
   grid-template-columns: repeat(var(--grid-columns), 1fr);
