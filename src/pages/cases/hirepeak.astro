@@ -133,7 +133,7 @@ const img = '/images/case-hirepeak';
     </div>
 
     <div class="case-tile case-solution-tile" data-reveal>
-      <Pic src={`${img}/solution.jpg`} alt="CV generator flow" />
+      <Pic class="plate" src={`${img}/solution.jpg`} alt="CV generator flow" />
     </div>
   </section>
 
@@ -222,6 +222,7 @@ const img = '/images/case-hirepeak';
      than being placed on top of it. */
   .case-hero-tile :global(.plate),
   .case-challenge-tile :global(.plate),
+  .case-solution-tile :global(.plate),
   .case-screen :global(.plate) {
     position: absolute;
     inset: 0;
@@ -244,9 +245,9 @@ const img = '/images/case-hirepeak';
     margin-top: 140px;
   }
 
-  .case-solution-tile :global(img) {
-    width: 68.7%;
-    border-radius: 12px;
+  /* The plate's own proportions, so it fills without being cropped. */
+  .case-solution-tile {
+    aspect-ratio: 1389 / 875;
   }
 
   .outcomes-3 {
