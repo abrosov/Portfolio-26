@@ -220,8 +220,10 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     transition: opacity 0.2s ease;
   }
 
-  .submit:hover {
-    opacity: 0.85;
+  @media (hover: hover) {
+    .submit:hover {
+      opacity: 0.85;
+    }
   }
 
   .submit[disabled] {

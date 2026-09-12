@@ -60,11 +60,18 @@
     transition: text-decoration-color 0.2s ease;
   }
 
-  .left a:hover,
-  .right a:not(.contact):hover,
   .left a:focus-visible,
   .right a:not(.contact):focus-visible {
     text-decoration-color: currentColor;
+  }
+
+  /* Hover styles only where a pointer can hover. On a touch screen an
+     unguarded :hover turns the first tap into a hover instead of a click. */
+  @media (hover: hover) {
+    .left a:hover,
+    .right a:not(.contact):hover {
+      text-decoration-color: currentColor;
+    }
   }
 
   /* The Contact pill behaves like the form's submit button, not a text link. */
@@ -72,9 +79,14 @@
     transition: opacity 0.2s ease;
   }
 
-  .contact:hover,
   .contact:focus-visible {
     opacity: 0.85;
+  }
+
+  @media (hover: hover) {
+    .contact:hover {
+      opacity: 0.85;
+    }
   }
 
   /* The mobile frame carries Cases, the wordmark and Contact only */

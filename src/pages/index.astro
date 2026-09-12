@@ -38,6 +38,8 @@ import Pic from '../components/Pic.astro';
     <SectionTitle title="Selected Cases" />
     <div class="grid">
       <div class="feature-left" data-reveal>
+        <!-- Each tile link repeats its heading's link, so it stays out of the tab
+             order and the accessibility tree; the heading is what gets announced. -->
         <a class="tile tile-climate" href="/cases/climate-tech-viewer/" aria-hidden="true" tabindex="-1">
           <Pic src="/images/case-climate-tech.png" alt="Climate Tech Viewer interface" />
         </a>
@@ -218,8 +220,12 @@ import Pic from '../components/Pic.astro';
     transition: transform var(--image-hover-duration) var(--image-hover-ease);
   }
 
-  .tile:hover img {
-    transform: scale(var(--image-hover-scale));
+  /* Only where a pointer can really hover. Left unguarded, the first tap on a
+     touch screen applies :hover instead of following the link. */
+  @media (hover: hover) {
+    .tile:hover img {
+      transform: scale(var(--image-hover-scale));
+    }
   }
 
   .tile-climate img,
