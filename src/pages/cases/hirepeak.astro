@@ -52,16 +52,13 @@ const img = '/images/case-hirepeak';
         </dl>
       </div>
 
-      <!-- Three screens stacked in the tile, as the design layers them -->
-      <div class="case-tile case-hero-tile hp-hero" data-reveal>
-        <Pic eager class="hp-screen" src={`${img}/hero-screen.png`} alt="HirePeak documents workspace" />
-        <Pic class="hp-notepad" src={`${img}/hero-notepad.png`} alt="Notepad panel" />
-        <Pic class="hp-positions" src={`${img}/hero-positions.png`} alt="Manage key positions dialog" />
+      <div class="case-tile case-hero-tile" data-reveal>
+        <Pic eager class="plate" src={`${img}/hero.jpg`} alt="HirePeak documents workspace, notepad and key positions" />
       </div>
     </section>
 
-    <div class="case-screen hp-screen-band">
-      <Pic src={`${img}/laptop.png`} alt="HirePeak running on a laptop" />
+    <div class="case-screen">
+      <Pic class="plate" src={`${img}/screen.jpg`} alt="HirePeak running on a laptop" />
     </div>
   </div>
 
@@ -101,7 +98,7 @@ const img = '/images/case-hirepeak';
       </li>
     </ol>
     <div class="case-tile case-challenge-tile" data-reveal>
-      <Pic class="badge-img" src={`${img}/badge.png`} alt="Client mark" />
+      <Pic class="plate" src={`${img}/challenge.png`} alt="Client mark" />
     </div>
   </section>
 
@@ -136,7 +133,7 @@ const img = '/images/case-hirepeak';
     </div>
 
     <div class="case-tile case-solution-tile" data-reveal>
-      <Pic src={`${img}/solution.png`} alt="CV generator flow" />
+      <Pic src={`${img}/solution.jpg`} alt="CV generator flow" />
     </div>
   </section>
 
@@ -146,25 +143,22 @@ const img = '/images/case-hirepeak';
       index={2}
       title="Market Recommendations"
       body="Each generated CV comes with a scored list of recommendations and the top skills for the target position in the current year. Changes are highlighted in place; the recruiter applies them all at once, accepts them one by one, or edits the text directly."
-      image={`${img}/feature-recommendations.jpg`}
+      image={`${img}/feature-2.jpg`}
       alt="Scored market recommendations on a generated CV"
-      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
     />
     <CaseFeature
       index={3}
       title="Export & Sharing"
       body="The finished CV is exported as a PDF in the firm's template, ready to download or share with hiring managers. Restarting the flow keeps the selected positions, so a second version for another role takes minutes rather than a morning."
-      image={`${img}/feature-export.png`}
+      image={`${img}/feature-3.jpg`}
       alt="Exporting the finished CV as a PDF"
-      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
     />
     <CaseFeature
       index={4}
       title="Documents Hub"
       body="Every CV lives in one list with its owner, date, status and notes, filtered by created, shared and archived. Recent files, favourites and the team wiki sit beside it, so onboarding and process guides are always one click away."
-      image={`${img}/hero-screen.png`}
+      image={`${img}/feature-4.jpg`}
       alt="Documents hub listing every CV with its status"
-      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
     />
   </div>
 
@@ -222,51 +216,27 @@ const img = '/images/case-hirepeak';
     min-height: 835px;
   }
 
-  /* ---- Start screen ----
-     Three screens layered in the tile rather than one centred mockup, so each
-     is placed as a share of the tile and rides its height. */
-  .hp-hero :global(img) {
+  /* ---- Finished tiles ----
+     These come out of Figma whole - the accent, the mockups and the spacing
+     between them are already in the file - so each one covers its tile rather
+     than being placed on top of it. */
+  .case-hero-tile :global(.plate),
+  .case-challenge-tile :global(.plate),
+  .case-screen :global(.plate) {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transform: none;
-    border-radius: 8px;
+    border-radius: inherit;
   }
 
-  .hp-hero :global(.hp-screen) {
-    left: 6.9%;
-    top: 6.2%;
-    /* Wider than the tile, as in the design; the tile clips the overhang. */
-    width: 105.6%;
-    border-radius: 12px;
-  }
-
-  .hp-hero :global(.hp-notepad) {
-    left: 5.7%;
-    top: 65%;
-    width: 29.9%;
-  }
-
-  .hp-hero :global(.hp-positions) {
-    left: 35.6%;
-    top: 65%;
-    width: 40%;
-  }
-
-  /* The full-bleed band is the accent with the laptop centred on it, rather
-     than a screenshot that fills the width. */
-  .hp-screen-band {
-    background: var(--case-accent);
-  }
-
-  .hp-screen-band :global(img) {
-    width: 82.2%;
+  /* The start screen's tile follows the plate instead of the viewport, so the
+     whole composition stays in frame at every height. */
+  .case-hero-tile {
     height: auto;
-    margin: 0 auto;
-    object-fit: contain;
-  }
-
-  .case-challenge-tile :global(.badge-img) {
-    position: static;
-    width: 130px;
-    height: 130px;
+    aspect-ratio: 682 / 819;
   }
 
   .feature-label,

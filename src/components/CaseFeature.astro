@@ -10,8 +10,9 @@ interface Props {
   body: string;
   image: string;
   alt: string;
-  /* Placement of the mockup inside its tile, as % of the tile */
-  frame: { left: string; top: string; width: string };
+  /* Placement of the mockup inside its tile, as % of the tile. Omit it when
+     the image is the finished tile, background and all, and it fills. */
+  frame?: { left: string; top: string; width: string };
 }
 
 const { index, title, body, image, alt, frame } = Astro.props;
@@ -25,6 +26,21 @@ const { index, title, body, image, alt, frame } = Astro.props;
     <p class="case-feature-body t-body">{body}</p>
   </div>
   <div class="case-tile" data-reveal>
-    <Pic src={image} alt={alt} style={`left:${frame.left};top:${frame.top};width:${frame.width}`} />
+    <Pic
+      src={image}
+      alt={alt}
+      class={frame ? undefined : 'is-plate'}
+      style={frame ? `left:${frame.left};top:${frame.top};width:${frame.width}` : undefined}
+    />
   </div>
 </section>
+
+<style>
+  /* A tile exported whole: the image already carries the accent behind the
+     mockup, so it covers the tile instead of being placed on it. */
+  .case-tile :global(.is-plate) {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -57,7 +57,7 @@ import Pic from '../components/Pic.astro';
           </p>
         </article>
         <a class="tile tile-hirepeak" href="/cases/hirepeak/" aria-hidden="true" tabindex="-1" data-reveal>
-          <Pic src="/images/case-hirepeak/laptop.png" alt="HirePeak documents workspace on a laptop" />
+          <Pic src="/images/case-hirepeak/card.jpg" alt="HirePeak documents workspace on a laptop" />
         </a>
         <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
@@ -406,20 +406,17 @@ import Pic from '../components/Pic.astro';
     width: 79.3%;
   }
 
+  /* This tile comes out of Figma whole, accent and all, so the image is the
+     tile rather than a mockup placed on one. */
   .tile-hirepeak {
     aspect-ratio: 565 / 331;
     margin-top: 88px;
     background: var(--color-accent-gold);
-    /* The laptop hangs off the bottom of the tile, so it is placed from the
-       top rather than sat on the tile's floor like the other mockups. */
-    align-items: flex-start;
   }
 
   .tile-hirepeak img {
-    width: 99.6%;
-    aspect-ratio: 563 / 343;
-    /* 34 of the tile's 565 width; percentage margins resolve against width. */
-    margin-top: 6%;
+    width: 100%;
+    height: 100%;
   }
 
   .tile-hirepeak + .case-intro {
