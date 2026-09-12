@@ -299,16 +299,17 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     gap: 12px;
   }
 
-  /* The line is a ring rather than a border: the mock draws it outside the
-     box, and a ring keeps the field the same size whether it is 1px or 2px,
-     so nothing shifts as the state changes. */
+  /* A resting field is its fill alone, as the mock draws it. The stroke is a
+     ring rather than a border: the mock draws it outside the box, and a ring
+     leaves the field the same size whether or not it is showing, so nothing
+     shifts when one appears. */
   input,
   textarea {
     width: 100%;
     background: var(--color-field);
     border: 0;
     border-radius: 4px;
-    box-shadow: 0 0 0 var(--field-line) var(--color-field-line);
+    box-shadow: none;
     padding: 0 12px;
     font: 500 16px/36px var(--font-display);
     color: var(--color-ink);
@@ -331,16 +332,8 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
   }
 
   /* ---- Field states ----
-     The same stroke throughout: barely there at rest, firmer under the cursor,
-     and at full strength and 2px when the field is active. Only an error
-     leaves that scale, and it is the one thing here that is not the stroke. */
-
-  @media (hover: hover) {
-    input:hover:not(:disabled),
-    textarea:hover:not(:disabled) {
-      box-shadow: 0 0 0 var(--field-line) var(--color-field-line-hover);
-    }
-  }
+     Nothing until the field is active, then the stroke. Only an error shows
+     one otherwise, and it is the one thing here that is not the stroke. */
 
   /* :focus, not :focus-visible — a text field being active is always worth
      showing, however the person got there, including when a failed submit

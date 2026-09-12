@@ -30,15 +30,11 @@
   --color-accent-blue: #8ec4d9;
   --color-accent-green: #a1b06c;
 
-  /* Form fields. One stroke colour per palette: resting and hover are that
-     same stroke held back, and the active state is it at full strength and
-     twice as thick. Only --color-danger is its own colour, chosen to clear AA
-     on both the contact ground and the field fill. */
+  /* Form fields. A field shows no stroke until it is active, then this one,
+     per palette. Only --color-danger is its own colour, chosen to clear AA on
+     both the contact ground and the field fill. */
   --color-field-stroke: var(--color-rule-soft);
-  --color-field-line: color-mix(in srgb, var(--color-field-stroke) 40%, transparent);
-  --color-field-line-hover: color-mix(in srgb, var(--color-field-stroke) 70%, transparent);
   --color-field-line-active: var(--color-field-stroke);
-  --field-line: 1px;
   --field-line-active: 2px;
   --color-danger: #8f2f16;
 
