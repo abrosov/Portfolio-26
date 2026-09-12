@@ -98,7 +98,7 @@ const img = '/images/case-hirepeak';
       </li>
     </ol>
     <div class="case-tile case-challenge-tile" data-reveal>
-      <Pic class="plate" src={`${img}/challenge.png`} alt="Client mark" />
+      <span class="badge"><img src={`${img}/badge.svg`} alt="Client mark" width="88" height="88" /></span>
     </div>
   </section>
 
@@ -221,7 +221,6 @@ const img = '/images/case-hirepeak';
      between them are already in the file - so each one covers its tile rather
      than being placed on top of it. */
   .case-hero-tile :global(.plate),
-  .case-challenge-tile :global(.plate),
   .case-solution-tile :global(.plate),
   .case-screen :global(.plate) {
     position: absolute;
@@ -245,6 +244,13 @@ const img = '/images/case-hirepeak';
   .feature-label,
   .feature-one {
     margin-top: 140px;
+  }
+
+  /* The mark is vector, so it stays crisp however large the tile gets; it
+     measures 88 of the badge's 130 rather than the 62 the shared rule sets. */
+  .case-challenge-tile img {
+    width: 88px;
+    height: 88px;
   }
 
   /* The plate's own proportions, so it fills without being cropped. */
