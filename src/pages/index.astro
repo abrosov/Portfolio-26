@@ -56,15 +56,15 @@ import Pic from '../components/Pic.astro';
             gas emissions across fast-growing industries.
           </p>
         </article>
-        <div class="tile tile-portal" data-reveal>
-          <Pic src="/images/case-client-portal.png" alt="Client Portal dashboard" />
-        </div>
+        <a class="tile tile-hirepeak" href="/cases/hirepeak/" aria-hidden="true" tabindex="-1" data-reveal>
+          <Pic src="/images/case-hirepeak/laptop.png" alt="HirePeak documents workspace on a laptop" />
+        </a>
         <article class="case-intro intro-wide" data-reveal>
           <p class="case-meta t-subtitle">Product Design &amp; Engineering <i></i> &rsquo;26</p>
-          <h3 class="t-h3">Client <em class="t-h3-serif">Portal</em></h3>
+          <h3 class="t-h3"><a href="/cases/hirepeak/">Hire<em class="t-h3-serif">Peak</em></a></h3>
           <p class="t-body">
-            A platform that helps agricultural organizations track, manage, and evaluate the performance
-            of AI agents across their customer-facing products.
+            An AI-powered HRM system that analyzes and enhances candidate CVs, helping recruiters
+            streamline hiring and make more informed decisions.
           </p>
         </article>
       </div>
@@ -403,19 +403,23 @@ import Pic from '../components/Pic.astro';
     width: 79.3%;
   }
 
-  .tile-portal {
+  .tile-hirepeak {
     aspect-ratio: 565 / 331;
     margin-top: 88px;
     background: var(--color-accent-gold);
+    /* The laptop hangs off the bottom of the tile, so it is placed from the
+       top rather than sat on the tile's floor like the other mockups. */
+    align-items: flex-start;
   }
 
-  .tile-portal img {
-    width: 73.1%;
-    aspect-ratio: 413 / 307;
-    border-radius: 4px 4px 0 0;
+  .tile-hirepeak img {
+    width: 99.6%;
+    aspect-ratio: 563 / 343;
+    /* 34 of the tile's 565 width; percentage margins resolve against width. */
+    margin-top: 6%;
   }
 
-  .tile-portal + .case-intro {
+  .tile-hirepeak + .case-intro {
     margin-top: 32px;
   }
 
@@ -613,7 +617,7 @@ import Pic from '../components/Pic.astro';
       width: 100%;
     }
 
-    .tile-portal {
+    .tile-hirepeak {
       margin-top: 96px;
     }
 

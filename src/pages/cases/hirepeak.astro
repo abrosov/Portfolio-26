@@ -1,0 +1,311 @@
+---
+import CaseLayout from '../../layouts/CaseLayout.astro';
+import SectionTitle from '../../components/SectionTitle.astro';
+import CaseFeature from '../../components/CaseFeature.astro';
+import GridLines from '../../components/GridLines.astro';
+import Pic from '../../components/Pic.astro';
+
+const img = '/images/case-hirepeak';
+---
+
+<CaseLayout
+  title="HirePeak — Alex Abrosov"
+  description="An AI-powered HRM system that analyzes and enhances candidate CVs, helping recruiters streamline hiring."
+  accent="var(--color-accent-gold)"
+>
+  <!-- Start screen -->
+  <div class="case-opening">
+    <section class="case-hero container case-grid">
+      <div class="case-hero-left">
+        <div class="case-hero-text">
+          <p class="t-subtitle" data-reveal>2026</p>
+          <h1 class="case-hero-title t-h1" data-reveal>Hire<em>Peak</em></h1>
+          <p class="case-hero-intro t-body-2" data-reveal>
+            HirePeak is an advanced HRM system that streamlines the hiring process by collecting,
+            analyzing, and enhancing candidate CVs using AI insights. It helps job seekers refine their
+            resumes to meet market standards while providing recruiters with structured feedback and
+            optimization tools for a more efficient interview process.
+          </p>
+        </div>
+
+        <dl class="case-meta" data-reveal>
+          <div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Client</dt>
+              <dd class="t-body">Confidential Global Enterprise</dd>
+            </div>
+            <div class="case-meta-group">
+              <dt class="t-subtitle">Industry</dt>
+              <dd class="t-body">Talent Acquisition</dd>
+            </div>
+          </div>
+          <div>
+            <dt class="t-subtitle">Services</dt>
+            <dd class="t-body">
+              Discovery &amp; Research<br />Ideation &amp; Features Dev<br />Rebranding<br />Design System
+            </dd>
+          </div>
+          <div>
+            <dt class="t-subtitle">Responsibilities</dt>
+            <dd class="t-body">Product Design<br />Frontend<br />Management</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Three screens stacked in the tile, as the design layers them -->
+      <div class="case-tile case-hero-tile hp-hero" data-reveal>
+        <Pic eager class="hp-screen" src={`${img}/hero-screen.png`} alt="HirePeak documents workspace" />
+        <Pic class="hp-notepad" src={`${img}/hero-notepad.png`} alt="Notepad panel" />
+        <Pic class="hp-positions" src={`${img}/hero-positions.png`} alt="Manage key positions dialog" />
+      </div>
+    </section>
+
+    <div class="case-screen hp-screen-band">
+      <Pic src={`${img}/laptop.png`} alt="HirePeak running on a laptop" />
+    </div>
+  </div>
+
+  <!-- Challenge -->
+  <section class="case-section container case-grid challenge">
+    <SectionTitle title="Challenge" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      Hiring stalls on both sides of the same document. Job seekers send out resumes they cannot tell
+      are wrong for the role, and recruiters read hundreds of them with no consistent way to compare
+      candidates or explain a decision. The task was to build an AI hiring tool that gives both sides
+      structured, actionable insight: a resume the candidate can fix before applying, and an evaluation
+      the recruiter can act on and respond to within the day. The harder part was calibration. The AI
+      had to sharpen the decision, not make it, so recruiters stay in control instead of being led by
+      automation.
+    </p>
+    <ol class="col-wide case-goals" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <p class="t-body">
+          Inconsistent resume quality. Job seekers struggle to tailor their resumes to a role, which
+          leads to mismatched applications and lower chances of success.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <p class="t-body">
+          Inefficient candidate evaluation. Recruiters have no fast way to assess resumes and return
+          actionable feedback, so the whole hiring process drags.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <p class="t-body">
+          Balancing AI and human input. Insights have to stay actionable rather than overwhelming, so
+          users make informed decisions without feeling overpowered by automation.
+        </p>
+      </li>
+    </ol>
+    <div class="case-tile case-challenge-tile" data-reveal>
+      <Pic class="badge-img" src={`${img}/badge.png`} alt="Client mark" />
+    </div>
+  </section>
+
+  <!-- Solution -->
+  <section class="case-section container case-grid solution">
+    <SectionTitle title="Solution" />
+    <div class="col-wide case-solution-intro" data-reveal>
+      <p class="t-body-2">
+        I designed the product around the CV itself. A recruiter uploads a candidate&rsquo;s file, tags
+        the target positions and level, and the AI rewrites it to the market standard with every change
+        highlighted and explained. The decision I argued for most was keeping the recruiter in charge:
+        each suggestion can be accepted, edited or rejected, and the Documents hub holds the whole
+        pipeline, its statuses and notes, in one place.
+      </p>
+      <p class="case-tags t-button">
+        <span>CV Generator</span><i></i><span>Dashboards</span><i></i><span>Market Recommendations</span><i></i>
+        <span>Documents Hub</span><i></i><span>Notes &amp; Support</span><i></i><span>and more</span>
+      </p>
+    </div>
+
+    <p class="case-label col-label t-subtitle feature-label" data-reveal>/ Feature 1</p>
+    <div class="col-text feature-one" data-reveal>
+      <div class="case-block">
+        <h3 class="t-subtitle" data-label="Feature 1">CV Generator</h3>
+        <p class="t-body">
+          The core flow is four steps: upload the CV, select the key positions, optimize it to the
+          market and export. It accepts PDF, DOC and XLS files, links and cloud imports, and each step
+          unlocks only when the previous one is complete, so a recruiter can leave the flow and pick it
+          up later without losing progress.
+        </p>
+      </div>
+    </div>
+
+    <div class="case-tile case-solution-tile" data-reveal>
+      <Pic src={`${img}/solution.png`} alt="CV generator flow" />
+    </div>
+  </section>
+
+  <!-- Solution details -->
+  <div class="feature-stack">
+    <CaseFeature
+      index={2}
+      title="Market Recommendations"
+      body="Each generated CV comes with a scored list of recommendations and the top skills for the target position in the current year. Changes are highlighted in place; the recruiter applies them all at once, accepts them one by one, or edits the text directly."
+      image={`${img}/feature-recommendations.jpg`}
+      alt="Scored market recommendations on a generated CV"
+      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
+    />
+    <CaseFeature
+      index={3}
+      title="Export & Sharing"
+      body="The finished CV is exported as a PDF in the firm's template, ready to download or share with hiring managers. Restarting the flow keeps the selected positions, so a second version for another role takes minutes rather than a morning."
+      image={`${img}/feature-export.png`}
+      alt="Exporting the finished CV as a PDF"
+      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
+    />
+    <CaseFeature
+      index={4}
+      title="Documents Hub"
+      body="Every CV lives in one list with its owner, date, status and notes, filtered by created, shared and archived. Recent files, favourites and the team wiki sit beside it, so onboarding and process guides are always one click away."
+      image={`${img}/hero-screen.png`}
+      alt="Documents hub listing every CV with its status"
+      frame={{ left: '13.1%', top: '7%', width: '73.9%' }}
+    />
+  </div>
+
+  <!-- Results -->
+  <section class="case-section container case-grid case-results results">
+    <GridLines local />
+    <SectionTitle title="Results" />
+    <p class="col-wide case-intro t-body-2" data-reveal>
+      After the rollout, recruiters got structured, actionable insight on every CV, and a place to keep
+      that knowledge and their team practices inside the tool rather than in private notes. The AI works
+      as a partner; the final call stays with the person. Two quarters after the production release, the
+      tool became the standard for CV preparation across every area of the company&rsquo;s recruiting.
+    </p>
+    <ol class="col-wide case-outcomes outcomes-3" data-reveal>
+      <li>
+        <p class="t-h3">1.</p>
+        <h3 class="t-subtitle">CV preparation time cut by 41%</h3>
+        <p class="t-body">
+          A CV ready for the market now takes under twenty minutes instead of the better part of a
+          morning, across the whole talent team.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">2.</p>
+        <h3 class="t-subtitle">87% of suggestions accepted</h3>
+        <p class="t-body">
+          On average recruiters override one suggestion in eight and edit it by hand, which is the
+          balance of AI and human judgement the product was designed for.
+        </p>
+      </li>
+      <li>
+        <p class="t-h3">3.</p>
+        <h3 class="t-subtitle">Adopted across four practice areas</h3>
+        <p class="t-body">
+          The pilot started with accounting roles; the position library and CV standards now cover
+          audit, tax, advisory and consulting hiring.
+        </p>
+      </li>
+    </ol>
+  </section>
+</CaseLayout>
+
+<style>
+  /* Section heights come from the Figma frame; everything else is the shared
+     case rhythm in case.css, so this page resizes with the other four. */
+  .challenge {
+    min-height: 1197px;
+  }
+
+  .solution {
+    min-height: 1595px;
+  }
+
+  .results {
+    min-height: 835px;
+  }
+
+  /* ---- Start screen ----
+     Three screens layered in the tile rather than one centred mockup, so each
+     is placed as a share of the tile and rides its height. */
+  .hp-hero :global(img) {
+    transform: none;
+    border-radius: 8px;
+  }
+
+  .hp-hero :global(.hp-screen) {
+    left: 6.9%;
+    top: 6.2%;
+    /* Wider than the tile, as in the design; the tile clips the overhang. */
+    width: 105.6%;
+    border-radius: 12px;
+  }
+
+  .hp-hero :global(.hp-notepad) {
+    left: 5.7%;
+    top: 65%;
+    width: 29.9%;
+  }
+
+  .hp-hero :global(.hp-positions) {
+    left: 35.6%;
+    top: 65%;
+    width: 40%;
+  }
+
+  /* The full-bleed band is the accent with the laptop centred on it, rather
+     than a screenshot that fills the width. */
+  .hp-screen-band {
+    background: var(--case-accent);
+  }
+
+  .hp-screen-band :global(img) {
+    width: 82.2%;
+    height: auto;
+    margin: 0 auto;
+    object-fit: contain;
+  }
+
+  .case-challenge-tile :global(.badge-img) {
+    position: static;
+    width: 130px;
+    height: 130px;
+  }
+
+  .feature-label,
+  .feature-one {
+    margin-top: 140px;
+  }
+
+  .case-solution-tile :global(img) {
+    width: 68.7%;
+    border-radius: 12px;
+  }
+
+  .outcomes-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* ---- Tablet and mobile ---- */
+  @media (max-width: 1023px) {
+    .challenge,
+    .solution,
+    .results {
+      min-height: 0;
+    }
+
+    .feature-label,
+    .feature-one {
+      grid-column: 1 / -1;
+    }
+
+    /* With the label folded into its heading, the block carries the gap that
+       used to sit above the label. */
+    .feature-one {
+      margin-top: 64px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .feature-one {
+      margin-top: 80px;
+    }
+  }
+</style>
