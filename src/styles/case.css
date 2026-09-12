@@ -209,6 +209,11 @@
 .case-results {
   position: relative;
   background: var(--color-bg);
+  /* Its own stacking context, so the rules it carries sit above that
+     background. Without one they belong to an ancestor's context and their
+     negative z-index drops them behind it, and the section loses its grid.
+     The feature panels get this free from being sticky. */
+  isolation: isolate;
 }
 
 /* ---- Footer lead-in ---- */
