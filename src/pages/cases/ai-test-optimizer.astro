@@ -250,6 +250,10 @@ const img = '/images/case-ai-test';
   }
 
   @media (max-width: 767px) {
+    /* The desktop panel uses a 15px lead that is off the mobile scale. */
+    .solution-feature .case-block > * + * {
+      margin-top: 16px;
+    }
     .solution-feature {
       margin-top: 48px;
     }

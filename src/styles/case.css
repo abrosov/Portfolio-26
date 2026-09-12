@@ -362,38 +362,117 @@
 /* ---- Mobile ----
    Two columns, everything in one stack. */
 @media (max-width: 767px) {
+  /* ---- Mobile ----
+     Rebuilt from the Figma reference (UI TESTS -> "Climate Tech Viewer -
+     Mobile"). Everything here runs on one scale - 8, 16, 24, 32, 48, 64, 80,
+     100 - and the sections the reference stops short of take the same steps as
+     the ones it draws, so the rhythm carries to the end of every case. */
+
+  /* A section opens 48 under whatever preceded it and closes flush, so a tile
+     meeting the next section's heading always reads as 48. */
   .case-section {
-    padding-block: 32px;
+    padding-block: 48px 0;
   }
 
+  /* The heading sits at the left margin and its rule runs out to the right. */
+  .case-section .section-title {
+    gap: 16px;
+  }
+
+  .case-section .section-title i:first-child {
+    display: none;
+  }
+
+  /* ---- Start screen ---- */
+
   .case-hero {
-    padding-block: 40px 64px;
+    padding-block: 48px 32px;
+  }
+
+  /* The desktop column keeps a 41px lead-in that the section padding now
+     supplies; left in, the year would start 89px under the header. */
+  .case-hero-left {
+    padding-top: 0;
+  }
+
+  .case-meta {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px var(--grid-gap);
+    margin-top: 64px;
+  }
+
+  /* Client and Industry hold the left column; Services and Responsibilities
+     stack down the right, as the reference draws them. */
+  .case-meta > :nth-child(1) {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .case-meta > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .case-meta > :nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
   }
 
   .case-hero-tile {
     aspect-ratio: 434 / 400;
-    margin-top: 48px;
+    margin-top: 100px;
   }
 
-  .case-meta {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  /* ---- Section bodies ---- */
+
+  .case-intro {
+    margin-top: 48px;
   }
 
   .case-goals,
   .case-outcomes {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px var(--grid-gap);
+    margin-top: 48px;
   }
+
+  /* The gutter label folds into the heading it belongs to, so the pair reads
+     as one line: "DISCOVERY / WORKSHOPS". */
+  .case-label {
+    display: none;
+  }
+
+  .case-grid [data-label]::before {
+    content: attr(data-label) ' / ';
+  }
+
+  .case-block > * + * {
+    margin-top: 16px;
+  }
+
+  .case-tags {
+    row-gap: 16px;
+  }
+
+  /* ---- Solution details ---- */
 
   .case-feature {
-    padding-top: 40px;
+    padding-top: 48px;
   }
 
-  .case-feature .case-tile,
+  .case-feature-body {
+    margin-top: 16px;
+  }
+
+  /* A tile belonging to a block sits 80 under its copy; a tile that closes a
+     whole section gets 100. */
+  .case-feature .case-tile {
+    margin-top: 80px;
+  }
+
   .case-challenge-tile,
   .case-solution-tile {
-    margin-top: 48px;
+    margin-top: 100px;
   }
 
   .case-challenge-tile {
@@ -406,5 +485,23 @@
 
   .case-more {
     padding-block: 64px;
+  }
+}
+
+/* ---- Narrow phones ----
+   The two-up pairs above come from a 490px reference. Below 480 each column
+   is about 150px, too narrow for a line of body copy, so the pairs stack. */
+@media (max-width: 479px) {
+  .case-meta,
+  .case-goals,
+  .case-outcomes {
+    grid-template-columns: 1fr;
+  }
+
+  .case-meta > :nth-child(1),
+  .case-meta > :nth-child(2),
+  .case-meta > :nth-child(3) {
+    grid-column: 1;
+    grid-row: auto;
   }
 }

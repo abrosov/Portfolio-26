@@ -106,7 +106,7 @@ const img = '/images/case-climate';
     <p class="case-label col-label t-subtitle discovery-label" data-reveal>/ Discovery</p>
     <div class="col-text discovery" data-reveal>
       <div class="case-block">
-        <h3 class="t-subtitle">Workshops</h3>
+        <h3 class="t-subtitle" data-label="Discovery">Workshops</h3>
         <p class="t-body">
           At first, the client provided a wealth of research and raw data without a clear structure. We
           held series of design workshops with key stakeholders, turning fragmented ideas into a clear,
@@ -133,7 +133,7 @@ const img = '/images/case-climate';
     <p class="case-label col-label t-subtitle" data-reveal>/ Hypotheses</p>
     <div class="col-text" data-reveal>
       <div class="case-block">
-        <h3 class="t-subtitle">Usability Testing</h3>
+        <h3 class="t-subtitle" data-label="Hypotheses">Usability Testing</h3>
         <p class="t-body">
           We conducted in-depth interviews and usability testing sessions to better understand the needs
           of different user roles and backgrounds. This helped us account for all possible system use
@@ -177,7 +177,7 @@ const img = '/images/case-climate';
     <p class="case-label col-label t-subtitle feature-label" data-reveal>/ Feature 1</p>
     <div class="col-text feature-one" data-reveal>
       <div class="case-block">
-        <h3 class="t-subtitle">Technology Details</h3>
+        <h3 class="t-subtitle" data-label="Feature 1">Technology Details</h3>
         <p class="t-body">
           We tested multiple data visualization options and, through usability testing, identified the one
           that enabled users to find results most efficiently—a circular taxonomy diagram. We also
@@ -515,20 +515,58 @@ const img = '/images/case-climate';
     }
   }
 
-  /* ---- Mobile ---- */
+  /* ---- Mobile ----
+     Same scale as case.css: 8, 16, 24, 32, 48, 64, 80, 100. */
   @media (max-width: 767px) {
-    .goals,
-    .outcomes {
-      grid-template-columns: 1fr;
-      gap: 40px;
+    /* The desktop section trims its own top padding; on mobile every section
+       opens on the same 48. */
+    .testing {
+      padding-top: 48px;
     }
 
-    .solution-tile,
-    .testing-tile,
-    .process-tile-a,
-    .process-tile-b,
-    .challenge-tile {
+    .goals,
+    .outcomes {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px var(--grid-gap);
       margin-top: 48px;
+    }
+
+    /* With the label folded into its heading, the block itself carries the
+       gap that used to sit above the label. */
+    .discovery,
+    .feature-one {
+      margin-top: 80px;
+    }
+
+    .discovery .case-tags,
+    .testing .case-tags,
+    .solution-intro .case-tags {
+      margin-top: 32px;
+    }
+
+    .solution-intro {
+      margin-top: 48px;
+    }
+
+    /* The desktop panel uses a 15px lead that is off the mobile scale. */
+    .feature-one .case-block > * + * {
+      margin-top: 16px;
+    }
+
+    /* A tile belonging to a block sits 80 under its copy; the pair of process
+       tiles run 32 apart; a tile closing a section gets 100. */
+    .process-tile-a,
+    .testing-tile {
+      margin-top: 80px;
+    }
+
+    .process-tile-b {
+      margin-top: 32px;
+    }
+
+    .challenge-tile,
+    .solution-tile {
+      margin-top: 100px;
     }
 
     /* The two testing panels stack instead of sitting side by side */
@@ -565,6 +603,14 @@ const img = '/images/case-climate';
 
     .testing-right {
       margin-top: 32px;
+    }
+  }
+
+  /* ---- Narrow phones ---- */
+  @media (max-width: 479px) {
+    .goals,
+    .outcomes {
+      grid-template-columns: 1fr;
     }
   }
 </style>
