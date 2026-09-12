@@ -109,6 +109,18 @@ const products = [
     padding-top: 48px;
   }
 
+  /* ...and closes 80px above the screen that follows. The tile is sized to
+     leave exactly that, so the 48 above does not eat into it. */
+  @media (min-width: 1181px) {
+    .case-hero-tile {
+      height: calc(max(100vh - var(--header-height), 780px) - 80px);
+    }
+
+    .case-opening + .case-opening .case-hero-tile {
+      height: calc(max(100vh - var(--header-height), 780px) - 128px);
+    }
+  }
+
   /* Each product's start screen stacks below the desktop breakpoint. */
   @media (max-width: 1180px) {
     /* The pinned transition is off here, so the screen has nothing to slide
