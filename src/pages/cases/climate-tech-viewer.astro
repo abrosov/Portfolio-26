@@ -496,10 +496,20 @@ const img = '/images/case-climate';
       margin-top: 120px;
     }
 
-    .process-tile-a,
-    .process-tile-b,
-    .testing-tile {
+    /* Usability testing carries no heading, so it opens on the section
+       padding alone; the desktop rule trims that and has to be restated. */
+    .testing {
+      padding-top: 120px;
+    }
+
+    .process-tile-b {
       margin-top: 64px;
+    }
+
+    /* A tile that finishes the block above it, like the solution tile. */
+    .process-tile-a,
+    .testing-tile {
+      margin-top: 48px;
     }
 
     /* The tile finishes the block above it rather than closing the section. */
@@ -547,11 +557,11 @@ const img = '/images/case-climate';
       margin-top: 48px;
     }
 
-    /* A tile belonging to a block sits 80 under its copy; the pair of process
-       tiles run 32 apart; a tile closing a section gets 100. */
+    /* A tile finishing the block above it sits 48 under its copy; the pair of
+       process tiles run 32 apart; a tile closing a section gets 100. */
     .process-tile-a,
     .testing-tile {
-      margin-top: 80px;
+      margin-top: 48px;
     }
 
     .process-tile-b {
