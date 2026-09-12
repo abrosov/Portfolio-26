@@ -296,6 +296,13 @@ const img = '/images/case-hirepeak';
   }
 
   @media (max-width: 767px) {
+    /* Two columns like every other case: one outcome per column, the third
+       on the row below. The three-up lead outranks the shared rule, so the
+       stacked layout restates it. */
+    .outcomes-3 {
+      grid-template-columns: 1fr 1fr;
+    }
+
     .feature-one {
       margin-top: 120px;
     }
