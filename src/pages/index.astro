@@ -554,7 +554,7 @@ import Pic from '../components/Pic.astro';
 
 <style>
   /* ---- Tablet ---- */
-  @media (max-width: 1023px) {
+  @media (max-width: 1180px) {
     .hero {
       height: auto;
       padding-block: 64px;
@@ -604,9 +604,11 @@ import Pic from '../components/Pic.astro';
       grid-column: span 3;
     }
 
+    /* Once the grid halves, every case closes the same way: 96 between one
+       case's description and the next case's photo. */
     .card-3 {
       grid-column: span 3;
-      margin-top: 80px;
+      margin-top: 96px;
     }
 
     .cases-featured,
@@ -618,11 +620,11 @@ import Pic from '../components/Pic.astro';
     }
 
     .cases-more > .stagger {
-      margin-top: 64px;
+      margin-top: 96px;
     }
 
     .feature-ai {
-      margin-top: 64px;
+      margin-top: 96px;
     }
 
     .feature-cognitive .case-intro,
@@ -750,7 +752,7 @@ import Pic from '../components/Pic.astro';
   /* ---- Tablet hero ----
      Follows the tablet mockup: portrait and rule leading a 64px headline,
      with the sign-off set in from the left. */
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) and (max-width: 1180px) {
     .hero {
       padding-block: 0 128px;
     }

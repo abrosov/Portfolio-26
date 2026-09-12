@@ -183,7 +183,7 @@ a {
 }
 
 /* The rules are markup, so the surplus ones are dropped as columns are lost */
-@media (max-width: 1023px) {
+@media (max-width: 1180px) {
   .grid-lines > i:nth-child(n + 7) {
     display: none;
   }

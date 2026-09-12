@@ -69,8 +69,9 @@
   --page-max-width: none;
   --page-margin: 32px;
   --header-height: 48px;
-  /* The grid halves at tablet and drops to two columns on phones, the same
-     stepping the reference site uses. */
+  /* The grid halves at tablet and drops to two columns on phones. Twelve
+     columns need room to read as columns, so the halving starts at 1180
+     rather than waiting for a tablet-sized window. */
   --grid-columns: 12;
   --grid-gap: 20px;
   /* Space between a divider rule and the text beside or below it */
@@ -91,7 +92,7 @@
 }
 
 /* ---- Tablet ---- */
-@media (max-width: 1023px) {
+@media (max-width: 1180px) {
   :root {
     --grid-columns: 6;
   }

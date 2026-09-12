@@ -306,7 +306,7 @@
    Six columns. The two-up start screen stacks, and the pinned transitions are
    dropped: they need a tall viewport to read, and the reference site likewise
    only enables its stacking from the large breakpoint up. */
-@media (max-width: 1023px) {
+@media (max-width: 1180px) {
   .case-hero,
   .feature-stack > .case-feature {
     position: static;
