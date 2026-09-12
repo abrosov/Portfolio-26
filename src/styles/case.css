@@ -367,6 +367,12 @@
     padding-bottom: 100px;
   }
 
+  /* Solution runs the same rhythm as the other sections: the intro under the
+     heading, the labelled block under the intro, the tile under that. */
+  .case-solution-tile {
+    margin-top: 64px;
+  }
+
   .case-goals {
     gap: 32px 21px;
   }
@@ -447,7 +453,8 @@
 
   /* ---- Section bodies ---- */
 
-  .case-intro {
+  .case-intro,
+  .case-solution-intro {
     margin-top: 48px;
   }
 

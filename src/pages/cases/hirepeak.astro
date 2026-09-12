@@ -250,6 +250,7 @@ const img = '/images/case-hirepeak';
   /* The plate's own proportions, so it fills without being cropped. */
   .case-solution-tile {
     aspect-ratio: 1389 / 875;
+    margin-top: 90px;
   }
 
   .outcomes-3 {
@@ -267,7 +268,13 @@ const img = '/images/case-hirepeak';
     /* Nothing is pinned here, so the tile can follow the plate exactly. */
     .case-hero-tile {
       height: auto;
-      aspect-ratio: 682 / 819;
+      aspect-ratio: 1628 / 1638;
+    }
+
+    /* The desktop lead on the solution tile outranks the shared rule, so the
+       halved and stacked layouts each restate it. */
+    .case-solution-tile {
+      margin-top: 64px;
     }
 
     .feature-label,
@@ -285,6 +292,10 @@ const img = '/images/case-hirepeak';
   @media (max-width: 767px) {
     .feature-one {
       margin-top: 80px;
+    }
+
+    .case-solution-tile {
+      margin-top: 100px;
     }
   }
 </style>
