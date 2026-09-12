@@ -237,6 +237,52 @@ img[data-pic].is-loaded {
   }
 }
 
+/* ---- Page transitions ----
+   Same-origin navigations cross-fade rather than snapping, so the contact
+   page's warm ground arrives instead of flashing into place. This is the
+   browser's own cross-document view transition: no client-side router, no
+   script, and a browser without it simply navigates the way it did before. */
+@view-transition {
+  navigation: auto;
+}
+
+/* Not the default cross-fade: two pages this different double-expose badly
+   halfway through. The outgoing page clears first, which uncovers the incoming
+   ground colour, and the new content follows it in. */
+::view-transition-old(root) {
+  animation: page-out var(--page-out-duration) var(--reveal-ease) both;
+}
+
+::view-transition-new(root) {
+  animation: page-in var(--page-in-duration) var(--reveal-ease) var(--page-in-delay) both;
+}
+
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+
+  /* Belt and braces: older engines may ignore navigation: none above, so make
+     the change imperceptible rather than leaving it running. */
+  :root {
+    --page-out-duration: 1ms;
+    --page-in-duration: 1ms;
+    --page-in-delay: 0s;
+  }
+}
+
 /* ---- Scroll reveal ---- */
 
 /* Marked elements rise and fade in when they enter the viewport.

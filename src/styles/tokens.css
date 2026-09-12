@@ -50,6 +50,12 @@
   --image-hover-duration: 0.7s;
   --image-hover-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
+  /* Motion — page navigation. The outgoing page clears before the incoming
+     one arrives, so the two never sit on top of each other at half opacity. */
+  --page-out-duration: 0.24s;
+  --page-in-duration: 0.3s;
+  --page-in-delay: 0.12s;
+
   /* Motion — page intro (contact). Slower and shorter-travelled than the
      scroll reveals, so the first screen settles rather than snaps. */
   --intro-shift: 50px;
