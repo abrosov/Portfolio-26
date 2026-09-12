@@ -4,6 +4,10 @@ import Pic from '../../components/Pic.astro';
 
 const img = '/images/case-blockchain';
 
+// Stand-in the <img> loads when the screen is not being shown; the real file
+// comes from the <source> above the breakpoint.
+const BLANK = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+
 // Three blockchain products presented on one page, each pinning as its screen
 // scrolls over it, exactly as the single-product cases do.
 const products = [
@@ -87,9 +91,13 @@ const products = [
         </div>
       </section>
 
-      <div class="case-screen">
-        <Pic src={p.screen} alt={p.screenAlt} />
-      </div>
+      {/* A <picture> rather than a plain image: below the breakpoint the screen
+          is not shown, and this keeps the browser from fetching it anyway —
+          display:none does not stop a lazy image from loading. */}
+      <picture class="case-screen">
+        <source media="(min-width: 1181px)" srcset={p.screen} />
+        <img src={BLANK} alt={p.screenAlt} width="1440" height="999" decoding="async" />
+      </picture>
     </div>
   ))}
 </CaseLayout>
@@ -97,6 +105,13 @@ const products = [
 <style>
   /* Each product's start screen stacks below the desktop breakpoint. */
   @media (max-width: 1180px) {
+    /* The pinned transition is off here, so the screen has nothing to slide
+       over — it would just repeat the product a second time down the page.
+       Each product shows its start screen alone. */
+    .case-screen {
+      display: none;
+    }
+
     .case-opening + .case-opening .case-hero {
       padding-top: 96px;
     }
