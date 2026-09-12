@@ -468,7 +468,6 @@ const img = '/images/case-climate';
       margin-top: 48px;
     }
 
-    .challenge-tile,
     .process-tile-a,
     .process-tile-b,
     .testing-tile,
@@ -482,19 +481,30 @@ const img = '/images/case-climate';
       grid-column: 1 / -1;
     }
 
+    /* The client logo keeps its small square panel rather than running the
+       full width: two of the six columns, as it takes three of the twelve. */
+    .challenge-tile {
+      grid-column: 1 / 5;
+      aspect-ratio: 1;
+      margin-top: 64px;
+    }
+
     /* With the label folded into its heading, the block carries the gap that
        used to sit above the label. */
     .discovery,
     .feature-one {
-      margin-top: 64px;
+      margin-top: 120px;
     }
 
     .process-tile-a,
     .process-tile-b,
-    .challenge-tile,
-    .testing-tile,
-    .solution-tile {
+    .testing-tile {
       margin-top: 64px;
+    }
+
+    /* The tile finishes the block above it rather than closing the section. */
+    .solution-tile {
+      margin-top: 48px;
     }
 
     .solution-intro {
@@ -503,10 +513,6 @@ const img = '/images/case-climate';
 
     .process-tile-b {
       aspect-ratio: 682 / 404;
-    }
-
-    .challenge-tile {
-      aspect-ratio: 330 / 300;
     }
 
     .outcomes {
@@ -531,13 +537,6 @@ const img = '/images/case-climate';
       margin-top: 48px;
     }
 
-    /* With the label folded into its heading, the block itself carries the
-       gap that used to sit above the label. */
-    .discovery,
-    .feature-one {
-      margin-top: 120px;
-    }
-
     .discovery .case-tags,
     .testing .case-tags,
     .solution-intro .case-tags {
@@ -559,13 +558,11 @@ const img = '/images/case-climate';
       margin-top: 32px;
     }
 
+    /* Stacked, the logo's panel runs the full width again. */
     .challenge-tile {
+      grid-column: 1 / -1;
       margin-top: 100px;
-    }
-
-    /* The tile finishes the block above it rather than closing the section. */
-    .solution-tile {
-      margin-top: 48px;
+      aspect-ratio: 330 / 300;
     }
 
     /* The two testing panels stack instead of sitting side by side */

@@ -334,15 +334,30 @@
     padding-block: 64px;
   }
 
+  /* Every boundary between sections runs on the same 120 from here down: a
+     section opens 120 under whatever preceded it and closes flush, so a tile
+     ending one section always reads as 120 against the next heading. */
+  .case-section {
+    padding-block: 120px 0;
+  }
+
   .case-hero-left,
   .case-hero-tile,
   .col-wide,
   .col-text,
   .col-label,
   .case-feature .case-tile,
-  .case-challenge-tile,
   .case-solution-tile {
     grid-column: 1 / -1;
+  }
+
+  /* The client mark keeps its small square panel rather than running the full
+     width: two of the six columns on show, as it takes three of the twelve
+     above. The section grid stays twelve columns at every width, so two of six
+     is four of its own. */
+  .case-challenge-tile {
+    grid-column: 1 / 5;
+    aspect-ratio: 1;
   }
 
   .case-hero-text {
@@ -371,16 +386,21 @@
     border-radius: 0;
   }
 
-  /* Each panel's copy describes the screen under it, so the gap below a
-     screen is far larger than the one above it. */
+  /* The whole gap between one panel and the next sits above the heading, so
+     the copy always reads as belonging to the screen below it. */
   .case-feature {
-    padding-bottom: 100px;
+    padding-block: 120px 0;
   }
 
-  /* Solution runs the same rhythm as the other sections: the intro under the
-     heading, the labelled block under the intro, the tile under that. */
+  /* The stack's last panel carries no bottom padding, so the section that
+     follows opens on the same 120 the panels run on. */
+  .feature-stack + .case-section {
+    padding-top: 120px;
+  }
+
+  /* The tile finishes the block above it rather than closing the section. */
   .case-solution-tile {
-    margin-top: 64px;
+    margin-top: 48px;
   }
 
   .case-goals {
@@ -485,38 +505,14 @@
 
   /* ---- Solution details ---- */
 
-  /* The whole gap between one panel and the next sits above the heading, so
-     the copy always reads as belonging to the screen below it. */
-  .case-feature {
-    padding-block: 120px 0;
-  }
-
   .case-feature-body {
     margin-top: 16px;
   }
 
-  /* Tight to the copy above it, so the pair reads as one unit against the
-     100px that follows. A tile that closes a whole section gets 100. */
-  .case-feature .case-tile {
-    margin-top: 48px;
-  }
-
+  /* Stacked, the mark's panel runs the full width again. */
   .case-challenge-tile {
+    grid-column: 1 / -1;
     margin-top: 100px;
-  }
-
-  /* The tile finishes the block above it rather than closing the section. */
-  .case-solution-tile {
-    margin-top: 48px;
-  }
-
-  /* The stack's last panel carries no bottom padding, so the section that
-     follows opens on the same 120 the panels run on. */
-  .feature-stack + .case-section {
-    padding-top: 120px;
-  }
-
-  .case-challenge-tile {
     aspect-ratio: 330 / 300;
   }
 
