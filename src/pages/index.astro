@@ -299,6 +299,11 @@ import Pic from '../components/Pic.astro';
     position: relative;
     margin-top: 124px;
     color: var(--color-ink-soft);
+    /* The hero type tracks the window instead of sitting at one size: 64px on
+       the 1440 frame and scaling with the column either way. Everything the
+       composition is built from is a multiple of this, so the portrait, the
+       rule and the sign-off keep their proportions rather than colliding. */
+    --hero-size: clamp(45px, 4.444vw, 80px);
   }
 
   .hero-portrait {
@@ -316,30 +321,26 @@ import Pic from '../components/Pic.astro';
 
   .pointer-intro {
     position: absolute;
-    top: 38px;
+    top: calc(0.594 * var(--hero-size));
     /* portrait (73px) + 44px */
     left: 117px;
-    width: 97px;
+    width: calc(1.516 * var(--hero-size));
   }
 
-  /* Hero type scales with the window the way the reference site's does: a
-     fluid vw term clamped at both ends, with line-height and tracking in
-     relative units so they follow the size instead of staying fixed.
-     The clamp is anchored to the designed sizes — 56px on a phone, 64px from
-     the tablet frame up. */
   .hero-headline,
   .hero-statement {
-    font-size: clamp(56px, 8.34vw, 64px);
+    font-size: var(--hero-size);
     line-height: 1.016;
   }
 
-  /* Rule ends at 214px, then the same 16px before the text */
+  /* The first line clears what sits in its indent: the portrait and its 44px
+     gap are fixed, the rule and the 16px after it follow the type. */
   .hero-headline {
-    text-indent: 230px;
+    text-indent: calc(133px + 1.516 * var(--hero-size));
   }
 
   .amp {
-    font: italic 700 clamp(56px, 8.34vw, 64px) / 1.016 var(--font-amp);
+    font: italic 700 var(--hero-size) / 1.016 var(--font-amp);
     color: var(--color-ink);
   }
 
@@ -367,8 +368,10 @@ import Pic from '../components/Pic.astro';
 
   .crafted .pointer {
     flex: 1;
+    /* Stops the rule being squeezed out of existence on a tight line. */
+    min-width: 1em;
     margin: 0 var(--rule-gap) 0 6px;
-    transform: translateY(-13px);
+    transform: translateY(calc(-0.203 * var(--hero-size)));
   }
 
   /* ---- Featured cases ---- */
@@ -570,39 +573,17 @@ import Pic from '../components/Pic.astro';
       grid-column: 1 / -1;
     }
 
+    /* The first column — the initials, the role list and the location — is
+       dropped here. Everything else carries over from desktop unchanged and
+       simply runs larger, since it now has the full width to itself. */
     .hero-aside {
-      margin-top: 0;
+      display: none;
     }
 
     .hero-main {
       margin-top: 48px;
-    }
-
-    .hero-portrait,
-    .pointer-intro {
-      display: none;
-    }
-
-    .hero-headline {
-      text-indent: 0;
-    }
-
-    .hero-main {
       padding-top: 0;
-    }
-
-    .crafted {
-      display: contents;
-      white-space: normal;
-    }
-
-    .crafted .pointer {
-      display: inline-block;
-      flex: none;
-      width: min(224px, 55%);
-      margin: 0 var(--rule-gap);
-      vertical-align: middle;
-      transform: none;
+      --hero-size: clamp(48px, 6.25vw, 64px);
     }
 
     .feature-left {
@@ -689,45 +670,50 @@ import Pic from '../components/Pic.astro';
       padding-block: 40px 56px;
     }
 
-    /* The mobile frame opens on the portrait and headline; the initials,
-       role list and location are not part of it. */
-    .hero-aside {
-      display: none;
-    }
-
+    /* Rebuilt from the mobile frame: the portrait leads, the headline runs the
+       full width with no indent, and the statement and the sign-off stack
+       beneath it at their own sizes. Neither rule is part of this frame — on a
+       phone there is no room for one to read as anything but a stray line. */
+    /* The section already opens 40px under the header; the column adds none. */
     .hero-main {
       margin-top: 0;
-      padding-top: 69px;
-    }
-
-    .hero-portrait,
-    .pointer-intro {
-      display: block;
+      padding-top: 0;
+      --hero-size: clamp(32px, 9.8vw, 48px);
     }
 
     .hero-portrait {
-      top: 0;
+      position: static;
+      margin-bottom: 16px;
     }
 
-    /* The gaps stay fixed, so the rule itself takes up the slack: it reaches
-       the frame's 76px on a wide phone and shortens on a narrow one, rather
-       than pushing the first word past the edge. 323px is the portrait, both
-       gaps and the first word of the headline. */
-    .pointer-intro {
-      top: 88px;
-      left: 117px;
-      width: clamp(6px, calc(100% - 300px), 76px);
+    .pointer-intro,
+    .crafted .pointer {
+      display: none;
     }
 
-    /* First line clears the portrait and rule beside it */
     .hero-headline {
-      text-indent: calc(133px + clamp(6px, 100% - 300px, 76px));
+      text-indent: 0;
+      line-height: 1.042;
     }
 
     .hero-statement {
       margin-top: 32px;
+      font-size: clamp(24px, 6.53vw, 32px);
+      line-height: 1.094;
     }
 
+    /* The sign-off drops onto its own line at the statement's size. */
+    .crafted {
+      display: contents;
+      white-space: normal;
+    }
+
+    .crafted em {
+      display: block;
+      margin-top: 32px;
+      font-size: inherit;
+      line-height: 1.5625;
+    }
 
 
     .card-1,
