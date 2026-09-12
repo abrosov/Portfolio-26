@@ -103,6 +103,12 @@ const products = [
 </CaseLayout>
 
 <style>
+  /* Every product opens 48px below whatever precedes it: the header for the
+     first, the screen that has just scrolled past for the others. */
+  .case-opening + .case-opening .case-hero {
+    padding-top: 48px;
+  }
+
   /* Each product's start screen stacks below the desktop breakpoint. */
   @media (max-width: 1180px) {
     /* The pinned transition is off here, so the screen has nothing to slide
