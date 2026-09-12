@@ -30,15 +30,45 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     <form class="form" method="POST" action={endpoint}>
       <div class="field" data-reveal>
         <label class="t-button" for="name">Name</label>
-        <input id="name" name="name" type="text" placeholder="Name" required />
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="Name"
+          autocomplete="name"
+          maxlength="80"
+          required
+          aria-describedby="name-error"
+        />
+        <p class="field-error t-button" id="name-error"></p>
       </div>
       <div class="field" data-reveal>
         <label class="t-button" for="email">Email</label>
-        <input id="email" name="email" type="email" placeholder="Email" required />
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Email"
+          autocomplete="email"
+          maxlength="254"
+          required
+          aria-describedby="email-error"
+        />
+        <p class="field-error t-button" id="email-error"></p>
       </div>
       <div class="field" data-reveal>
         <label class="t-button" for="note">Note (optional)</label>
-        <textarea id="note" name="note" placeholder="Note" rows="3"></textarea>
+        <textarea
+          id="note"
+          name="note"
+          placeholder="Note"
+          rows="3"
+          maxlength="1000"
+          aria-describedby="note-error note-count"></textarea>
+        <p class="field-foot">
+          <span class="field-error t-button" id="note-error"></span>
+          <span class="field-count t-button" id="note-count" aria-live="polite"></span>
+        </p>
       </div>
       <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <div class="actions" data-reveal>
@@ -50,26 +80,116 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 </BaseLayout>
 
 <script>
-  // Submits without leaving the page, and reports the outcome in place.
-  // Without JS the form still posts natively to the same endpoint.
+  // Validation and submission. Both are progressive: the markup alone still
+  // posts to the endpoint and still uses the browser's own required/type
+  // checks, so this only takes over once the script runs.
   const form = document.querySelector<HTMLFormElement>('.form');
   const status = document.querySelector<HTMLParagraphElement>('.form-status');
+  const note = document.querySelector<HTMLTextAreaElement>('#note');
+  const noteCount = document.querySelector<HTMLElement>('#note-count');
+
+  const NOTE_MAX = 1000;
+
+  // Deliberately permissive: catching real typos, not policing valid addresses.
+  const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  type Check = (value: string) => string | null;
+
+  const checks: Record<string, Check> = {
+    name: (v) => {
+      if (!v) return 'Please add your name.';
+      if (v.length < 2) return 'Please use at least two characters.';
+      return null;
+    },
+    email: (v) => {
+      if (!v) return 'Please add your email.';
+      if (!EMAIL.test(v)) return 'That doesn’t look like an email address.';
+      return null;
+    },
+    note: (v) => (v.length > NOTE_MAX ? `Please keep the note under ${NOTE_MAX} characters.` : null),
+  };
+
+  const fieldOf = (el: HTMLElement) => el.closest<HTMLElement>('.field');
+
+  function show(el: HTMLInputElement | HTMLTextAreaElement, message: string | null) {
+    const field = fieldOf(el);
+    const error = document.querySelector<HTMLElement>(`#${el.id}-error`);
+    if (!field || !error) return;
+
+    field.classList.toggle('is-invalid', Boolean(message));
+    // A quiet confirmation, only once there is something to confirm.
+    field.classList.toggle('is-valid', !message && el.value.trim().length > 0);
+    el.setAttribute('aria-invalid', message ? 'true' : 'false');
+    error.textContent = message ?? '';
+  }
+
+  function validate(el: HTMLInputElement | HTMLTextAreaElement) {
+    const check = checks[el.name];
+    if (!check) return true;
+    const message = check(el.value.trim());
+    show(el, message);
+    return !message;
+  }
+
+  function fields() {
+    return [...form!.querySelectorAll<HTMLInputElement | HTMLTextAreaElement>('input, textarea')].filter(
+      (el) => el.name in checks
+    );
+  }
+
+  function updateCount() {
+    if (!note || !noteCount) return;
+    const left = NOTE_MAX - note.value.length;
+    // Silent until the limit is close enough to matter.
+    noteCount.textContent = left <= 100 ? `${left} characters left` : '';
+    noteCount.classList.toggle('is-low', left <= 20);
+  }
+
+  if (form) {
+    // Our messages replace the browser's bubbles — but only now that we can
+    // render them. Without this script the native checks still apply.
+    form.noValidate = true;
+
+    for (const el of fields()) {
+      el.addEventListener('blur', () => validate(el));
+      el.addEventListener('input', () => {
+        // Re-check while typing only after a field has already been flagged,
+        // so nobody is told they are wrong halfway through their first word.
+        if (fieldOf(el)?.classList.contains('is-invalid')) validate(el);
+        if (el === note) updateCount();
+      });
+    }
+    updateCount();
+  }
 
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!status) return;
+
+    const all = fields();
+    const bad = all.filter((el) => !validate(el));
+    if (bad.length) {
+      status.textContent = 'Please check the highlighted fields.';
+      status.className = 'form-status t-body is-error';
+      bad[0].focus();
+      return;
+    }
 
     // Read the attribute, not form.action — the latter resolves an empty
     // action to the current page URL, which would post the form to itself.
     const endpoint = form.getAttribute('action');
     if (!endpoint) {
       status.textContent = 'The form is not connected yet — email me directly for now.';
+      status.className = 'form-status t-body is-error';
       return;
     }
 
     const button = form.querySelector('button');
+    form.classList.add('is-sending');
     button?.setAttribute('disabled', '');
+    for (const el of all) el.disabled = true;
     status.textContent = 'Sending…';
+    status.className = 'form-status t-body';
 
     try {
       const response = await fetch(endpoint, {
@@ -80,11 +200,20 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 
       if (!response.ok) throw new Error(String(response.status));
       form.reset();
+      for (const el of all) {
+        fieldOf(el)?.classList.remove('is-valid', 'is-invalid');
+        el.removeAttribute('aria-invalid');
+      }
+      updateCount();
       status.textContent = 'Thanks — I’ll get back to you within one business day.';
+      status.className = 'form-status t-body is-ok';
     } catch {
       status.textContent = 'Something went wrong. Please email me at abrosovsasha@gmail.com.';
+      status.className = 'form-status t-body is-error';
     } finally {
+      form.classList.remove('is-sending');
       button?.removeAttribute('disabled');
+      for (const el of all) el.disabled = false;
     }
   });
 </script>
@@ -174,11 +303,12 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
   textarea {
     width: 100%;
     background: var(--color-field);
-    border: 1px solid transparent;
+    border: 1px solid var(--color-field-line);
     border-radius: 4px;
     padding: 0 12px;
     font: 500 16px/36px var(--font-display);
     color: var(--color-ink);
+    transition: border-color 0.18s ease;
   }
 
   input {
@@ -196,10 +326,86 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     color: color-mix(in srgb, var(--color-ink) 50%, transparent);
   }
 
-  input:focus-visible,
-  textarea:focus-visible {
+  /* ---- Field states ----
+     One line, four weights of the same ink: resting, under the cursor, active,
+     and settled once the field holds something. Only an error leaves that
+     scale, and it is the one thing on the page that is not ink. */
+
+  @media (hover: hover) {
+    input:hover:not(:disabled),
+    textarea:hover:not(:disabled) {
+      border-color: var(--color-field-line-hover);
+    }
+  }
+
+  /* :focus, not :focus-visible — a text field being active is always worth
+     showing, however the person got there, including when a failed submit
+     sends focus to the first field that needs fixing. */
+  input:focus,
+  textarea:focus {
     outline: none;
-    border-color: var(--color-ink);
+    border-color: var(--color-field-line-active);
+  }
+
+  .field.is-valid input,
+  .field.is-valid textarea {
+    border-color: var(--color-field-line-filled);
+  }
+
+  /* After focus, so a field being corrected keeps saying it is wrong. */
+  .field.is-invalid input,
+  .field.is-invalid textarea {
+    border-color: var(--color-danger);
+  }
+
+  .field.is-invalid label {
+    color: var(--color-danger);
+  }
+
+  .field-error {
+    margin-top: 8px;
+    color: var(--color-danger);
+  }
+
+  .field-error:empty {
+    display: none;
+  }
+
+  /* Message and counter share a row; the counter holds the right edge even
+     before it has anything to say, so nothing shifts when it appears. */
+  .field-foot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .field-count {
+    margin-top: 8px;
+    /* Holds the right edge whether or not a message shares the row. */
+    margin-left: auto;
+    color: color-mix(in srgb, var(--color-ink) 50%, transparent);
+  }
+
+  .field-count:empty {
+    display: none;
+  }
+
+  .field-count.is-low {
+    color: var(--color-danger);
+  }
+
+  input:disabled,
+  textarea:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    input,
+    textarea {
+      transition: none;
+    }
   }
 
   .actions {
@@ -233,6 +439,14 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
 
   .form-status:empty {
     display: none;
+  }
+
+  .form-status.is-error {
+    color: var(--color-danger);
+  }
+
+  .form-status.is-ok {
+    color: var(--color-ink);
   }
 
   /* ---- Tablet and mobile ----

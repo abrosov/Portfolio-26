@@ -30,6 +30,15 @@
   --color-accent-blue: #8ec4d9;
   --color-accent-green: #a1b06c;
 
+  /* Form fields. The lines are mixed from the ink, so a field reads the same
+     way on any ground; only --color-danger is its own colour, chosen to clear
+     AA on both the contact ground and the field fill. */
+  --color-field-line: color-mix(in srgb, var(--color-ink) 14%, transparent);
+  --color-field-line-hover: color-mix(in srgb, var(--color-ink) 32%, transparent);
+  --color-field-line-active: var(--color-ink);
+  --color-field-line-filled: color-mix(in srgb, var(--color-ink) 45%, transparent);
+  --color-danger: #8f2f16;
+
   /* Motion — scroll reveal */
   --reveal-shift: 80px;
   --reveal-duration: 0.31s;
