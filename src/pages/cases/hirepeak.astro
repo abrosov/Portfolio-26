@@ -233,11 +233,13 @@ const img = '/images/case-hirepeak';
     border-radius: inherit;
   }
 
-  /* The start screen's tile follows the plate instead of the viewport, so the
-     whole composition stays in frame at every height. */
-  .case-hero-tile {
-    height: auto;
-    aspect-ratio: 682 / 819;
+  /* The tile keeps the height case.css gives it, tied to the pinned start
+     screen, so it can never grow past that section and show under the screen
+     sliding over it. The plate sits inside rather than filling: it is taller
+     than the tile is, and its own margin is the same accent as the tile, so
+     what is left over reads as part of the panel. */
+  .case-hero-tile :global(.plate) {
+    object-fit: contain;
   }
 
   .feature-label,
@@ -260,6 +262,12 @@ const img = '/images/case-hirepeak';
     .solution,
     .results {
       min-height: 0;
+    }
+
+    /* Nothing is pinned here, so the tile can follow the plate exactly. */
+    .case-hero-tile {
+      height: auto;
+      aspect-ratio: 682 / 819;
     }
 
     .feature-label,
