@@ -8,16 +8,19 @@ interface Props {
   title: string;
   description?: string;
   footer?: 'full' | 'minimal';
+  /* Swaps the surface colours for a page; the palettes live in tokens.css. */
+  palette?: 'contact';
 }
 
 const {
   title,
   description = 'Portfolio of Alex Abrosov — Design Engineer & Art Director',
   footer = 'full',
+  palette,
 } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" data-palette={palette}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

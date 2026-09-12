@@ -63,6 +63,19 @@
   --rule-gap: 20px;
 }
 
+/* ---- Contact page ----
+  Rebuilt from the Figma mock "Let's talk" (CV - Tests '26). Only the surfaces
+  change: the warm ground, the rules drawn on it, and the field fill. Ink,
+  buttons and the soft rule keep their site-wide values, so nothing else moves.
+  The lines are drawn at full strength here — on this ground the colour below
+  already is the line as the mock draws it. */
+:root[data-palette='contact'] {
+  --color-bg: #f0d966;
+  --color-grid-line: #dbc56d;
+  --grid-line-opacity: 1;
+  --color-field: #faedac;
+}
+
 /* ---- Tablet ---- */
 @media (max-width: 1023px) {
   :root {
