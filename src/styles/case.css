@@ -475,8 +475,10 @@
 
   /* ---- Solution details ---- */
 
+  /* The whole gap between one panel and the next sits above the heading, so
+     the copy always reads as belonging to the screen below it. */
   .case-feature {
-    padding-block: 48px 100px;
+    padding-block: 120px 0;
   }
 
   .case-feature-body {
@@ -489,9 +491,19 @@
     margin-top: 48px;
   }
 
-  .case-challenge-tile,
-  .case-solution-tile {
+  .case-challenge-tile {
     margin-top: 100px;
+  }
+
+  /* The tile finishes the block above it rather than closing the section. */
+  .case-solution-tile {
+    margin-top: 48px;
+  }
+
+  /* The stack's last panel carries no bottom padding, so the section that
+     follows opens on the same 120 the panels run on. */
+  .feature-stack + .case-section {
+    padding-top: 120px;
   }
 
   .case-challenge-tile {
@@ -503,6 +515,6 @@
   }
 
   .case-more {
-    padding-block: 64px;
+    padding-block: 220px 120px;
   }
 }
