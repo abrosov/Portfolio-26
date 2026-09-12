@@ -96,7 +96,7 @@
 
 .case-hero-left {
   grid-column: 1 / 7;
-  padding-top: 41px;
+  padding-top: 48px;
 }
 
 .case-hero-text {
@@ -389,8 +389,8 @@
     padding-block: 48px 32px;
   }
 
-  /* The desktop column keeps a 41px lead-in that the section padding now
-     supplies; left in, the year would start 89px under the header. */
+  /* The desktop column keeps a lead-in that the section padding now supplies;
+     left in, the year would start 96px under the header instead of 48. */
   .case-hero-left {
     padding-top: 0;
   }
