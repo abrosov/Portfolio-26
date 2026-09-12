@@ -312,10 +312,20 @@
    dropped: they need a tall viewport to read, and the reference site likewise
    only enables its stacking from the large breakpoint up. */
 @media (max-width: 1180px) {
-  .case-hero,
-  .feature-stack > .case-feature {
+  .case-hero {
     position: static;
     top: auto;
+  }
+
+  /* Unpinned here, but still positioned: the panel's own grid rules are
+     absolute, so a static panel hands them to the page instead and they
+     stretch the whole document. Relative also needs the stacking context
+     sticky used to give it, or their negative z-index drops them behind the
+     background the panel paints. */
+  .feature-stack > .case-feature {
+    position: relative;
+    top: auto;
+    isolation: isolate;
   }
 
   .case-hero {
