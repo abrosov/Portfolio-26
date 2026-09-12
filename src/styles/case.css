@@ -340,9 +340,26 @@
     margin-top: 64px;
   }
 
-  /* The left-hand "/ LABEL" gutter has nowhere to sit, so it leads the block */
+  /* The left-hand gutter has nowhere to sit, so the label folds into the
+     heading it belongs to: "FEATURE 1 / TECHNOLOGY DETAILS". */
   .case-label {
-    margin-bottom: 16px;
+    display: none;
+  }
+
+  .case-grid [data-label]::before {
+    content: attr(data-label) ' / ';
+  }
+
+  /* The rounded leading edge belongs to the pinned transition, which is off
+     below this width; here the screen simply runs full-bleed. */
+  .case-screen {
+    border-radius: 0;
+  }
+
+  /* Each panel's copy describes the screen under it, so the gap below a
+     screen is far larger than the one above it. */
+  .case-feature {
+    padding-bottom: 100px;
   }
 
   .case-goals {
@@ -436,16 +453,6 @@
     margin-top: 48px;
   }
 
-  /* The gutter label folds into the heading it belongs to, so the pair reads
-     as one line: "DISCOVERY / WORKSHOPS". */
-  .case-label {
-    display: none;
-  }
-
-  .case-grid [data-label]::before {
-    content: attr(data-label) ' / ';
-  }
-
   .case-block > * + * {
     margin-top: 16px;
   }
@@ -457,17 +464,17 @@
   /* ---- Solution details ---- */
 
   .case-feature {
-    padding-top: 48px;
+    padding-block: 48px 100px;
   }
 
   .case-feature-body {
     margin-top: 16px;
   }
 
-  /* A tile belonging to a block sits 80 under its copy; a tile that closes a
-     whole section gets 100. */
+  /* Tight to the copy above it, so the pair reads as one unit against the
+     100px that follows. A tile that closes a whole section gets 100. */
   .case-feature .case-tile {
-    margin-top: 80px;
+    margin-top: 48px;
   }
 
   .case-challenge-tile,
@@ -485,23 +492,5 @@
 
   .case-more {
     padding-block: 64px;
-  }
-}
-
-/* ---- Narrow phones ----
-   The two-up pairs above come from a 490px reference. Below 480 each column
-   is about 150px, too narrow for a line of body copy, so the pairs stack. */
-@media (max-width: 479px) {
-  .case-meta,
-  .case-goals,
-  .case-outcomes {
-    grid-template-columns: 1fr;
-  }
-
-  .case-meta > :nth-child(1),
-  .case-meta > :nth-child(2),
-  .case-meta > :nth-child(3) {
-    grid-column: 1;
-    grid-row: auto;
   }
 }

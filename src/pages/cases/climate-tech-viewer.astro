@@ -482,15 +482,11 @@ const img = '/images/case-climate';
       grid-column: 1 / -1;
     }
 
-    .discovery-label,
-    .feature-label {
-      margin-top: 64px;
-      margin-bottom: 16px;
-    }
-
+    /* With the label folded into its heading, the block carries the gap that
+       used to sit above the label. */
     .discovery,
     .feature-one {
-      margin-top: 0;
+      margin-top: 64px;
     }
 
     .process-tile-a,
@@ -598,14 +594,6 @@ const img = '/images/case-climate';
 
     .testing-right {
       margin-top: 32px;
-    }
-  }
-
-  /* ---- Narrow phones ---- */
-  @media (max-width: 479px) {
-    .goals,
-    .outcomes {
-      grid-template-columns: 1fr;
     }
   }
 </style>
