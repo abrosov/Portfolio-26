@@ -71,6 +71,10 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
         </p>
       </div>
       <input class="gotcha" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <!-- Formspree titles the notification with this. The script replaces it
+           with the sender's name, so each message opens its own mail thread
+           instead of collapsing into one long conversation. -->
+      <input type="hidden" name="_subject" value="Portfolio enquiry" />
       <div class="actions" data-reveal>
         <button class="submit t-button" type="submit">Send Message</button>
       </div>
@@ -187,6 +191,15 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     // Read the values before locking the fields: a disabled control is left
     // out of FormData, so building it after would post an empty form.
     const data = new FormData(form);
+
+    // Name the notification after the sender. Without it every message shares
+    // one subject, and mail clients thread them into a single conversation
+    // where each new one arrives hidden inside the last.
+    const sender = String(data.get('name') ?? '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .slice(0, 60);
+    if (sender) data.set('_subject', `Portfolio enquiry — ${sender}`);
 
     const button = form.querySelector('button');
     form.classList.add('is-sending');
