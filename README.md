@@ -1,43 +1,60 @@
-# Astro Starter Kit: Minimal
+# Portfolio '26
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Personal portfolio of Alex Abrosov — Design Engineer, Barcelona. A static site
+built from the Figma design: home, five case studies and a contact page.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Current version: **0.1.0** — see [CHANGELOG.md](CHANGELOG.md).
 
-## 🚀 Project Structure
+## Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- [Astro](https://docs.astro.build) — static output, no client framework
+- Plain CSS with design tokens; vanilla JS only where motion needs it
+- Self-hosted fonts: Helvetica Now Display (licensed) and Playfair Display
+- Deployed to Vercel
+
+## Commands
+
+| Command           | Action                                       |
+| :---------------- | :------------------------------------------- |
+| `npm install`     | Install dependencies                          |
+| `npm run dev`     | Start the dev server at `localhost:4321`      |
+| `npm run build`   | Build the production site to `./dist/`        |
+| `npm run preview` | Preview the production build locally          |
+
+Requires Node 22.12 or newer.
+
+## Structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── layouts/         BaseLayout (shared shell) and CaseLayout
+├── components/      Header, footer, section title, case feature, image
+├── pages/
+│   ├── index.astro  Home
+│   ├── contact.astro
+│   └── cases/       Five case studies on one shared template
+└── styles/
+    ├── tokens.css   Design tokens — colours, type, spacing, motion
+    ├── global.css   Reset, text styles, 12-column grid, scroll reveal
+    └── case.css     Shared case study rhythm and column placement
+public/
+├── fonts/           Self-hosted woff2
+└── images/          Case imagery, exported from Figma
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Conventions
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- **Tokens first.** Colours, type styles, spacing and motion values belong in
+  `tokens.css`. Components reference variables; they never hardcode a value.
+- **One case template.** Every case study shares `CaseLayout` and `case.css`, so
+  section rhythm changes in one place rather than five.
+- **Grid.** Twelve columns on desktop, six below 1180px, two below 768px, driven by
+  `--grid-columns`.
+- **Motion.** CSS transitions plus small vanilla JS. Everything respects
+  `prefers-reduced-motion`.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Versioning
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Releases follow [Semantic Versioning](https://semver.org/spec/v2.0.0.html) and are
+tagged in git. [CHANGELOG.md](CHANGELOG.md) records what shipped in each one and how
+to inspect or roll back to a previous release.
