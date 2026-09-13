@@ -221,9 +221,11 @@ const img = '/images/case-cognitive';
     margin-top: 90px;
   }
 
+  /* No radius of its own: the mockup carries its corners the way the ones in
+     Solution Details do, so it rounds by the same amount at every width
+     instead of turning into a pill as the picture shrinks. */
   .case-solution-tile img {
     width: 71.5%;
-    border-radius: 18px;
   }
 
   .results {
