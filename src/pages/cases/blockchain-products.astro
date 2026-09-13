@@ -103,21 +103,43 @@ const products = [
 </CaseLayout>
 
 <style>
-  /* Every product opens 48px below whatever precedes it: the header for the
-     first, the screen that has just scrolled past for the others. */
-  .case-opening + .case-opening .case-hero {
-    padding-top: 48px;
+  /* The three screenshots are not quite the same shape - one is 816 tall
+     where the others are 786 - so the tile crops them all to one proportion
+     and the three products read as a set. */
+  .case-hero-tile :global(img) {
+    aspect-ratio: 1172 / 786;
+    object-fit: cover;
   }
 
-  /* ...and closes 80px above the screen that follows. The tile is sized to
-     leave exactly that, so the 48 above does not eat into it. */
   @media (min-width: 1181px) {
-    .case-hero-tile {
-      height: calc(max(100vh - var(--header-height), 780px) - 80px);
+    /* Every product opens 48px below whatever precedes it - the header for
+       the first, the screen that has just scrolled past for the others - and
+       closes 80px above the screen that follows. The same lead and the same
+       close for all three, so the tiles come out the same height. */
+    .case-hero {
+      padding-top: 48px;
     }
 
-    .case-opening + .case-opening .case-hero-tile {
+    .case-hero-tile {
       height: calc(max(100vh - var(--header-height), 780px) - 128px);
+    }
+
+    /* The screen comes to rest for a beat instead of sliding straight past:
+       it pins once it has covered the start screen, and the room below holds
+       it there for 40% of a screenful before the next product arrives. */
+    .case-screen {
+      position: sticky;
+      top: var(--header-height);
+    }
+
+    /* The room it holds in has to be a box of its own after the screen: a
+       sticky element is kept inside its container's content box, and its own
+       margin box counts, so neither padding on the opening nor a margin on
+       the screen buys it any travel. */
+    .case-opening::after {
+      content: '';
+      display: block;
+      height: 40vh;
     }
   }
 
