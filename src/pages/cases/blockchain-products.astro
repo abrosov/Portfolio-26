@@ -123,6 +123,14 @@ const products = [
       top: var(--header-height);
     }
 
+    /* A link into a product lands where the screen above it has just finished
+       passing. The shared header's worth of scroll margin stops 48px short of
+       that, and the screen's last sliver shows through the header, which is
+       transparent. The first product keeps the margin: nothing precedes it. */
+    .case-opening + .case-opening {
+      scroll-margin-top: 0;
+    }
+
     /* The room it holds in has to be a box of its own after the screen: a
        sticky element is kept inside its container's content box, and its own
        margin box counts, so neither padding on the opening nor a margin on
