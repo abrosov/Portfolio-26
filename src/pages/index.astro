@@ -280,14 +280,21 @@ import Pic from '../components/Pic.astro';
     align-items: start;
   }
 
+  /* ---- Intro ----
+     The first screen rises on the same beat as the contact page: further and
+     slower than a scroll reveal, each block following the one above it. */
+  .hero [data-reveal] {
+    --reveal-shift: var(--intro-shift);
+    --reveal-duration: var(--intro-duration);
+    --reveal-ease: var(--intro-ease);
+  }
+
   .hero-aside {
     grid-column: 1 / 4;
     margin-top: 124px;
     color: var(--color-ink-soft);
-    /* Arrives in step with the statement — the same delay as .hero-statement
-       below — but eases in over a longer, softer beat. */
-    --reveal-delay: calc(var(--reveal-stagger) * 2);
-    --reveal-duration: 0.55s;
+    /* Arrives in step with the statement. */
+    --reveal-delay: calc(var(--intro-step) * 2);
   }
 
   .roles {
@@ -356,11 +363,11 @@ import Pic from '../components/Pic.astro';
   /* Hero intro order: portrait first, then the headline, then the statement. */
   .hero-headline,
   .pointer-intro {
-    --reveal-delay: var(--reveal-stagger);
+    --reveal-delay: var(--intro-step);
   }
 
   .hero-statement {
-    --reveal-delay: calc(var(--reveal-stagger) * 2);
+    --reveal-delay: calc(var(--intro-step) * 2);
   }
 
   /* Last line of the statement: the closing words, the rule, and the serif
