@@ -111,19 +111,10 @@ const products = [
     object-fit: cover;
   }
 
+  /* Nothing here moves the start screen off the shared rhythm: the tile sits
+     straight under the header and takes the height case.css gives it, so a
+     product pins exactly as HirePeak's start screen does. */
   @media (min-width: 1181px) {
-    /* Every product opens 48px below whatever precedes it - the header for
-       the first, the screen that has just scrolled past for the others - and
-       closes 80px above the screen that follows. The same lead and the same
-       close for all three, so the tiles come out the same height. */
-    .case-hero {
-      padding-top: 48px;
-    }
-
-    .case-hero-tile {
-      height: calc(max(100vh - var(--header-height), 780px) - 128px);
-    }
-
     /* The screen comes to rest for a beat instead of sliding straight past:
        it pins once it has covered the start screen, and the room below holds
        it there for 40% of a screenful before the next product arrives. */
