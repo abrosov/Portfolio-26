@@ -148,10 +148,7 @@ const img = '/images/case-climate';
     </div>
 
     <div class="testing-tile" data-reveal>
-      <div class="testing-left">
-        <p class="testing-title">Usability Testing Scenarios</p>
-        <Pic src={`${img}/testing-flow.png`} alt="Usability testing task flows" />
-      </div>
+      <Pic class="testing-left" src={`${img}/testing-flow.png`} alt="Usability testing scenarios and task flows" />
       <Pic class="testing-right" src={`${img}/testing-panel.jpg`} alt="User persona and system usability scale" />
     </div>
   </section>
@@ -318,7 +315,7 @@ const img = '/images/case-climate';
     left: 12%;
     top: 6.1%;
     width: 76%;
-    border-radius: 12px 12px 0 0;
+    border-radius: 2.3% 2.3% 0 0 / 2.6% 2.6% 0 0;
   }
 
   .process-tile-b {
@@ -334,7 +331,7 @@ const img = '/images/case-climate';
     width: 77.3%;
     aspect-ratio: 255 / 348;
     background: #fff;
-    border-radius: 12px;
+    border-radius: 4.7% / 3.5%;
     overflow: hidden;
   }
 
@@ -365,35 +362,20 @@ const img = '/images/case-climate';
 
   .testing-left {
     position: absolute;
-    left: 3.8%;
-    top: 8%;
+    left: 3.1%;
+    top: 4.1%;
     width: 43.1%;
-    height: 92%;
-    background: #fff;
-    border-radius: 12px 12px 0 0;
-    overflow: hidden;
   }
 
-  .testing-title {
-    position: absolute;
-    left: 6.7%;
-    top: 5.6%;
-    font: 500 22px/1.12 var(--font-display);
-  }
-
-  .testing-left img {
-    position: absolute;
-    left: 6.5%;
-    top: 13.4%;
-    width: 86.9%;
-  }
-
+  /* A radius in percent is the same fraction of the picture at every width; in
+     pixels it stays put as the picture shrinks and the corners turn to
+     bubbles. The pair is the 12px of the mockup over this picture's sides. */
   .testing-right {
     position: absolute;
-    left: 49.2%;
-    top: 8%;
-    width: 50.8%;
-    border-radius: 12px;
+    left: 47.7%;
+    top: 4.1%;
+    width: 49.2%;
+    border-radius: 1.7% / 2%;
   }
 
   /* ---- Solution ---- */
@@ -428,7 +410,7 @@ const img = '/images/case-climate';
     left: 12.6%;
     top: 12.9%;
     width: 75.1%;
-    border-radius: 24px;
+    border-radius: 2.3% / 3.7%;
   }
 
   /* ---- Results ---- */
@@ -595,25 +577,6 @@ const img = '/images/case-climate';
       position: static;
       width: 88%;
       margin-inline: auto;
-    }
-
-    .testing-left {
-      height: auto;
-      padding-bottom: 24px;
-    }
-
-    .testing-left img,
-    .testing-title {
-      position: static;
-    }
-
-    .testing-title {
-      padding: 24px 24px 16px;
-    }
-
-    .testing-left img {
-      width: 88%;
-      margin: 0 auto;
     }
 
     .testing-right {

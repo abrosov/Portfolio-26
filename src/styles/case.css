@@ -132,7 +132,9 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 86%;
-  border-radius: 12px;
+  /* In percent, so the corner keeps the same weight as the picture scales;
+     12px of a 583px-wide screenshot, over its two sides. */
+  border-radius: 2% / 3.2%;
 }
 
 .case-meta {
