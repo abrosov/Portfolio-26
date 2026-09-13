@@ -458,6 +458,16 @@
     padding-block: 48px 32px;
   }
 
+  /* A case title is set from one long word that cannot break, so at the
+     stacked width the size follows the column instead of the type scale:
+     --title-fit is that word's width at the 100px the scale sets, and the
+     title shrinks only as far as it takes to fit. Everything wider keeps
+     its 100px. */
+  .case-hero-title {
+    font-size: min(100px, calc((100vw - 2 * var(--page-margin)) * 100 / var(--title-fit, 100)));
+    line-height: 0.88;
+  }
+
   /* The desktop column keeps a lead-in that the section padding now supplies;
      left in, the year would start 96px under the header instead of 48. */
   .case-hero-left {

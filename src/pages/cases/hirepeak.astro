@@ -202,6 +202,12 @@ const img = '/images/case-hirepeak';
 </CaseLayout>
 
 <style>
+  /* The width of this title's longest word at 100px; below the stacked width
+     the shared rule sizes the title to fit the column. */
+  .case-hero-title {
+    --title-fit: 369;
+  }
+
   /* Section heights come from the Figma frame; everything else is the shared
      case rhythm in case.css, so this page resizes with the other four. */
   .challenge {

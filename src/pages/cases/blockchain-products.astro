@@ -19,6 +19,7 @@ const products = [
     intro:
       'This solution enables rapid integration and management of cryptocurrency payments within existing Web 2.0 services. A key feature of the project is its quick adaptability to meet the client’s specific requirements. The design team focused on creating a flexible and customizable design system that supports changes in both functionality and visual appearance.',
     services: ['Discovery & Research', 'Workshops', 'UX/UI Design', 'Prototyping', 'Quality Control', 'UI Kit'],
+    titleFit: 395,
     hero: `${img}/custodial-keeper-hero.jpg`,
     heroAlt: 'Custodial Keeper transactions dashboard',
     screen: `${img}/custodial-keeper-screen.jpg`,
@@ -32,6 +33,7 @@ const products = [
     intro:
       'A marketplace for trading crypto assets such as NFTs and tokens, focused on convenience and automation. Assets and their data are imported automatically when users connect their wallets. Through close client collaboration and several workshops, we refined the product’s market positioning and developed its visual style, prototype, detailed UI Kit, and mobile app.',
     services: ['Discovery & Research', 'UX/UI Design', 'User Flows', 'Wireframes', 'Usability Audit'],
+    titleFit: 514,
     hero: `${img}/linear-marketplace-hero.jpg`,
     heroAlt: 'Linear Marketplace trading view',
     screen: `${img}/linear-marketplace-screen.jpg`,
@@ -45,6 +47,7 @@ const products = [
     intro:
       'This product enables users to buy shares in insurance contracts from major companies and trade these assets using blockchain technology. Developed from scratch in close collaboration with stakeholders, the main focus was on making insurance contract information easy to understand and streamlining key related operations. The project leveraged the company’s existing visual style.',
     services: ['Discovery & Research', 'UX/UI Design', 'User Flows', 'Wireframes', 'Usability Audit'],
+    titleFit: 321,
     hero: `${img}/unwind-x-hero.png`,
     heroAlt: 'Unwind X insurance contract dashboard',
     screen: `${img}/unwind-x-screen.png`,
@@ -59,7 +62,7 @@ const products = [
   accent="var(--color-tile)"
 >
   {products.map((p, i) => (
-    <div class="case-opening" id={p.id}>
+    <div class="case-opening" id={p.id} style={`--title-fit: ${p.titleFit}`}>
       <section class="case-hero container case-grid">
         <div class="case-hero-left">
           <div class="case-hero-text">
