@@ -502,14 +502,23 @@ const img = '/images/case-climate';
       padding-top: 120px;
     }
 
+    /* The second of the pair, so it sits closer than a tile does to its copy
+       - the same 32 the stacked layout uses. */
     .process-tile-b {
-      margin-top: 64px;
+      margin-top: 32px;
     }
 
     /* A tile that finishes the block above it, like the solution tile. */
     .process-tile-a,
     .testing-tile {
       margin-top: 48px;
+    }
+
+    /* Process runs the same rhythm as Solution: its tag row sits under the
+       copy on the same step the solution intro's does. */
+    .discovery .case-tags,
+    .testing .case-tags {
+      margin-top: 24px;
     }
 
     /* The tile finishes the block above it rather than closing the section. */

@@ -404,6 +404,13 @@
     margin-top: 48px;
   }
 
+  /* A heading and its copy read as one block, on the same step the stacked
+     layout uses - the solution blocks carry their own 16 on desktop, and here
+     every block takes it. */
+  .case-block > * + * {
+    margin-top: 16px;
+  }
+
   .case-goals {
     gap: 32px 21px;
     margin-top: 48px;
