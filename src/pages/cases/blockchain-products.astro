@@ -115,38 +115,20 @@ const products = [
      straight under the header and takes the height case.css gives it, so a
      product pins exactly as HirePeak's start screen does. */
   @media (min-width: 1181px) {
-    /* The screen comes to rest for a beat instead of sliding straight past:
-       it pins once it has covered the start screen, and the room below holds
-       it there for 40% of a screenful before the next product arrives. */
-    .case-screen {
-      position: sticky;
-      top: var(--header-height);
-    }
-
     /* A link into a product lands where the screen above it has just finished
        passing. The shared header's worth of scroll margin stops 48px short of
        that, and the screen's last sliver shows through the header, which is
        transparent. The first product keeps the margin: nothing precedes it. */
+    /* A product opens a header's height below the screen it follows, so that
+       band of page shows between the screen's foot and the tile as the
+       product rides up. The room is padding on the opening rather than a
+       margin on the start screen: a margin on a first child collapses out of
+       its parent, which would move the whole opening instead and land the
+       link 48px short. The start screen itself keeps its place at the top of
+       the section, and pins flush under the header as before. */
     .case-opening + .case-opening {
+      padding-top: var(--header-height);
       scroll-margin-top: 0;
-    }
-
-    /* Landing there also leaves the start screen pinned a header lower than
-       it sits in the flow, so the screen that follows would begin 48px above
-       the fold and show before a scroll. It starts a header lower to match,
-       which puts its leading edge exactly on the fold. */
-    .case-opening + .case-opening .case-screen {
-      margin-top: var(--header-height);
-    }
-
-    /* The room it holds in has to be a box of its own after the screen: a
-       sticky element is kept inside its container's content box, and its own
-       margin box counts, so neither padding on the opening nor a margin on
-       the screen buys it any travel. */
-    .case-opening::after {
-      content: '';
-      display: block;
-      height: 40vh;
     }
   }
 
