@@ -484,14 +484,11 @@ const img = '/images/case-climate';
       padding-top: 120px;
     }
 
-    /* The second of the pair, so it sits closer than a tile does to its copy
-       - the same 32 the stacked layout uses. */
-    .process-tile-b {
-      margin-top: 32px;
-    }
-
-    /* A tile that finishes the block above it, like the solution tile. */
+    /* Process runs Solution's rhythm exactly: 48 between a text block and
+       the picture under it, and the same 48 between one picture and the
+       next, so the pair reads on one step rather than two. */
     .process-tile-a,
+    .process-tile-b,
     .testing-tile {
       margin-top: 48px;
     }
@@ -553,10 +550,6 @@ const img = '/images/case-climate';
     .process-tile-a,
     .testing-tile {
       margin-top: 48px;
-    }
-
-    .process-tile-b {
-      margin-top: 32px;
     }
 
     /* Stacked, the logo's panel runs the full width again. */
