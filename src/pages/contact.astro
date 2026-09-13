@@ -184,6 +184,10 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
       return;
     }
 
+    // Read the values before locking the fields: a disabled control is left
+    // out of FormData, so building it after would post an empty form.
+    const data = new FormData(form);
+
     const button = form.querySelector('button');
     form.classList.add('is-sending');
     button?.setAttribute('disabled', '');
@@ -194,7 +198,7 @@ const endpoint = FORMSPREE_ID ? `https://formspree.io/f/${FORMSPREE_ID}` : '';
     try {
       const response = await fetch(endpoint, {
         method: 'POST',
-        body: new FormData(form),
+        body: data,
         headers: { Accept: 'application/json' },
       });
 
