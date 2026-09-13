@@ -136,7 +136,7 @@ const img = '/images/case-ai-test';
     />
     <CaseFeature
       index={2}
-      title="/ Test Scenarios"
+      title="Test Scenarios"
       body="Test scenarios are sets of cases that need to be covered, including information about the team and the time allocated for the work."
       image={`${img}/feature-2.jpg`}
       alt="Test scenarios view"
@@ -144,7 +144,7 @@ const img = '/images/case-ai-test';
     />
     <CaseFeature
       index={3}
-      title="/ Global Library"
+      title="Global Library"
       body="This section stores all current project structures and dictionaries used by the testing bots."
       image={`${img}/feature-3.jpg`}
       alt="Global library of project structures"
@@ -152,7 +152,7 @@ const img = '/images/case-ai-test';
     />
     <CaseFeature
       index={4}
-      title="/ Bot Dictionary"
+      title="Bot Dictionary"
       body="This page allows creating bots for automatic verification of necessary parameters or actions, such as testing product inputs or checking data compliance."
       image={`${img}/feature-4.jpg`}
       alt="Bot dictionary configuration"
@@ -218,9 +218,17 @@ const img = '/images/case-ai-test';
     margin-top: 90px;
   }
 
+  /* Two of the mockups were cropped square where the Solution Details
+     screens carry a small rounded corner, so those two are rounded here to
+     the same amount. In percent, so every screen on the page holds that one
+     corner at six and two columns as well as twelve. */
   .case-solution-tile img {
     width: 71.5%;
-    border-radius: 18px;
+    border-radius: 2% / 3.2%;
+  }
+
+  .feature-stack :global(.case-feature:first-child .case-tile img) {
+    border-radius: 2% / 3.2%;
   }
 
   .results {
