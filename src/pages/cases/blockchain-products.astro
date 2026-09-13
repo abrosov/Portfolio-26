@@ -131,6 +131,14 @@ const products = [
       scroll-margin-top: 0;
     }
 
+    /* Landing there also leaves the start screen pinned a header lower than
+       it sits in the flow, so the screen that follows would begin 48px above
+       the fold and show before a scroll. It starts a header lower to match,
+       which puts its leading edge exactly on the fold. */
+    .case-opening + .case-opening .case-screen {
+      margin-top: var(--header-height);
+    }
+
     /* The room it holds in has to be a box of its own after the screen: a
        sticky element is kept inside its container's content box, and its own
        margin box counts, so neither padding on the opening nor a margin on
